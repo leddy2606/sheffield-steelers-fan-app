@@ -1,5 +1,11 @@
 # Version history
 
+## 1.3.1 — 20 August 2026
+
+- Replaced the placeholder browser and installed-app icon with the official Sheffield Steelers crest.
+- Added the official crest to the app header.
+- Refreshed the offline cache so existing installations receive the corrected branding.
+
 ## 1.3.0 — 20 August 2026
 
 - Preserved the approved automatic-update build as the recoverable baseline.

@@ -29,11 +29,10 @@ jobs:
       - name: Prepare free static site
         run: |
           mkdir public
-          cp index.html manifest.webmanifest service-worker.js icon.svg public/
+          cp index.html manifest.webmanifest service-worker.js public/
           cp -r assets data public/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
       - uses: actions/deploy-pages@v4
-
