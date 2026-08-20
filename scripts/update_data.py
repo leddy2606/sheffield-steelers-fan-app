@@ -185,7 +185,7 @@ def main() -> None:
         form.append("W" if steelers_score > opponent_score else "L")
 
     snapshot = {
-        "position": steelers_row["position"] if steelers_row else None,
+        "position": steelers_row["position"] if steelers_row and steelers_row["played"] > 0 else None,
         "played": steelers_row["played"] if steelers_row else 0,
         "points": steelers_row["points"] if steelers_row else 0,
         "wins": steelers_row["wins"] if steelers_row else 0,

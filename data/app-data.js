@@ -1,5 +1,5 @@
 window.STEELERS_DATA = {
-  "generated_at": "2026-08-20T06:46:56+00:00",
+  "generated_at": "2026-08-20T06:57:02+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "next_game": {
@@ -277,7 +277,7 @@ window.STEELERS_DATA = {
     ]
   },
   "snapshot": {
-    "position": 10,
+    "position": null,
     "played": 0,
     "points": 0,
     "wins": 0,

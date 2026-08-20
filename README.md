@@ -2,6 +2,8 @@
 
 An unofficial, installable Sheffield Steelers fan app. Fixtures, completed results, league standings, Challenge Cup standings, and the season snapshot are refreshed from the public EIHL website every three hours.
 
+Current local version: **1.3.0**. See `CHANGELOG.md` for the recoverable version history.
+
 ## Free hosting model
 
 The included GitHub Pages workflow uses only free services for a public repository:
