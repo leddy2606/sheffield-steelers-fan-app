@@ -36,6 +36,16 @@ JS_OUTPUT = ROOT / "data" / "app-data.js"
 LONDON = ZoneInfo("Europe/London")
 SSL_CONTEXT = ssl._create_unverified_context()
 HEADERS = {"User-Agent": "SteelCityMatchCentre/1.0 (unofficial fan app)"}
+ROSTER_TRACKER = "/article/5422-2026-27-rosters"
+ROSTER_PAGE = "/team/13-sheffield-steelers/roster?id_season=57"
+CONFIRMED_NUMBERS = {
+    "Lucas Brine": "44", "Matt Greenfield": "1", "Aatu Aarnio": "77",
+    "Dominic Cormier": "58", "Brien Diffley": "65", "Macoy Erkamps": "59",
+    "Logan Roe": "57", "Liam Steele": "3", "Olivier Archambault": "93",
+    "Mitchell Balmas": "92", "Ivan Björkly Nordström": "72", "Robert Dowd": "75",
+    "Evan Jasper": "62", "Mikko Juusola": "63", "Ryan Tait": "8",
+    "Leevi Teissala": "71", "Brandon Whistle": "74",
+}
 
 
 def fetch(path: str) -> str:
@@ -158,8 +168,69 @@ def parse_standings(path: str) -> list[dict]:
     return rows
 
 
+def comparable_name(name: str) -> str:
+    """Make minor official-source spelling differences safe to match."""
+    import unicodedata
+    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]", "", plain.lower()).replace("matthew", "matt")
+
+
+def parse_eihl_numbers() -> dict[str, str]:
+    """Read numbers if the EIHL's 2026/27 team roster has been populated."""
+    page = fetch(ROSTER_PAGE)
+    numbers: dict[str, str] = {}
+    for row in re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", page):
+        cells = [text(cell) for cell in re.findall(r"<td[^>]*>([\s\S]*?)</td>", row)]
+        if len(cells) < 3 or not re.fullmatch(r"\d{1,3}", cells[0]):
+            continue
+        name = re.sub(r"^(CAN|USA|GBR|FIN|SWE|CZE|SVK|NOR|DEN)\s*", "", cells[1]).strip()
+        if name:
+            numbers[comparable_name(name)] = cells[0]
+    return numbers
+
+
+def parse_roster(previous: dict | None = None) -> dict:
+    """Build the live roster from the official EIHL tracker, retaining safe data on failure."""
+    try:
+        page = fetch(ROSTER_TRACKER)
+        section = re.search(r"<p><b>Sheffield Steelers[\s\S]*?</p>", page, re.I)
+        if not section:
+            raise ValueError("Sheffield roster section was not found")
+        lines = [text(part) for part in re.split(r"<br\s*/?>", section.group(0), flags=re.I)]
+        labels = {"Goalies": "goalies", "Defenseman": "defence", "Forwards": "forwards"}
+        groups = {"goalies": [], "defence": [], "forwards": []}
+        try:
+            live_numbers = parse_eihl_numbers()
+        except Exception as error:
+            print(f"EIHL shirt numbers unavailable; roster names will still refresh: {error}")
+            live_numbers = {}
+        for line in lines:
+            for label, key in labels.items():
+                if not line.startswith(label + ":"):
+                    continue
+                for raw_name in line.split(":", 1)[1].split(","):
+                    name = raw_name.replace("*", "").strip()
+                    if name:
+                        number = live_numbers.get(comparable_name(name), CONFIRMED_NUMBERS.get(name))
+                        groups[key].append({"name": name, "number": number})
+        if sum(map(len, groups.values())) < 12:
+            raise ValueError("Official roster looked incomplete")
+        return {"source": "Official EIHL roster tracker", "source_url": urllib.parse.urljoin(BASE, ROSTER_TRACKER), "groups": groups}
+    except Exception as error:
+        if previous and previous.get("groups"):
+            print(f"Roster refresh unavailable; retained last good roster: {error}")
+            return previous
+        raise
+
+
 def main() -> None:
     now = datetime.now(timezone.utc)
+    previous_payload = {}
+    if OUTPUT.exists():
+        try:
+            previous_payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            pass
     games_by_id: dict[str, dict] = {}
     for season_id, competition in SEASONS.items():
         for game in parse_schedule(season_id, competition):
@@ -201,6 +272,7 @@ def main() -> None:
         "results": results[:6],
         "standings": {"league": league, "cup": cup},
         "snapshot": snapshot,
+        "roster": parse_roster(previous_payload.get("roster")),
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     serialized = json.dumps(payload, indent=2, ensure_ascii=False)

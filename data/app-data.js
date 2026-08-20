@@ -1,5 +1,5 @@
 window.STEELERS_DATA = {
-  "generated_at": "2026-08-20T06:57:02+00:00",
+  "generated_at": "2026-08-20T08:02:00+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "next_game": {
@@ -283,5 +283,97 @@ window.STEELERS_DATA = {
     "wins": 0,
     "goals_for": 0,
     "form": []
+  },
+  "roster": {
+    "source": "Official EIHL roster tracker",
+    "source_url": "https://www.eliteleague.co.uk/article/5422-2026-27-rosters",
+    "groups": {
+      "goalies": [
+        {
+          "name": "Lucas Brine",
+          "number": "44"
+        },
+        {
+          "name": "Matt Greenfield",
+          "number": "1"
+        },
+        {
+          "name": "Curtis Warburton",
+          "number": null
+        }
+      ],
+      "defence": [
+        {
+          "name": "Aatu Aarnio",
+          "number": "77"
+        },
+        {
+          "name": "Dominic Cormier",
+          "number": "58"
+        },
+        {
+          "name": "Brien Diffley",
+          "number": "65"
+        },
+        {
+          "name": "Macoy Erkamps",
+          "number": "59"
+        },
+        {
+          "name": "Logan Roe",
+          "number": "57"
+        },
+        {
+          "name": "Liam Steele",
+          "number": "3"
+        }
+      ],
+      "forwards": [
+        {
+          "name": "Olivier Archambault",
+          "number": "93"
+        },
+        {
+          "name": "Mitchell Balmas",
+          "number": "92"
+        },
+        {
+          "name": "Ivan Björkly Nordström",
+          "number": "72"
+        },
+        {
+          "name": "Robert Dowd",
+          "number": "75"
+        },
+        {
+          "name": "Tim Gettinger",
+          "number": null
+        },
+        {
+          "name": "Evan Jasper",
+          "number": "62"
+        },
+        {
+          "name": "Mikko Juusola",
+          "number": "63"
+        },
+        {
+          "name": "Adam Rockwood",
+          "number": null
+        },
+        {
+          "name": "Ryan Tait",
+          "number": "8"
+        },
+        {
+          "name": "Leevi Teissala",
+          "number": "71"
+        },
+        {
+          "name": "Brandon Whistle",
+          "number": "74"
+        }
+      ]
+    }
   }
 };

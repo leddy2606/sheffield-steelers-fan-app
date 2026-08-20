@@ -1,5 +1,11 @@
 # Version history
 
+## 1.4.0 — 20 August 2026
+
+- Added automatic three-hour squad updates from the official EIHL roster tracker.
+- Added confirmed shirt numbers, with new EIHL numbers picked up automatically.
+- Added last-known-good roster protection if an official source is temporarily unavailable.
+
 ## 1.3.1 — 20 August 2026
 
 - Replaced the placeholder browser and installed-app icon with the official Sheffield Steelers crest.
