@@ -1,5 +1,12 @@
 # Version history
 
+## 1.5.0 — 30 August 2026
+
+- Added near-live competitive scores from the official EIHL Gamecentre.
+- Added automatic on-page data checks while the app remains open.
+- Added a Last Game tab with result, opponent, home/away status and Steelers scorer timeline.
+- Added ten-minute match-window publishing while retaining the normal three-hour refresh.
+
 ## 1.4.1 — 30 August 2026
 
 - Fixed completed pre-season games disappearing instead of becoming results.

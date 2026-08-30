@@ -1,7 +1,9 @@
 window.STEELERS_DATA = {
-  "generated_at": "2026-08-30T13:55:32+00:00",
+  "generated_at": "2026-08-30T14:10:03+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
+  "live_window": false,
+  "live_game": null,
   "next_game": {
     "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
     "starts_at": "2026-08-30T16:00:00+01:00",
@@ -12,8 +14,46 @@ window.STEELERS_DATA = {
     "away_slug": "cardiff-devils",
     "score": null,
     "complete": false,
+    "live": false,
+    "status": "Scheduled",
+    "scorers": [],
     "venue": "Utilita Arena, Sheffield",
     "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
+  },
+  "last_game": {
+    "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",
+    "starts_at": "2026-08-29T19:00:00+01:00",
+    "competition": "Pre-season",
+    "home": "Cardiff Devils",
+    "away": "Sheffield Steelers",
+    "home_slug": "cardiff-devils",
+    "away_slug": "sheffield-steelers",
+    "score": "4–3",
+    "complete": true,
+    "live": false,
+    "status": "Final",
+    "scorers": [
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Adam Rockwood",
+        "time": "Opening minute",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Leevi Teissala",
+        "time": "23:05",
+        "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Dominic Cormier",
+        "time": "30:28",
+        "period": "2nd period"
+      }
+    ],
+    "venue": "Vindico Arena",
+    "details_url": "https://www.sheffieldsteelers.co.uk/devils-hit-back-in-the-final-period-to-win-4-3/"
   },
   "upcoming": [
     {
@@ -26,6 +66,9 @@ window.STEELERS_DATA = {
       "away_slug": "cardiff-devils",
       "score": null,
       "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "scorers": [],
       "venue": "Utilita Arena, Sheffield",
       "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
     },
@@ -39,6 +82,9 @@ window.STEELERS_DATA = {
       "away_slug": "manchester-storm",
       "score": null,
       "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "scorers": [],
       "venue": "Utilita Arena, Sheffield",
       "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
     },
@@ -52,6 +98,9 @@ window.STEELERS_DATA = {
       "away_slug": "sheffield-steelers",
       "score": null,
       "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "scorers": [],
       "venue": "AO Arena, Manchester",
       "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
     },
@@ -65,6 +114,8 @@ window.STEELERS_DATA = {
       "away_slug": "coventry-blaze",
       "score": null,
       "complete": false,
+      "live": false,
+      "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov"
     },
     {
@@ -77,6 +128,8 @@ window.STEELERS_DATA = {
       "away_slug": "sheffield-steelers",
       "score": null,
       "complete": false,
+      "live": false,
+      "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she"
     },
     {
@@ -89,6 +142,8 @@ window.STEELERS_DATA = {
       "away_slug": "nottingham-panthers",
       "score": null,
       "complete": false,
+      "live": false,
+      "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7398-she-not"
     }
   ],
@@ -103,6 +158,28 @@ window.STEELERS_DATA = {
       "away_slug": "sheffield-steelers",
       "score": "4–3",
       "complete": true,
+      "live": false,
+      "status": "Final",
+      "scorers": [
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Adam Rockwood",
+          "time": "Opening minute",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Leevi Teissala",
+          "time": "23:05",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Dominic Cormier",
+          "time": "30:28",
+          "period": "2nd period"
+        }
+      ],
       "venue": "Vindico Arena",
       "details_url": "https://www.sheffieldsteelers.co.uk/devils-hit-back-in-the-final-period-to-win-4-3/"
     }

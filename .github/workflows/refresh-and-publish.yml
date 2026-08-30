@@ -3,6 +3,7 @@ name: Refresh and publish
 on:
   schedule:
     - cron: "17 */3 * * *"
+    - cron: "*/10 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -25,14 +26,22 @@ jobs:
         with:
           python-version: "3.12"
       - name: Refresh official EIHL data
+        id: refresh
         run: python scripts/update_data.py
+      - name: Check live game window
+        id: live
+        run: python -c "import json; print('active=' + str(json.load(open('data/app-data.json'))['live_window']).lower())" >> "$GITHUB_OUTPUT"
       - name: Prepare free static site
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'
         run: |
           mkdir public
           cp index.html manifest.webmanifest service-worker.js public/
           cp -r assets data public/
       - uses: actions/configure-pages@v5
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'
         with:
           path: public
       - uses: actions/deploy-pages@v4
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'

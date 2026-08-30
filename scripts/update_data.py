@@ -85,7 +85,7 @@ def parse_schedule(season_id: int, competition: str) -> list[dict]:
                 continue
             home, away = (" ".join(team.split()) for team in teams[:2])
             score_text = text(game_match.group(2)).replace(":", "–")
-            complete = bool(re.fullmatch(r"\d+–\d+", score_text))
+            has_score = bool(re.fullmatch(r"\d+–\d+", score_text))
             starts = datetime.combine(game_date, datetime.strptime(time_match.group(1), "%H:%M").time(), LONDON)
             games.append({
                 "id": game_match.group(1).removeprefix("/game/"),
@@ -95,14 +95,62 @@ def parse_schedule(season_id: int, competition: str) -> list[dict]:
                 "away": away,
                 "home_slug": SLUGS.get(home, "sheffield-steelers"),
                 "away_slug": SLUGS.get(away, "sheffield-steelers"),
-                "score": score_text if complete else None,
-                "complete": complete,
+                "score": score_text if has_score else None,
+                "complete": has_score,
+                "live": False,
+                "status": "Final" if has_score else "Scheduled",
                 "details_url": urllib.parse.urljoin(BASE, game_match.group(1)),
             })
     return games
 
 
-def parse_preseason_fixtures() -> list[dict]:
+def period_for_time(goal_time: str) -> str:
+    if goal_time.lower().startswith("opening"):
+        return "1st period"
+    match = re.match(r"(\d{1,3}):", goal_time)
+    if not match:
+        return "Period unavailable"
+    minute = int(match.group(1))
+    if minute < 20:
+        return "1st period"
+    if minute < 40:
+        return "2nd period"
+    if minute < 60:
+        return "3rd period"
+    return "Overtime"
+
+
+def parse_goal_list(fragment: str, team: str) -> list[dict]:
+    goals = []
+    for item in re.findall(r"<li[^>]*>([\s\S]*?)</li>", fragment):
+        scorer = re.search(r'<a href="/player/[^\"]+">([^<]+)</a>', item)
+        goal_time = re.search(r'<span class="text-gray[^>]*>\s*(\d{1,3}:\d{2})\s*</span>', item)
+        if scorer and goal_time:
+            exact_time = text(goal_time.group(1))
+            goals.append({"team": team, "scorer": text(scorer.group(1)), "time": exact_time, "period": period_for_time(exact_time)})
+    return goals
+
+
+def parse_eihl_game_details(game: dict) -> dict:
+    """Read current status, score and Steelers scorers from an official game page."""
+    page = fetch(game["details_url"])
+    status_match = re.search(r'<div class="text-gray font-secondary font-size-bigger">([\s\S]*?)</div>\s*<div class="match-score', page)
+    raw_status = text(status_match.group(1)) if status_match else ""
+    score_match = re.search(r'<div class="match-score[^>]*>\s*(\d+)\s*:\s*(\d+)\s*</div>', page)
+    score = f"{score_match.group(1)}–{score_match.group(2)}" if score_match else game.get("score")
+    normalized = raw_status.lower()
+    complete = normalized in {"end", "final", "finished"}
+    scheduled = not raw_status or "before game" in normalized or "game starts" in normalized
+    live = bool(raw_status and not complete and not scheduled)
+    live_status = raw_status[:1].upper() + raw_status[1:] if raw_status else "Live"
+    status = "Final" if complete else ("Scheduled" if scheduled else live_status)
+    goal_lists = re.findall(r'<ul class="d-none d-lg-block">([\s\S]*?)</ul>', page)
+    steelers_index = 0 if game["home"] == TEAM else 1
+    scorers = parse_goal_list(goal_lists[steelers_index], TEAM) if len(goal_lists) > steelers_index else []
+    return {"score": score, "complete": complete, "live": live, "status": status, "scorers": scorers}
+
+
+def parse_preseason_fixtures(player_names: list[str]) -> list[dict]:
     """Add official Steelers pre-season fixtures that precede the EIHL schedule."""
     page = fetch("https://www.sheffieldsteelers.co.uk/fixtures/")
     games = []
@@ -134,12 +182,15 @@ def parse_preseason_fixtures() -> list[dict]:
                 "away_slug": SLUGS.get(away, "sheffield-steelers"),
                 "score": None,
                 "complete": False,
+                "live": False,
+                "status": "Scheduled",
+                "scorers": [],
                 "venue": text(venue_match.group(1)) if venue_match else "",
                 "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/",
             }
             if starts.astimezone(timezone.utc) < datetime.now(timezone.utc) - timedelta(hours=2):
                 try:
-                    result = parse_preseason_result(game)
+                    result = parse_preseason_result(game, player_names)
                     if result:
                         game.update(result)
                 except Exception as error:
@@ -148,7 +199,49 @@ def parse_preseason_fixtures() -> list[dict]:
     return games
 
 
-def parse_preseason_result(game: dict) -> dict | None:
+def parse_report_scorers(report_text: str, player_names: list[str]) -> list[dict]:
+    """Extract Steelers scorers and reported times from an official club recap."""
+    final_list_at = report_text.lower().rfind("steelers goals:")
+    if final_list_at < 0:
+        final_list_at = report_text.lower().rfind("steelers goal:")
+    if final_list_at < 0:
+        return []
+    scorer_list = report_text[final_list_at:final_list_at + 300]
+    scorers = []
+    for name in player_names:
+        if not re.search(re.escape(name), scorer_list, re.I):
+            continue
+        occurrences = list(re.finditer(re.escape(name), report_text[:final_list_at], re.I))
+        if not occurrences:
+            continue
+        scored_at = occurrences[-1]
+        for occurrence in occurrences:
+            before_context = report_text[max(0, occurrence.start() - 220):occurrence.start()]
+            context = before_context + report_text[occurrence.start():occurrence.end() + 220]
+            has_reported_time = re.search(r"(?<!\d)\d{1,2}[.:]\d{2}(?!\d)|opening minute", before_context, re.I)
+            if has_reported_time or re.search(r"scored|convert|goal line|give the steelers|steelers lead|level terms", context, re.I):
+                scored_at = occurrence
+                break
+        before = report_text[max(0, scored_at.start() - 220):scored_at.start()]
+        time_matches = list(re.finditer(r"(?<!\d)(\d{1,2})[.:](\d{2})(?!\d)", before))
+        if time_matches:
+            last_time = time_matches[-1]
+            goal_time = f"{int(last_time.group(1))}:{last_time.group(2)}"
+        elif re.search(r"opening minute", before, re.I):
+            goal_time = "Opening minute"
+        else:
+            minute_match = re.search(r"(\d+)(?:st|nd|rd|th) minute", before, re.I)
+            goal_time = f"{minute_match.group(1)}th minute" if minute_match else "Time unavailable"
+        scorers.append({"team": TEAM, "scorer": name, "time": goal_time, "period": period_for_time(goal_time)})
+    def goal_order(goal: dict) -> int:
+        if goal["time"].lower().startswith("opening"):
+            return 0
+        match = re.match(r"(\d+)", goal["time"])
+        return int(match.group(1)) if match else 999
+    return sorted(scorers, key=goal_order)
+
+
+def parse_preseason_result(game: dict, player_names: list[str]) -> dict | None:
     """Find a completed exhibition score in the club's official match report."""
     game_day = datetime.fromisoformat(game["starts_at"]).date()
     query = urllib.parse.urlencode({
@@ -184,6 +277,9 @@ def parse_preseason_result(game: dict) -> dict | None:
         return {
             "score": f"{home_score}–{away_score}",
             "complete": True,
+            "live": False,
+            "status": "Final",
+            "scorers": parse_report_scorers(text(post.get("content", {}).get("rendered", "")), player_names),
             "details_url": post.get("link", game["details_url"]),
         }
     return None
@@ -280,18 +376,36 @@ def main() -> None:
             previous_payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             pass
+    roster = parse_roster(previous_payload.get("roster"))
+    player_names = [player["name"] for group in roster["groups"].values() for player in group]
     games_by_id: dict[str, dict] = {}
     for season_id, competition in SEASONS.items():
         for game in parse_schedule(season_id, competition):
             games_by_id[game["id"]] = game
     competitive_start = min(datetime.fromisoformat(game["starts_at"]) for game in games_by_id.values())
-    for game in parse_preseason_fixtures():
+    for game in parse_preseason_fixtures(player_names):
         if datetime.fromisoformat(game["starts_at"]) < competitive_start:
             games_by_id[game["id"]] = game
     games = sorted(games_by_id.values(), key=lambda game: game["starts_at"])
+    live_window = False
+    for game in games:
+        seconds_from_start = (now - datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc)).total_seconds()
+        if -15 * 60 <= seconds_from_start <= 5 * 60 * 60:
+            live_window = True
+            if game["competition"] != "Pre-season":
+                try:
+                    game.update(parse_eihl_game_details(game))
+                except Exception as error:
+                    print(f"Live game detail unavailable for {game['id']}: {error}")
+    live_game = next((game for game in games if game.get("live")), None)
     upcoming = [game for game in games if not game["complete"] and datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc) >= now]
     results = [game for game in games if game["complete"]]
     results.sort(key=lambda game: game["starts_at"], reverse=True)
+    if results and results[0]["competition"] != "Pre-season" and not results[0].get("scorers"):
+        try:
+            results[0].update(parse_eihl_game_details(results[0]))
+        except Exception as error:
+            print(f"Last-game detail unavailable for {results[0]['id']}: {error}")
 
     league = parse_standings("/standings/2026/57-elite-ice-hockey-league")
     cup = parse_standings("/standings/2026/58-challenge-cup")
@@ -316,12 +430,15 @@ def main() -> None:
         "generated_at": now.replace(microsecond=0).isoformat(),
         "season": "2026/27",
         "source": "Official EIHL website",
+        "live_window": live_window,
+        "live_game": live_game,
         "next_game": upcoming[0] if upcoming else None,
+        "last_game": results[0] if results else None,
         "upcoming": upcoming[:6],
         "results": results[:6],
         "standings": {"league": league, "cup": cup},
         "snapshot": snapshot,
-        "roster": parse_roster(previous_payload.get("roster")),
+        "roster": roster,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     serialized = json.dumps(payload, indent=2, ensure_ascii=False)
