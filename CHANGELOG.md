@@ -1,5 +1,10 @@
 # Version history
 
+## 1.6.0 — 30 August 2026
+
+- Added an expandable full-season fixture list beneath the next six games.
+- Added a live remaining-game count while keeping the compact default view.
+
 ## 1.5.0 — 30 August 2026
 
 - Added near-live competitive scores from the official EIHL Gamecentre.

@@ -435,6 +435,7 @@ def main() -> None:
         "next_game": upcoming[0] if upcoming else None,
         "last_game": results[0] if results else None,
         "upcoming": upcoming[:6],
+        "all_upcoming": upcoming,
         "results": results[:6],
         "standings": {"league": league, "cup": cup},
         "snapshot": snapshot,
