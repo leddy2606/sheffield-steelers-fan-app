@@ -1,34 +1,21 @@
 window.STEELERS_DATA = {
-  "generated_at": "2026-08-20T08:02:00+00:00",
+  "generated_at": "2026-08-30T13:55:32+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "next_game": {
-    "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",
-    "starts_at": "2026-08-29T19:00:00+01:00",
+    "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
+    "starts_at": "2026-08-30T16:00:00+01:00",
     "competition": "Pre-season",
-    "home": "Cardiff Devils",
-    "away": "Sheffield Steelers",
-    "home_slug": "cardiff-devils",
-    "away_slug": "sheffield-steelers",
+    "home": "Sheffield Steelers",
+    "away": "Cardiff Devils",
+    "home_slug": "sheffield-steelers",
+    "away_slug": "cardiff-devils",
     "score": null,
     "complete": false,
-    "venue": "Vindico Arena",
+    "venue": "Utilita Arena, Sheffield",
     "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
   },
   "upcoming": [
-    {
-      "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",
-      "starts_at": "2026-08-29T19:00:00+01:00",
-      "competition": "Pre-season",
-      "home": "Cardiff Devils",
-      "away": "Sheffield Steelers",
-      "home_slug": "cardiff-devils",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "venue": "Vindico Arena",
-      "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
-    },
     {
       "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
       "starts_at": "2026-08-30T16:00:00+01:00",
@@ -91,9 +78,35 @@ window.STEELERS_DATA = {
       "score": null,
       "complete": false,
       "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she"
+    },
+    {
+      "id": "7398-she-not",
+      "starts_at": "2026-09-19T19:00:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Sheffield Steelers",
+      "away": "Nottingham Panthers",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "nottingham-panthers",
+      "score": null,
+      "complete": false,
+      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not"
     }
   ],
-  "results": [],
+  "results": [
+    {
+      "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",
+      "starts_at": "2026-08-29T19:00:00+01:00",
+      "competition": "Pre-season",
+      "home": "Cardiff Devils",
+      "away": "Sheffield Steelers",
+      "home_slug": "cardiff-devils",
+      "away_slug": "sheffield-steelers",
+      "score": "4–3",
+      "complete": true,
+      "venue": "Vindico Arena",
+      "details_url": "https://www.sheffieldsteelers.co.uk/devils-hit-back-in-the-final-period-to-win-4-3/"
+    }
+  ],
   "standings": {
     "league": [
       {
@@ -282,7 +295,9 @@ window.STEELERS_DATA = {
     "points": 0,
     "wins": 0,
     "goals_for": 0,
-    "form": []
+    "form": [
+      "L"
+    ]
   },
   "roster": {
     "source": "Official EIHL roster tracker",

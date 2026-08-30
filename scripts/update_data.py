@@ -8,7 +8,7 @@ import re
 import ssl
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -124,7 +124,7 @@ def parse_preseason_fixtures() -> list[dict]:
             starts = datetime.strptime(f"{clean_date} {month_year.split()[-1]}", "%A %d %B, %I:%M%p %Y").replace(tzinfo=LONDON)
             normalized = [TEAM if name == "Steelers" else next((full for full in SLUGS if full.endswith(name)), name) for name in teams[:2]]
             home, away = normalized if side_match.group(1) == "home" else normalized
-            games.append({
+            game = {
                 "id": "preseason-" + starts.strftime("%Y%m%d-%H%M") + "-" + SLUGS.get(home, "team") + "-" + SLUGS.get(away, "team"),
                 "starts_at": starts.isoformat(),
                 "competition": "Pre-season",
@@ -136,8 +136,57 @@ def parse_preseason_fixtures() -> list[dict]:
                 "complete": False,
                 "venue": text(venue_match.group(1)) if venue_match else "",
                 "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/",
-            })
+            }
+            if starts.astimezone(timezone.utc) < datetime.now(timezone.utc) - timedelta(hours=2):
+                try:
+                    result = parse_preseason_result(game)
+                    if result:
+                        game.update(result)
+                except Exception as error:
+                    print(f"Pre-season result lookup unavailable for {starts.date()}: {error}")
+            games.append(game)
     return games
+
+
+def parse_preseason_result(game: dict) -> dict | None:
+    """Find a completed exhibition score in the club's official match report."""
+    game_day = datetime.fromisoformat(game["starts_at"]).date()
+    query = urllib.parse.urlencode({
+        "after": f"{game_day.isoformat()}T00:00:00",
+        "before": f"{(game_day + timedelta(days=2)).isoformat()}T00:00:00",
+        "per_page": 30,
+    })
+    posts = json.loads(fetch(f"https://www.sheffieldsteelers.co.uk/wp-json/wp/v2/posts?{query}"))
+    opponent = game["away"] if game["home"] == TEAM else game["home"]
+    opponent_alias = opponent.split()[-1].lower()
+    outcome_words = r"win|wins|won|victory|beat|beats|defeat|defeats|edge|edges"
+    loss_words = r"lose|loses|lost|loss|beaten|go down|fall"
+    for post in posts:
+        title = text(post.get("title", {}).get("rendered", ""))
+        score_match = re.search(r"(?<!\d)(\d{1,2})\s*[-–]\s*(\d{1,2})(?!\d)", title)
+        if not score_match or not ({"steelers", opponent_alias} & set(re.findall(r"[a-z]+", title.lower()))):
+            continue
+        first, second = (int(value) for value in score_match.groups())
+        if first == second:
+            continue
+        lower = title.lower()
+        steelers_won = bool(re.search(rf"steelers.{{0,80}}(?:{outcome_words})", lower))
+        opponent_won = bool(re.search(rf"{re.escape(opponent_alias)}.{{0,80}}(?:{outcome_words})", lower))
+        if re.search(rf"steelers.{{0,80}}(?:{loss_words})", lower):
+            opponent_won = True
+        if re.search(rf"{re.escape(opponent_alias)}.{{0,80}}(?:{loss_words})", lower):
+            steelers_won = True
+        if steelers_won == opponent_won:
+            continue
+        high, low = max(first, second), min(first, second)
+        home_won = steelers_won if game["home"] == TEAM else opponent_won
+        home_score, away_score = (high, low) if home_won else (low, high)
+        return {
+            "score": f"{home_score}–{away_score}",
+            "complete": True,
+            "details_url": post.get("link", game["details_url"]),
+        }
+    return None
 
 
 def parse_standings(path: str) -> list[dict]:

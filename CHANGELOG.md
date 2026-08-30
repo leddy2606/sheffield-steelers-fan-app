@@ -1,5 +1,11 @@
 # Version history
 
+## 1.4.1 — 30 August 2026
+
+- Fixed completed pre-season games disappearing instead of becoming results.
+- Added automatic score detection from official Steelers match reports.
+- Added the Cardiff Devils 4–3 Sheffield Steelers result from 29 August.
+
 ## 1.4.0 — 20 August 2026
 
 - Added automatic three-hour squad updates from the official EIHL roster tracker.
