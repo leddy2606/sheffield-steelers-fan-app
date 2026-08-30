@@ -1,8 +1,8 @@
 # Steel City Match Centre
 
-An unofficial, installable Sheffield Steelers fan app. It includes near-live competitive scores, fixtures, results, a Last Game scorer recap, standings, roster data and the season snapshot from official sources.
+An unofficial, installable Sheffield Steelers fan app. It includes near-live competitive scores, fixtures, expandable match history and reports, standings, roster data and the season snapshot from official sources.
 
-Current local version: **1.7.0**. See `CHANGELOG.md` for the recoverable version history.
+Current local version: **1.8.0**. See `CHANGELOG.md` for the recoverable version history.
 
 ## Free hosting model
 

@@ -145,8 +145,10 @@ def parse_eihl_game_details(game: dict) -> dict:
     live_status = raw_status[:1].upper() + raw_status[1:] if raw_status else "Live"
     status = "Final" if complete else ("Scheduled" if scheduled else live_status)
     goal_lists = re.findall(r'<ul class="d-none d-lg-block">([\s\S]*?)</ul>', page)
-    steelers_index = 0 if game["home"] == TEAM else 1
-    scorers = parse_goal_list(goal_lists[steelers_index], TEAM) if len(goal_lists) > steelers_index else []
+    scorers = []
+    for index, team in enumerate((game["home"], game["away"])):
+        if len(goal_lists) > index:
+            scorers.extend(parse_goal_list(goal_lists[index], team))
     details = {"score": score, "complete": complete, "live": live, "status": status, "scorers": scorers}
     if complete:
         starts = datetime.fromisoformat(game["starts_at"]).astimezone(LONDON)
@@ -221,31 +223,49 @@ def parse_preseason_fixtures(player_names: list[str]) -> list[dict]:
 
 
 def parse_report_scorers(report_text: str, player_names: list[str]) -> list[dict]:
-    """Extract Steelers scorers and reported times from an official club recap."""
-    final_list_at = report_text.lower().rfind("steelers goals:")
-    if final_list_at < 0:
-        final_list_at = report_text.lower().rfind("steelers goal:")
-    if final_list_at < 0:
-        return []
-    scorer_list = report_text[final_list_at:final_list_at + 300]
+    """Extract Steelers scorers, game times and periods from an official club recap."""
+    final_list_at = max(report_text.lower().rfind("steelers goals:"), report_text.lower().rfind("steelers goal:"))
+    scorer_list = report_text[final_list_at:final_list_at + 300] if final_list_at >= 0 else ""
     scorers = []
     for name in player_names:
-        if not re.search(re.escape(name), scorer_list, re.I):
-            continue
         occurrences = list(re.finditer(re.escape(name), report_text[:final_list_at], re.I))
+        if final_list_at < 0:
+            occurrences = list(re.finditer(re.escape(name), report_text, re.I))
+        elif not re.search(re.escape(name), scorer_list, re.I):
+            continue
         if not occurrences:
             continue
-        scored_at = occurrences[-1]
+        candidates = []
         for occurrence in occurrences:
-            before_context = report_text[max(0, occurrence.start() - 220):occurrence.start()]
-            context = before_context + report_text[occurrence.start():occurrence.end() + 220]
-            has_reported_time = re.search(r"(?<!\d)\d{1,2}[.:]\d{2}(?!\d)|opening minute", before_context, re.I)
-            if has_reported_time or re.search(r"scored|convert|goal line|give the steelers|steelers lead|level terms", context, re.I):
-                scored_at = occurrence
-                break
-        before = report_text[max(0, scored_at.start() - 220):scored_at.start()]
+            before = report_text[max(0, occurrence.start() - 320):occurrence.start()]
+            after = report_text[occurrence.end():occurrence.end() + 140]
+            named_before = re.search(r"(?:scored by|goal (?:from|by))[^.]{0,70}" + re.escape(name), before[-160:] + report_text[occurrence.start():occurrence.end()], re.I)
+            named_after = re.search(
+                r"^(?:\W{0,8}(?:scor(?:e|ed|ing)|converted?|equalis(?:e|ed)|levelled)|[^.]{0,70}\b(?:he|the (?:returning )?forward)\b[^.]{0,45}(?:scor(?:e|ed)|finish))",
+                after,
+                re.I,
+            )
+            if named_after:
+                scoring_phrase = after[:named_after.end()]
+                if any(other != name and re.search(re.escape(other), scoring_phrase, re.I) for other in player_names):
+                    named_after = None
+            direct_score = bool(named_before or named_after)
+            if final_list_at < 0 and not direct_score:
+                continue
+            time_evidence = bool(re.search(r"(?<!\d)\d{1,2}[.:]\d{2}(?!\d)|opening minute|\d+(?:st|nd|rd|th) minute", before, re.I))
+            candidates.append((2 if time_evidence else 0, occurrence, before))
+        if not candidates:
+            continue
+        _, scored_at, before = max(candidates, key=lambda item: item[0])
+        period_matches = list(re.finditer(r"\b(First|Second|Third) Period\b", report_text[:scored_at.start()], re.I))
+        period_number = {"first": 1, "second": 2, "third": 3}.get(period_matches[-1].group(1).lower(), 0) if period_matches else 0
+        remaining = list(re.finditer(r"with\s+(\d{1,2}):(\d{2})\s+remaining", before, re.I))
         time_matches = list(re.finditer(r"(?<!\d)(\d{1,2})[.:](\d{2})(?!\d)", before))
-        if time_matches:
+        if remaining and period_number:
+            minutes_left, seconds_left = (int(value) for value in remaining[-1].groups())
+            elapsed = (period_number - 1) * 20 * 60 + max(0, 20 * 60 - (minutes_left * 60 + seconds_left))
+            goal_time = f"{elapsed // 60}:{elapsed % 60:02d}"
+        elif time_matches:
             last_time = time_matches[-1]
             goal_time = f"{int(last_time.group(1))}:{last_time.group(2)}"
         elif re.search(r"opening minute", before, re.I):
@@ -253,7 +273,8 @@ def parse_report_scorers(report_text: str, player_names: list[str]) -> list[dict
         else:
             minute_match = re.search(r"(\d+)(?:st|nd|rd|th) minute", before, re.I)
             goal_time = f"{minute_match.group(1)}th minute" if minute_match else "Time unavailable"
-        scorers.append({"team": TEAM, "scorer": name, "time": goal_time, "period": period_for_time(goal_time)})
+        period = f"{period_number}{'st' if period_number == 1 else 'nd' if period_number == 2 else 'rd'} period" if period_number else period_for_time(goal_time)
+        scorers.append({"team": TEAM, "scorer": name, "time": goal_time, "period": period})
     def goal_order(goal: dict) -> int:
         if goal["time"].lower().startswith("opening"):
             return 0
@@ -267,7 +288,7 @@ def parse_preseason_result(game: dict, player_names: list[str]) -> dict | None:
     game_day = datetime.fromisoformat(game["starts_at"]).date()
     query = urllib.parse.urlencode({
         "after": f"{game_day.isoformat()}T00:00:00",
-        "before": f"{(game_day + timedelta(days=2)).isoformat()}T00:00:00",
+        "before": f"{(game_day + timedelta(days=1)).isoformat()}T00:00:00",
         "per_page": 30,
     })
     posts = json.loads(fetch(f"https://www.sheffieldsteelers.co.uk/wp-json/wp/v2/posts?{query}"))
@@ -277,30 +298,44 @@ def parse_preseason_result(game: dict, player_names: list[str]) -> dict | None:
     loss_words = r"lose|loses|lost|loss|beaten|go down|fall"
     for post in posts:
         title = text(post.get("title", {}).get("rendered", ""))
-        score_match = re.search(r"(?<!\d)(\d{1,2})\s*[-–]\s*(\d{1,2})(?!\d)", title)
-        if not score_match or not ({"steelers", opponent_alias} & set(re.findall(r"[a-z]+", title.lower()))):
+        excerpt = text(post.get("excerpt", {}).get("rendered", ""))
+        report_text = text(post.get("content", {}).get("rendered", ""))
+        document = " ".join((title, excerpt, report_text))
+        final_line = re.search(r"Final Score:\s*([^.]*)", document, re.I)
+        score_matches = list(re.finditer(r"(?<!\d)(\d{1,2})\s*[-–]\s*(\d{1,2})(?!\d)", final_line.group(1) if final_line else document))
+        score_match = score_matches[-1] if score_matches else None
+        words = set(re.findall(r"[a-z]+", document.lower()))
+        if not score_match or not ({"steelers", opponent_alias} <= words):
             continue
         first, second = (int(value) for value in score_match.groups())
         if first == second:
             continue
-        lower = title.lower()
-        steelers_won = bool(re.search(rf"steelers.{{0,80}}(?:{outcome_words})", lower))
-        opponent_won = bool(re.search(rf"{re.escape(opponent_alias)}.{{0,80}}(?:{outcome_words})", lower))
-        if re.search(rf"steelers.{{0,80}}(?:{loss_words})", lower):
-            opponent_won = True
-        if re.search(rf"{re.escape(opponent_alias)}.{{0,80}}(?:{loss_words})", lower):
-            steelers_won = True
-        if steelers_won == opponent_won:
-            continue
-        high, low = max(first, second), min(first, second)
-        home_won = steelers_won if game["home"] == TEAM else opponent_won
-        home_score, away_score = (high, low) if home_won else (low, high)
+        lower = document.lower()
+        steelers_first = bool(re.search(rf"(?:sheffield\s+)?steelers\s*{first}\s*[-–]\s*{second}\s*(?:\w+\s+)?{re.escape(opponent_alias)}", document, re.I))
+        opponent_first = bool(re.search(rf"{re.escape(opponent_alias)}(?:\s+\w+)?\s*{first}\s*[-–]\s*{second}\s*(?:sheffield\s+)?steelers", document, re.I))
+        if steelers_first or opponent_first:
+            steelers_score, opponent_score = (first, second) if steelers_first else (second, first)
+            home_score, away_score = (steelers_score, opponent_score) if game["home"] == TEAM else (opponent_score, steelers_score)
+            steelers_won = steelers_score > opponent_score
+            opponent_won = opponent_score > steelers_score
+        else:
+            steelers_won = bool(re.search(rf"steelers.{{0,80}}(?:{outcome_words})", lower))
+            opponent_won = bool(re.search(rf"{re.escape(opponent_alias)}.{{0,80}}(?:{outcome_words})", lower))
+            if re.search(rf"steelers.{{0,80}}(?:{loss_words})", lower):
+                opponent_won = True
+            if re.search(rf"{re.escape(opponent_alias)}.{{0,80}}(?:{loss_words})", lower):
+                steelers_won = True
+            if steelers_won == opponent_won:
+                continue
+            high, low = max(first, second), min(first, second)
+            home_won = steelers_won if game["home"] == TEAM else opponent_won
+            home_score, away_score = (high, low) if home_won else (low, high)
         return {
             "score": f"{home_score}–{away_score}",
             "complete": True,
             "live": False,
             "status": "Final",
-            "scorers": parse_report_scorers(text(post.get("content", {}).get("rendered", "")), player_names),
+            "scorers": parse_report_scorers(report_text, player_names),
             "finished_at": (datetime.fromisoformat(game["starts_at"]) + timedelta(hours=3)).isoformat(),
             "featured_until": (datetime.fromisoformat(game["starts_at"]) + timedelta(hours=4)).isoformat(),
             "details_url": post.get("link", game["details_url"]),
@@ -413,7 +448,7 @@ def main() -> None:
     live_window = False
     for game in games:
         seconds_from_start = (now - datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc)).total_seconds()
-        if -15 * 60 <= seconds_from_start <= 5 * 60 * 60:
+        if -15 * 60 <= seconds_from_start <= 12 * 60 * 60:
             live_window = True
             if game["competition"] != "Pre-season":
                 try:
@@ -424,6 +459,14 @@ def main() -> None:
     upcoming = [game for game in games if not game["complete"] and datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc) >= now]
     results = [game for game in games if game["complete"]]
     results.sort(key=lambda game: game["starts_at"], reverse=True)
+    previous_results = {
+        game["id"]: game for game in previous_payload.get("results", []) if game.get("id")
+    }
+    for game in results:
+        previous = previous_results.get(game["id"], {})
+        for key in ("scorers", "finished_at", "featured_until"):
+            if not game.get(key) and previous.get(key):
+                game[key] = previous[key]
     if results and results[0]["competition"] != "Pre-season" and not results[0].get("scorers"):
         try:
             results[0].update(parse_eihl_game_details(results[0]))
@@ -465,7 +508,7 @@ def main() -> None:
         "last_game": results[0] if results else None,
         "upcoming": upcoming[:6],
         "all_upcoming": upcoming,
-        "results": results[:6],
+        "results": results,
         "standings": {"league": league, "cup": cup},
         "snapshot": snapshot,
         "roster": roster,

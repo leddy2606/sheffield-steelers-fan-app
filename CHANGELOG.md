@@ -1,5 +1,12 @@
 # Version history
 
+## 1.8.0 — 30 August 2026
+
+- Fixed pre-season results whose score appears inside the official report rather than its headline.
+- Added automatic same-day report matching and a 12-hour post-game checking window.
+- Combined Latest Results and Last Game into one expandable Results & Match Reports section.
+- Kept the complete season history, with score, home/away status, scorers, goal times, periods and official report links when available.
+
 ## 1.7.0 — 30 August 2026
 
 - Made the top match card switch automatically between Next Game, Live Game and Final Score.
