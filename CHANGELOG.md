@@ -1,5 +1,11 @@
 # Version history
 
+## 1.9.0 — 30 August 2026
+
+- Synchronized the mobile bottom navigation with the section currently being viewed.
+- Kept tap-to-jump navigation and added accessible current-location state.
+- Added a subtle highlight transition when the active section changes.
+
 ## 1.8.0 — 30 August 2026
 
 - Fixed pre-season results whose score appears inside the official report rather than its headline.
