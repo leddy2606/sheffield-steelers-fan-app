@@ -147,7 +147,28 @@ def parse_eihl_game_details(game: dict) -> dict:
     goal_lists = re.findall(r'<ul class="d-none d-lg-block">([\s\S]*?)</ul>', page)
     steelers_index = 0 if game["home"] == TEAM else 1
     scorers = parse_goal_list(goal_lists[steelers_index], TEAM) if len(goal_lists) > steelers_index else []
-    return {"score": score, "complete": complete, "live": live, "status": status, "scorers": scorers}
+    details = {"score": score, "complete": complete, "live": live, "status": status, "scorers": scorers}
+    if complete:
+        starts = datetime.fromisoformat(game["starts_at"]).astimezone(LONDON)
+        finished_at = starts + timedelta(hours=3)
+        gamesheet = re.search(r'href="(https://eihlhq\.co\.uk/pdf/print/de-html/\d+)"', page)
+        if gamesheet:
+            try:
+                sheet = fetch(gamesheet.group(1))
+                end_time = re.search(r"Local end time:\s*(\d{1,2}):(\d{2})", sheet, re.I)
+                if end_time:
+                    finished_at = datetime.combine(
+                        starts.date(),
+                        datetime.strptime(f"{end_time.group(1)}:{end_time.group(2)}", "%H:%M").time(),
+                        LONDON,
+                    )
+                    if finished_at < starts:
+                        finished_at += timedelta(days=1)
+            except Exception as error:
+                print(f"Exact final-whistle time unavailable for {game.get('id', 'game')}: {error}")
+        details["finished_at"] = finished_at.isoformat()
+        details["featured_until"] = (finished_at + timedelta(hours=1)).isoformat()
+    return details
 
 
 def parse_preseason_fixtures(player_names: list[str]) -> list[dict]:
@@ -280,6 +301,8 @@ def parse_preseason_result(game: dict, player_names: list[str]) -> dict | None:
             "live": False,
             "status": "Final",
             "scorers": parse_report_scorers(text(post.get("content", {}).get("rendered", "")), player_names),
+            "finished_at": (datetime.fromisoformat(game["starts_at"]) + timedelta(hours=3)).isoformat(),
+            "featured_until": (datetime.fromisoformat(game["starts_at"]) + timedelta(hours=4)).isoformat(),
             "details_url": post.get("link", game["details_url"]),
         }
     return None
@@ -406,6 +429,11 @@ def main() -> None:
             results[0].update(parse_eihl_game_details(results[0]))
         except Exception as error:
             print(f"Last-game detail unavailable for {results[0]['id']}: {error}")
+    recent_final = next((
+        game for game in results
+        if game.get("featured_until") and datetime.fromisoformat(game["featured_until"]).astimezone(timezone.utc) > now
+    ), None)
+    featured_game = live_game or recent_final
 
     league = parse_standings("/standings/2026/57-elite-ice-hockey-league")
     cup = parse_standings("/standings/2026/58-challenge-cup")
@@ -432,6 +460,7 @@ def main() -> None:
         "source": "Official EIHL website",
         "live_window": live_window,
         "live_game": live_game,
+        "featured_game": featured_game,
         "next_game": upcoming[0] if upcoming else None,
         "last_game": results[0] if results else None,
         "upcoming": upcoming[:6],

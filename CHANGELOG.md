@@ -1,5 +1,11 @@
 # Version history
 
+## 1.7.0 — 30 August 2026
+
+- Made the top match card switch automatically between Next Game, Live Game and Final Score.
+- Kept the official final score featured for one hour after the final whistle.
+- Added exact EIHL end-time parsing with a safe pre-season fallback.
+
 ## 1.6.0 — 30 August 2026
 
 - Added an expandable full-season fixture list beneath the next six games.

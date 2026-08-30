@@ -1,17 +1,18 @@
 {
-  "generated_at": "2026-08-30T14:23:43+00:00",
+  "generated_at": "2026-08-30T15:08:49+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
-  "live_window": false,
+  "live_window": true,
   "live_game": null,
+  "featured_game": null,
   "next_game": {
-    "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
-    "starts_at": "2026-08-30T16:00:00+01:00",
+    "id": "preseason-20260905-1900-sheffield-steelers-manchester-storm",
+    "starts_at": "2026-09-05T19:00:00+01:00",
     "competition": "Pre-season",
     "home": "Sheffield Steelers",
-    "away": "Cardiff Devils",
+    "away": "Manchester Storm",
     "home_slug": "sheffield-steelers",
-    "away_slug": "cardiff-devils",
+    "away_slug": "manchester-storm",
     "score": null,
     "complete": false,
     "live": false,
@@ -53,25 +54,11 @@
       }
     ],
     "venue": "Vindico Arena",
-    "details_url": "https://www.sheffieldsteelers.co.uk/devils-hit-back-in-the-final-period-to-win-4-3/"
+    "details_url": "https://www.sheffieldsteelers.co.uk/devils-hit-back-in-the-final-period-to-win-4-3/",
+    "finished_at": "2026-08-29T22:00:00+01:00",
+    "featured_until": "2026-08-29T23:00:00+01:00"
   },
   "upcoming": [
-    {
-      "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
-      "starts_at": "2026-08-30T16:00:00+01:00",
-      "competition": "Pre-season",
-      "home": "Sheffield Steelers",
-      "away": "Cardiff Devils",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "cardiff-devils",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "scorers": [],
-      "venue": "Utilita Arena, Sheffield",
-      "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
-    },
     {
       "id": "preseason-20260905-1900-sheffield-steelers-manchester-storm",
       "starts_at": "2026-09-05T19:00:00+01:00",
@@ -145,25 +132,23 @@
       "live": false,
       "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7398-she-not"
-    }
-  ],
-  "all_upcoming": [
+    },
     {
-      "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
-      "starts_at": "2026-08-30T16:00:00+01:00",
-      "competition": "Pre-season",
-      "home": "Sheffield Steelers",
-      "away": "Cardiff Devils",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "cardiff-devils",
+      "id": "7114-gla-she",
+      "starts_at": "2026-09-20T16:00:00+01:00",
+      "competition": "EIHL League",
+      "home": "Glasgow Clan",
+      "away": "Sheffield Steelers",
+      "home_slug": "glasgow-clan",
+      "away_slug": "sheffield-steelers",
       "score": null,
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "scorers": [],
-      "venue": "Utilita Arena, Sheffield",
-      "details_url": "https://www.sheffieldsteelers.co.uk/fixtures/"
-    },
+      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she"
+    }
+  ],
+  "all_upcoming": [
     {
       "id": "preseason-20260905-1900-sheffield-steelers-manchester-storm",
       "starts_at": "2026-09-05T19:00:00+01:00",
@@ -1127,7 +1112,9 @@
         }
       ],
       "venue": "Vindico Arena",
-      "details_url": "https://www.sheffieldsteelers.co.uk/devils-hit-back-in-the-final-period-to-win-4-3/"
+      "details_url": "https://www.sheffieldsteelers.co.uk/devils-hit-back-in-the-final-period-to-win-4-3/",
+      "finished_at": "2026-08-29T22:00:00+01:00",
+      "featured_until": "2026-08-29T23:00:00+01:00"
     }
   ],
   "standings": {
