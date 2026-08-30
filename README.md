@@ -2,7 +2,7 @@
 
 An unofficial, installable Sheffield Steelers fan app. It includes near-live competitive scores, fixtures, expandable match history and reports, standings, roster data and the season snapshot from official sources.
 
-Current local version: **1.9.0**. See `CHANGELOG.md` for the recoverable version history.
+Current local version: **1.10.0**. See `CHANGELOG.md` for the recoverable version history.
 
 ## Free hosting model
 
@@ -10,8 +10,10 @@ The included GitHub Pages workflow uses only free services for a public reposito
 
 - GitHub Pages hosts the static PWA.
 - GitHub Actions checks for an active match every ten minutes and performs the normal full refresh every three hours.
+- Every open app checks for newly published data immediately and every two minutes.
 - Match-window deployments read live competitive scores and scorer details from the official EIHL Gamecentre.
 - Pre-season results and scorers use official Sheffield Steelers match reports when available.
+- The unofficial pre-season form table is calculated from the official league-wide EIHL pre-season hub.
 - The updater writes `data/app-data.json` and `data/app-data.js`.
 - The app keeps the last successful update available offline.
 

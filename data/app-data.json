@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T21:06:54+00:00",
+  "generated_at": "2026-08-30T22:01:13+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": true,
@@ -1309,6 +1309,429 @@
         "losses": 0,
         "goals_for": 0,
         "goals_against": 0
+      }
+    ],
+    "preseason": [
+      {
+        "team": "Cardiff Devils",
+        "slug": "cardiff-devils",
+        "played": 5,
+        "wins": 5,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 10,
+        "goals_for": 23,
+        "goals_against": 12,
+        "position": 1,
+        "goal_difference": 11
+      },
+      {
+        "team": "Guildford Flames",
+        "slug": "guildford-flames",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 15,
+        "goals_against": 2,
+        "position": 2,
+        "goal_difference": 13
+      },
+      {
+        "team": "Dundee Stars",
+        "slug": "dundee-stars",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 10,
+        "goals_against": 1,
+        "position": 3,
+        "goal_difference": 9
+      },
+      {
+        "team": "Fife Flyers",
+        "slug": "fife-flyers",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 12,
+        "goals_against": 6,
+        "position": 4,
+        "goal_difference": 6
+      },
+      {
+        "team": "Nottingham Panthers",
+        "slug": "nottingham-panthers",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 8,
+        "goals_against": 3,
+        "position": 5,
+        "goal_difference": 5
+      },
+      {
+        "team": "Coventry Blaze",
+        "slug": "coventry-blaze",
+        "played": 1,
+        "wins": 1,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 2,
+        "goals_for": 3,
+        "goals_against": 1,
+        "position": 6,
+        "goal_difference": 2
+      },
+      {
+        "team": "Glasgow Clan",
+        "slug": "glasgow-clan",
+        "played": 3,
+        "wins": 1,
+        "losses": 2,
+        "overtime_losses": 0,
+        "points": 2,
+        "goals_for": 10,
+        "goals_against": 14,
+        "position": 7,
+        "goal_difference": -4
+      },
+      {
+        "team": "Belfast Giants",
+        "slug": "belfast-giants",
+        "played": 1,
+        "wins": 0,
+        "losses": 0,
+        "overtime_losses": 1,
+        "points": 1,
+        "goals_for": 3,
+        "goals_against": 4,
+        "position": 8,
+        "goal_difference": -1
+      },
+      {
+        "team": "Manchester Storm",
+        "slug": "manchester-storm",
+        "played": 1,
+        "wins": 0,
+        "losses": 1,
+        "overtime_losses": 0,
+        "points": 0,
+        "goals_for": 1,
+        "goals_against": 3,
+        "position": 9,
+        "goal_difference": -2
+      },
+      {
+        "team": "Sheffield Steelers",
+        "slug": "sheffield-steelers",
+        "played": 2,
+        "wins": 0,
+        "losses": 2,
+        "overtime_losses": 0,
+        "points": 0,
+        "goals_for": 4,
+        "goals_against": 7,
+        "position": 10,
+        "goal_difference": -3
+      }
+    ]
+  },
+  "preseason": {
+    "source": "Official EIHL pre-season hub",
+    "source_url": "https://www.eliteleague.co.uk/article/5427-pre-season-2026-27",
+    "games": [
+      {
+        "id": "friendly-2026-08-15-cardiff-devils-odensebulldogs",
+        "date": "2026-08-15",
+        "home": "Cardiff Devils",
+        "away": "Odense Bulldogs",
+        "home_score": 8,
+        "away_score": 5,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-16-cardiff-devils-odensebulldogs",
+        "date": "2026-08-16",
+        "home": "Cardiff Devils",
+        "away": "Odense Bulldogs",
+        "home_score": 4,
+        "away_score": 1,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-22-cardiff-devils-ducsdangers",
+        "date": "2026-08-22",
+        "home": "Cardiff Devils",
+        "away": "Ducs D'Angers",
+        "home_score": 4,
+        "away_score": 2,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-22-jokersdecergypontoise-guildford-flames",
+        "date": "2026-08-22",
+        "home": "Jokers de Cergy-Pontoise",
+        "away": "Guildford Flames",
+        "home_score": 1,
+        "away_score": 4,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-23-glasgow-clan-dundee-stars",
+        "date": "2026-08-23",
+        "home": "Glasgow Clan",
+        "away": "Dundee Stars",
+        "home_score": 0,
+        "away_score": 3,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-23-nottingham-panthers-ducsdangers",
+        "date": "2026-08-23",
+        "home": "Nottingham Panthers",
+        "away": "Ducs D'Angers",
+        "home_score": 4,
+        "away_score": 2,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-28-belfast-giants-herleveagles",
+        "date": "2026-08-28",
+        "home": "Belfast Giants",
+        "away": "Herlev Eagles",
+        "home_score": 3,
+        "away_score": 4,
+        "overtime": true
+      },
+      {
+        "id": "friendly-2026-08-28-fife-flyers-kyivcapitals",
+        "date": "2026-08-28",
+        "home": "Fife Flyers",
+        "away": "Kyiv Capitals",
+        "home_score": 6,
+        "away_score": 5,
+        "overtime": true
+      },
+      {
+        "id": "friendly-2026-08-28-glasgow-clan-hkliepaja",
+        "date": "2026-08-28",
+        "home": "Glasgow Clan",
+        "away": "HK Liepäja",
+        "home_score": 6,
+        "away_score": 4,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-29-bristolpitbulls-guildford-flames",
+        "date": "2026-08-29",
+        "home": "Bristol Pitbulls",
+        "away": "Guildford Flames",
+        "home_score": 1,
+        "away_score": 11,
+        "overtime": false
+      },
+      {
+        "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",
+        "date": "2026-08-29",
+        "home": "Cardiff Devils",
+        "away": "Sheffield Steelers",
+        "home_score": 4,
+        "away_score": 3,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-29-coventry-blaze-manchester-storm",
+        "date": "2026-08-29",
+        "home": "Coventry Blaze",
+        "away": "Manchester Storm",
+        "home_score": 3,
+        "away_score": 1,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-29-dundee-stars-hkliepaja",
+        "date": "2026-08-29",
+        "home": "Dundee Stars",
+        "away": "HK Liepäja",
+        "home_score": 7,
+        "away_score": 1,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-29-fife-flyers-hullseahawks",
+        "date": "2026-08-29",
+        "home": "Fife Flyers",
+        "away": "Hull Seahawks",
+        "home_score": 6,
+        "away_score": 1,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-29-glasgow-clan-kyivcapitals",
+        "date": "2026-08-29",
+        "home": "Glasgow Clan",
+        "away": "Kyiv Capitals",
+        "home_score": 4,
+        "away_score": 7,
+        "overtime": false
+      },
+      {
+        "id": "friendly-2026-08-29-nottingham-panthers-gothiquesdamiens",
+        "date": "2026-08-29",
+        "home": "Nottingham Panthers",
+        "away": "Gothiques d'Amiens",
+        "home_score": 4,
+        "away_score": 1,
+        "overtime": false
+      },
+      {
+        "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
+        "date": "2026-08-30",
+        "home": "Sheffield Steelers",
+        "away": "Cardiff Devils",
+        "home_score": 1,
+        "away_score": 3,
+        "overtime": false
+      }
+    ],
+    "table": [
+      {
+        "team": "Cardiff Devils",
+        "slug": "cardiff-devils",
+        "played": 5,
+        "wins": 5,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 10,
+        "goals_for": 23,
+        "goals_against": 12,
+        "position": 1,
+        "goal_difference": 11
+      },
+      {
+        "team": "Guildford Flames",
+        "slug": "guildford-flames",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 15,
+        "goals_against": 2,
+        "position": 2,
+        "goal_difference": 13
+      },
+      {
+        "team": "Dundee Stars",
+        "slug": "dundee-stars",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 10,
+        "goals_against": 1,
+        "position": 3,
+        "goal_difference": 9
+      },
+      {
+        "team": "Fife Flyers",
+        "slug": "fife-flyers",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 12,
+        "goals_against": 6,
+        "position": 4,
+        "goal_difference": 6
+      },
+      {
+        "team": "Nottingham Panthers",
+        "slug": "nottingham-panthers",
+        "played": 2,
+        "wins": 2,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 4,
+        "goals_for": 8,
+        "goals_against": 3,
+        "position": 5,
+        "goal_difference": 5
+      },
+      {
+        "team": "Coventry Blaze",
+        "slug": "coventry-blaze",
+        "played": 1,
+        "wins": 1,
+        "losses": 0,
+        "overtime_losses": 0,
+        "points": 2,
+        "goals_for": 3,
+        "goals_against": 1,
+        "position": 6,
+        "goal_difference": 2
+      },
+      {
+        "team": "Glasgow Clan",
+        "slug": "glasgow-clan",
+        "played": 3,
+        "wins": 1,
+        "losses": 2,
+        "overtime_losses": 0,
+        "points": 2,
+        "goals_for": 10,
+        "goals_against": 14,
+        "position": 7,
+        "goal_difference": -4
+      },
+      {
+        "team": "Belfast Giants",
+        "slug": "belfast-giants",
+        "played": 1,
+        "wins": 0,
+        "losses": 0,
+        "overtime_losses": 1,
+        "points": 1,
+        "goals_for": 3,
+        "goals_against": 4,
+        "position": 8,
+        "goal_difference": -1
+      },
+      {
+        "team": "Manchester Storm",
+        "slug": "manchester-storm",
+        "played": 1,
+        "wins": 0,
+        "losses": 1,
+        "overtime_losses": 0,
+        "points": 0,
+        "goals_for": 1,
+        "goals_against": 3,
+        "position": 9,
+        "goal_difference": -2
+      },
+      {
+        "team": "Sheffield Steelers",
+        "slug": "sheffield-steelers",
+        "played": 2,
+        "wins": 0,
+        "losses": 2,
+        "overtime_losses": 0,
+        "points": 0,
+        "goals_for": 4,
+        "goals_against": 7,
+        "position": 10,
+        "goal_difference": -3
       }
     ]
   },

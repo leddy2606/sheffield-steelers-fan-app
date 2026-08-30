@@ -1,5 +1,12 @@
 # Version history
 
+## 1.10.0 — 30 August 2026
+
+- Showed the latest three completed games before hiding older results behind the history expander.
+- Removed the expander automatically until a fourth completed game exists.
+- Added an unofficial pre-season form table calculated from the official league-wide EIHL pre-season hub.
+- Made the page check immediately on opening and every two minutes thereafter, while carrying the last published data into every refresh.
+
 ## 1.9.0 — 30 August 2026
 
 - Synchronized the mobile bottom navigation with the section currently being viewed.

@@ -33,11 +33,16 @@ SLUGS = {
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "app-data.json"
 JS_OUTPUT = ROOT / "data" / "app-data.js"
+LIVE_DATA_URL = "https://leddy2606.github.io/sheffield-steelers-fan-app/data/app-data.json"
 LONDON = ZoneInfo("Europe/London")
 SSL_CONTEXT = ssl._create_unverified_context()
 HEADERS = {"User-Agent": "SteelCityMatchCentre/1.0 (unofficial fan app)"}
 ROSTER_TRACKER = "/article/5422-2026-27-rosters"
 ROSTER_PAGE = "/team/13-sheffield-steelers/roster?id_season=57"
+MONTHS = {name.lower(): number for number, name in enumerate((
+    "", "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+)) if name}
 CONFIRMED_NUMBERS = {
     "Lucas Brine": "44", "Matt Greenfield": "1", "Aatu Aarnio": "77",
     "Dominic Cormier": "58", "Brien Diffley": "65", "Macoy Erkamps": "59",
@@ -343,6 +348,111 @@ def parse_preseason_result(game: dict, player_names: list[str]) -> dict | None:
     return None
 
 
+def parse_preseason_hub(previous_url: str = "") -> tuple[list[dict], str]:
+    """Read the league-wide friendly results maintained on the official EIHL hub."""
+    homepage = fetch("/")
+    hub_match = re.search(
+        r'href="(?:https://www\.eliteleague\.co\.uk)?(/article/\d+-pre-season-\d{4}-\d{2})"',
+        homepage,
+        re.I,
+    )
+    hub_path = hub_match.group(1) if hub_match else urllib.parse.urlparse(previous_url).path
+    if not hub_path.startswith("/article/"):
+        raise ValueError("Official pre-season hub link was not found")
+    page = fetch(hub_path)
+    article = re.search(r'<article class="pt-3 pb-3 p-lg-6 typography">([\s\S]*?)</article>', page)
+    if not article:
+        raise ValueError("Official pre-season hub content was not found")
+    season_match = re.search(r"Pre-Season\s+(20\d{2})/\d{2}", text(article.group(1)), re.I)
+    season_year = int(season_match.group(1)) if season_match else datetime.now(LONDON).year
+    line_html = re.sub(r"<br\s*/?>", "\n", article.group(1), flags=re.I)
+    line_html = re.sub(r"</?(?:p|li|h[1-6])[^>]*>", "\n", line_html, flags=re.I)
+    lines = [text(line) for line in line_html.splitlines() if text(line)]
+    current_month = None
+    current_day = None
+    games = []
+    for line in lines:
+        if line.lower() in MONTHS:
+            current_month = MONTHS[line.lower()]
+            continue
+        date_heading = re.match(
+            r"^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(\d{1,2})(?:\s+(January|February|March|April|May|June|July|August|September|October|November|December))?(?:\s+(.*))?$",
+            line,
+            re.I,
+        )
+        if date_heading:
+            current_day = int(date_heading.group(1))
+            if date_heading.group(2) and date_heading.group(2).lower() in MONTHS:
+                current_month = MONTHS[date_heading.group(2).lower()]
+            line = (date_heading.group(3) or "").strip()
+            if not line:
+                continue
+        clean_line = re.sub(r"\s*\|\s*(?:G\s*amesheet|Match Report).*$", "", line, flags=re.I).strip()
+        score = re.fullmatch(
+            r"(.+?)\s+(\d{1,2})\s*[-–:√]\s*(\d{1,2})(?:\s+(OT|SO))?\s+(.+)",
+            clean_line,
+            re.I,
+        )
+        if not score or not current_month or not current_day:
+            continue
+        home, home_score, away_score, overtime, away = score.groups()
+        home, away = home.strip(), away.strip()
+        if home not in SLUGS and away not in SLUGS:
+            continue
+        game_date = datetime(season_year, current_month, current_day, tzinfo=LONDON)
+        games.append({
+            "id": f"friendly-{game_date.date().isoformat()}-{SLUGS.get(home, comparable_name(home))}-{SLUGS.get(away, comparable_name(away))}",
+            "date": game_date.date().isoformat(),
+            "home": home,
+            "away": away,
+            "home_score": int(home_score),
+            "away_score": int(away_score),
+            "overtime": bool(overtime),
+        })
+    if not games:
+        raise ValueError("Official pre-season hub did not contain completed games")
+    return games, urllib.parse.urljoin(BASE, hub_path)
+
+
+def build_preseason_table(games: list[dict]) -> list[dict]:
+    """Calculate an unofficial form table from official friendly results."""
+    rows = {
+        team: {
+            "team": team, "slug": slug, "played": 0, "wins": 0,
+            "losses": 0, "overtime_losses": 0, "points": 0,
+            "goals_for": 0, "goals_against": 0,
+        }
+        for team, slug in SLUGS.items()
+    }
+    for game in games:
+        for team, scored, conceded in (
+            (game["home"], game["home_score"], game["away_score"]),
+            (game["away"], game["away_score"], game["home_score"]),
+        ):
+            if team not in rows:
+                continue
+            row = rows[team]
+            row["played"] += 1
+            row["goals_for"] += scored
+            row["goals_against"] += conceded
+            if scored > conceded:
+                row["wins"] += 1
+                row["points"] += 2
+            elif game.get("overtime"):
+                row["overtime_losses"] += 1
+                row["points"] += 1
+            else:
+                row["losses"] += 1
+    ordered = sorted(
+        rows.values(),
+        key=lambda row: (-row["points"], -(row["goals_for"] - row["goals_against"]), -row["goals_for"], row["team"]),
+    )
+    for position, row in enumerate(ordered, 1):
+        row["position"] = position
+        row["goal_difference"] = row["goals_for"] - row["goals_against"]
+    return ordered
+
+
 def parse_standings(path: str) -> list[dict]:
     page = fetch(path)
     table_match = re.search(r"<tbody>([\s\S]*?)</tbody>", page)
@@ -434,6 +544,14 @@ def main() -> None:
             previous_payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             pass
+    try:
+        published_payload = json.loads(fetch(LIVE_DATA_URL))
+        published_at = datetime.fromisoformat(published_payload.get("generated_at", "1970-01-01T00:00:00+00:00"))
+        local_at = datetime.fromisoformat(previous_payload.get("generated_at", "1970-01-01T00:00:00+00:00"))
+        if published_at > local_at:
+            previous_payload = published_payload
+    except Exception as error:
+        print(f"Published-data carry-forward unavailable; using repository data: {error}")
     roster = parse_roster(previous_payload.get("roster"))
     player_names = [player["name"] for group in roster["groups"].values() for player in group]
     games_by_id: dict[str, dict] = {}
@@ -478,6 +596,34 @@ def main() -> None:
     ), None)
     featured_game = live_game or recent_final
 
+    previous_preseason = previous_payload.get("preseason", {})
+    preseason_source_url = previous_preseason.get("source_url", "")
+    preseason_games_by_key = {
+        (game["date"], game["home"], game["away"]): game
+        for game in previous_preseason.get("games", [])
+        if game.get("date") and game.get("home") and game.get("away")
+    }
+    try:
+        official_preseason_games, preseason_source_url = parse_preseason_hub(preseason_source_url)
+        for game in official_preseason_games:
+            preseason_games_by_key[(game["date"], game["home"], game["away"])] = game
+    except Exception as error:
+        print(f"Pre-season hub refresh unavailable; retained last good table: {error}")
+    for game in results:
+        if game["competition"] != "Pre-season":
+            continue
+        home_score, away_score = (int(value) for value in game["score"].split("–"))
+        game_date = datetime.fromisoformat(game["starts_at"]).date().isoformat()
+        key = (game_date, game["home"], game["away"])
+        previous_friendly = preseason_games_by_key.get(key, {})
+        preseason_games_by_key[key] = {
+            "id": game["id"], "date": game_date, "home": game["home"], "away": game["away"],
+            "home_score": home_score, "away_score": away_score,
+            "overtime": previous_friendly.get("overtime", False),
+        }
+    preseason_games = sorted(preseason_games_by_key.values(), key=lambda game: (game["date"], game["home"], game["away"]))
+    preseason_table = build_preseason_table(preseason_games)
+
     league = parse_standings("/standings/2026/57-elite-ice-hockey-league")
     cup = parse_standings("/standings/2026/58-challenge-cup")
     steelers_row = next((row for row in league if row["team"] == TEAM), None)
@@ -509,7 +655,13 @@ def main() -> None:
         "upcoming": upcoming[:6],
         "all_upcoming": upcoming,
         "results": results,
-        "standings": {"league": league, "cup": cup},
+        "standings": {"league": league, "cup": cup, "preseason": preseason_table},
+        "preseason": {
+            "source": "Official EIHL pre-season hub",
+            "source_url": preseason_source_url,
+            "games": preseason_games,
+            "table": preseason_table,
+        },
         "snapshot": snapshot,
         "roster": roster,
     }
