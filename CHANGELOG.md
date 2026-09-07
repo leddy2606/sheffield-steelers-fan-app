@@ -1,5 +1,11 @@
 # Version history
 
+## 1.14.0 — 7 September 2026
+
+- Made every upcoming fixture expandable with its own add-to-calendar action.
+- Added automatically refreshed official ticket links for home and away games.
+- Uses the exact official event listing when available, with the home club's official ticket page as a safe fallback.
+
 ## 1.13.0 — 7 September 2026
 
 - Added automatically discovered official YouTube highlights inside expandable match reports.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T12:32:26+00:00",
+  "generated_at": "2026-09-07T14:37:53+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": false,
@@ -17,7 +17,9 @@
     "complete": false,
     "live": false,
     "status": "Scheduled",
-    "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov"
+    "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov",
+    "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-blaze-sheffield-12-09-2026/event/35006501E65D9B26",
+    "ticket_exact": true
   },
   "last_game": {
     "id": "preseason-20260906-1600-manchester-storm-sheffield-steelers",
@@ -88,7 +90,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov"
+      "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-blaze-sheffield-12-09-2026/event/35006501E65D9B26",
+      "ticket_exact": true
     },
     {
       "id": "7392-gui-she",
@@ -102,7 +106,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she",
+      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7398-she-not",
@@ -116,7 +122,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not"
+      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-panthers-sheffield-19-09-2026/event/35006505DADD4EC9",
+      "ticket_exact": true
     },
     {
       "id": "7114-gla-she",
@@ -130,7 +138,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
+      "ticket_url": "https://clanihc.com/tickets/game-day-tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7116-gui-she",
@@ -144,7 +154,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7116-gui-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7116-gui-she",
+      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7404-she-car",
@@ -158,7 +170,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7404-she-car"
+      "details_url": "https://www.eliteleague.co.uk/game/7404-she-car",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-devils-sheffield-26-09-2026/event/35006505DADF4ECE",
+      "ticket_exact": true
     }
   ],
   "all_upcoming": [
@@ -174,7 +188,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov"
+      "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-blaze-sheffield-12-09-2026/event/35006501E65D9B26",
+      "ticket_exact": true
     },
     {
       "id": "7392-gui-she",
@@ -188,7 +204,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she",
+      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7398-she-not",
@@ -202,7 +220,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not"
+      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-panthers-sheffield-19-09-2026/event/35006505DADD4EC9",
+      "ticket_exact": true
     },
     {
       "id": "7114-gla-she",
@@ -216,7 +236,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
+      "ticket_url": "https://clanihc.com/tickets/game-day-tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7116-gui-she",
@@ -230,7 +252,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7116-gui-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7116-gui-she",
+      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7404-she-car",
@@ -244,7 +268,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7404-she-car"
+      "details_url": "https://www.eliteleague.co.uk/game/7404-she-car",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-devils-sheffield-26-09-2026/event/35006505DADF4ECE",
+      "ticket_exact": true
     },
     {
       "id": "7408-cov-she",
@@ -258,7 +284,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7408-cov-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7408-cov-she",
+      "ticket_url": "https://coventryblaze.co.uk/tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7121-she-fif",
@@ -272,7 +300,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7121-she-fif"
+      "details_url": "https://www.eliteleague.co.uk/game/7121-she-fif",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flyers-sheffield-03-10-2026/event/35006505DAE14ED7",
+      "ticket_exact": true
     },
     {
       "id": "7123-fif-she",
@@ -286,7 +316,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7123-fif-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7123-fif-she",
+      "ticket_url": "https://fifeflyers.co.uk/tickets-2/",
+      "ticket_exact": false
     },
     {
       "id": "7130-she-gla",
@@ -300,7 +332,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7130-she-gla"
+      "details_url": "https://www.eliteleague.co.uk/game/7130-she-gla",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-clan-sheffield-10-10-2026/event/35006505DAE24ED9",
+      "ticket_exact": true
     },
     {
       "id": "7413-man-she",
@@ -314,7 +348,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7413-man-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7413-man-she",
+      "ticket_url": "https://www.ticketmaster.co.uk/manchester-storm-vs-sheffield-steelers-venue-manchester-11-10-2026/event/1F0064FFD807B9C2",
+      "ticket_exact": true
     },
     {
       "id": "7415-not-she",
@@ -328,7 +364,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7415-not-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7415-not-she",
+      "ticket_url": "https://www.panthers.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7420-she-gui",
@@ -342,7 +380,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7420-she-gui"
+      "details_url": "https://www.eliteleague.co.uk/game/7420-she-gui",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flames-sheffield-18-10-2026/event/35006505DAE44EDE",
+      "ticket_exact": true
     },
     {
       "id": "7425-car-she",
@@ -356,7 +396,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7425-car-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7425-car-she",
+      "ticket_url": "https://www.cardiffdevils.com/tickets/match-night-tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7141-she-fif",
@@ -370,7 +412,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7141-she-fif"
+      "details_url": "https://www.eliteleague.co.uk/game/7141-she-fif",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flyers-sheffield-25-10-2026/event/35006505DAE64EE9",
+      "ticket_exact": true
     },
     {
       "id": "7429-she-man",
@@ -384,7 +428,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7429-she-man"
+      "details_url": "https://www.eliteleague.co.uk/game/7429-she-man",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-storm-sheffield-28-10-2026/event/35006505DAE84EF1",
+      "ticket_exact": true
     },
     {
       "id": "7145-she-not",
@@ -398,7 +444,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7145-she-not"
+      "details_url": "https://www.eliteleague.co.uk/game/7145-she-not",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-panthers-sheffield-31-10-2026/event/35006505DAEA4EF8",
+      "ticket_exact": true
     },
     {
       "id": "7147-cov-she",
@@ -412,7 +460,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7147-cov-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7147-cov-she",
+      "ticket_url": "https://coventryblaze.co.uk/tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7149-man-she",
@@ -426,7 +476,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7149-man-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7149-man-she",
+      "ticket_url": "https://www.ticketmaster.co.uk/manchester-storm-tickets/artist/5223012",
+      "ticket_exact": false
     },
     {
       "id": "7151-she-man",
@@ -440,7 +492,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7151-she-man"
+      "details_url": "https://www.eliteleague.co.uk/game/7151-she-man",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-storm-sheffield-07-11-2026/event/35006505DAED4EFF",
+      "ticket_exact": true
     },
     {
       "id": "7161-gui-she",
@@ -454,7 +508,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7161-gui-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7161-gui-she",
+      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7166-she-cov",
@@ -468,7 +524,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7166-she-cov"
+      "details_url": "https://www.eliteleague.co.uk/game/7166-she-cov",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7172-cov-she",
@@ -482,7 +540,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7172-cov-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7172-cov-she",
+      "ticket_url": "https://coventryblaze.co.uk/tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7175-she-car",
@@ -496,7 +556,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7175-she-car"
+      "details_url": "https://www.eliteleague.co.uk/game/7175-she-car",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7184-dun-she",
@@ -510,7 +572,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7184-dun-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7184-dun-she",
+      "ticket_url": "https://www.dundeestars.com/matches/",
+      "ticket_exact": false
     },
     {
       "id": "7185-she-bel",
@@ -524,7 +588,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7185-she-bel"
+      "details_url": "https://www.eliteleague.co.uk/game/7185-she-bel",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7191-she-dun",
@@ -538,7 +604,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7191-she-dun"
+      "details_url": "https://www.eliteleague.co.uk/game/7191-she-dun",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7198-gui-she",
@@ -552,7 +620,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7198-gui-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7198-gui-she",
+      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7202-dun-she",
@@ -566,7 +636,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7202-dun-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7202-dun-she",
+      "ticket_url": "https://www.dundeestars.com/matches/",
+      "ticket_exact": false
     },
     {
       "id": "7206-fif-she",
@@ -580,7 +652,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7206-fif-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7206-fif-she",
+      "ticket_url": "https://fifeflyers.co.uk/tickets-2/",
+      "ticket_exact": false
     },
     {
       "id": "7212-car-she",
@@ -594,7 +668,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7212-car-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7212-car-she",
+      "ticket_url": "https://www.cardiffdevils.com/tickets/match-night-tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7214-she-cov",
@@ -608,7 +684,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7214-she-cov"
+      "details_url": "https://www.eliteleague.co.uk/game/7214-she-cov",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7220-bel-she",
@@ -622,7 +700,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7220-bel-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7220-bel-she",
+      "ticket_url": "https://www.belfastgiants.com/game-centre",
+      "ticket_exact": false
     },
     {
       "id": "7224-she-not",
@@ -636,7 +716,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7224-she-not"
+      "details_url": "https://www.eliteleague.co.uk/game/7224-she-not",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7229-not-she",
@@ -650,7 +732,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7229-not-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7229-not-she",
+      "ticket_url": "https://www.panthers.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7237-she-man",
@@ -664,7 +748,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7237-she-man"
+      "details_url": "https://www.eliteleague.co.uk/game/7237-she-man",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7241-man-she",
@@ -678,7 +764,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7241-man-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7241-man-she",
+      "ticket_url": "https://www.ticketmaster.co.uk/manchester-storm-vs-sheffield-steelers-premium-manchester-01-01-2027/event/1F0064FF813C2A7C",
+      "ticket_exact": true
     },
     {
       "id": "7247-she-gla",
@@ -692,7 +780,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7247-she-gla"
+      "details_url": "https://www.eliteleague.co.uk/game/7247-she-gla",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7253-she-gui",
@@ -706,7 +796,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7253-she-gui"
+      "details_url": "https://www.eliteleague.co.uk/game/7253-she-gui",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7258-fif-she",
@@ -720,7 +812,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7258-fif-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7258-fif-she",
+      "ticket_url": "https://fifeflyers.co.uk/tickets-2/",
+      "ticket_exact": false
     },
     {
       "id": "7262-she-dun",
@@ -734,7 +828,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7262-she-dun"
+      "details_url": "https://www.eliteleague.co.uk/game/7262-she-dun",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7266-she-fif",
@@ -748,7 +844,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7266-she-fif"
+      "details_url": "https://www.eliteleague.co.uk/game/7266-she-fif",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7269-bel-she",
@@ -762,7 +860,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7269-bel-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7269-bel-she",
+      "ticket_url": "https://www.belfastgiants.com/game-centre",
+      "ticket_exact": false
     },
     {
       "id": "7270-bel-she",
@@ -776,7 +876,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7270-bel-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7270-bel-she",
+      "ticket_url": "https://www.belfastgiants.com/game-centre",
+      "ticket_exact": false
     },
     {
       "id": "7282-not-she",
@@ -790,7 +892,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7282-not-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7282-not-she",
+      "ticket_url": "https://www.panthers.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7284-she-gui",
@@ -804,7 +908,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7284-she-gui"
+      "details_url": "https://www.eliteleague.co.uk/game/7284-she-gui",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7293-car-she",
@@ -818,7 +924,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7293-car-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7293-car-she",
+      "ticket_url": "https://www.cardiffdevils.com/tickets/match-night-tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7296-she-gla",
@@ -832,7 +940,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7296-she-gla"
+      "details_url": "https://www.eliteleague.co.uk/game/7296-she-gla",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7301-she-dun",
@@ -846,7 +956,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7301-she-dun"
+      "details_url": "https://www.eliteleague.co.uk/game/7301-she-dun",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7307-dun-she",
@@ -860,7 +972,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7307-dun-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7307-dun-she",
+      "ticket_url": "https://www.dundeestars.com/matches/",
+      "ticket_exact": false
     },
     {
       "id": "7310-gla-she",
@@ -874,7 +988,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7310-gla-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7310-gla-she",
+      "ticket_url": "https://clanihc.com/tickets/game-day-tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7315-she-bel",
@@ -888,7 +1004,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7315-she-bel"
+      "details_url": "https://www.eliteleague.co.uk/game/7315-she-bel",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7324-she-not",
@@ -902,7 +1020,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7324-she-not"
+      "details_url": "https://www.eliteleague.co.uk/game/7324-she-not",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7328-cov-she",
@@ -916,7 +1036,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7328-cov-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7328-cov-she",
+      "ticket_url": "https://coventryblaze.co.uk/tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7335-car-she",
@@ -930,7 +1052,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7335-car-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7335-car-she",
+      "ticket_url": "https://www.cardiffdevils.com/tickets/match-night-tickets/",
+      "ticket_exact": false
     },
     {
       "id": "7337-she-bel",
@@ -944,7 +1068,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7337-she-bel"
+      "details_url": "https://www.eliteleague.co.uk/game/7337-she-bel",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7343-not-she",
@@ -958,7 +1084,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7343-not-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7343-not-she",
+      "ticket_url": "https://www.panthers.co.uk/tickets",
+      "ticket_exact": false
     },
     {
       "id": "7347-she-gui",
@@ -972,7 +1100,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7347-she-gui"
+      "details_url": "https://www.eliteleague.co.uk/game/7347-she-gui",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7354-she-car",
@@ -986,7 +1116,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7354-she-car"
+      "details_url": "https://www.eliteleague.co.uk/game/7354-she-car",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7358-she-car",
@@ -1000,7 +1132,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7358-she-car"
+      "details_url": "https://www.eliteleague.co.uk/game/7358-she-car",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7365-she-man",
@@ -1014,7 +1148,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7365-she-man"
+      "details_url": "https://www.eliteleague.co.uk/game/7365-she-man",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7368-man-she",
@@ -1028,7 +1164,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7368-man-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7368-man-she",
+      "ticket_url": "https://www.ticketmaster.co.uk/manchester-storm-tickets/artist/5223012",
+      "ticket_exact": false
     },
     {
       "id": "7373-she-cov",
@@ -1042,7 +1180,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7373-she-cov"
+      "details_url": "https://www.eliteleague.co.uk/game/7373-she-cov",
+      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+      "ticket_exact": false
     },
     {
       "id": "7382-gla-she",
@@ -1056,7 +1196,9 @@
       "complete": false,
       "live": false,
       "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7382-gla-she"
+      "details_url": "https://www.eliteleague.co.uk/game/7382-gla-she",
+      "ticket_url": "https://clanihc.com/tickets/game-day-tickets/",
+      "ticket_exact": false
     }
   ],
   "results": [

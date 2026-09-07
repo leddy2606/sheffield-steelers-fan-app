@@ -58,6 +58,18 @@ GAMESHEET_NAME_CORRECTIONS = {"Leevi Tiessala": "Leevi Teissala"}
 OFFICIAL_VIDEO_FEEDS = (
     ("Sheffield Steelers TV", "https://www.youtube.com/feeds/videos.xml?channel_id=UCkROPc1dZwX75lukXesiAsg"),
 )
+TICKET_PAGES = {
+    "Belfast Giants": "https://www.belfastgiants.com/game-centre",
+    "Cardiff Devils": "https://www.cardiffdevils.com/tickets/match-night-tickets/",
+    "Coventry Blaze": "https://coventryblaze.co.uk/tickets/",
+    "Dundee Stars": "https://www.dundeestars.com/matches/",
+    "Fife Flyers": "https://fifeflyers.co.uk/tickets-2/",
+    "Glasgow Clan": "https://clanihc.com/tickets/game-day-tickets/",
+    "Guildford Flames": "https://www.guildfordflames.co.uk/tickets",
+    "Manchester Storm": "https://www.ticketmaster.co.uk/manchester-storm-tickets/artist/5223012",
+    "Nottingham Panthers": "https://www.panthers.co.uk/tickets",
+    "Sheffield Steelers": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
+}
 
 
 def fetch_bytes(path: str) -> bytes:
@@ -155,6 +167,38 @@ def embedded_youtube_video(page_url: str) -> dict | None:
         "thumbnail_url": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg",
         "source": "Official match report",
     }
+
+
+def add_ticket_links(games: list[dict]) -> None:
+    """Attach an exact official ticket event when discoverable, otherwise the home club's ticket page."""
+    ticketmaster_pages: dict[str, str] = {}
+    for game in games:
+        home_team = game.get("home")
+        fallback = TICKET_PAGES.get(home_team)
+        if not fallback:
+            continue
+        game["ticket_url"] = fallback
+        game["ticket_exact"] = False
+        if "ticketmaster.co.uk" not in fallback:
+            continue
+        if fallback not in ticketmaster_pages:
+            try:
+                ticketmaster_pages[fallback] = fetch(fallback)
+            except Exception as error:
+                print(f"Exact {home_team} ticket listings unavailable; using official ticket page: {error}")
+                ticketmaster_pages[fallback] = ""
+        page = html.unescape(ticketmaster_pages[fallback]).replace("\\/", "/")
+        game_day = datetime.fromisoformat(game["starts_at"]).date()
+        home_alias = home_team.split()[-1].lower()
+        away_alias = game["away"].split()[-1].lower()
+        for event_url in dict.fromkeys(re.findall(r"https://www\.ticketmaster\.co\.uk/[^\"'\\\s]+/event/[A-Za-z0-9]+", page)):
+            slug = urllib.parse.unquote(event_url).lower()
+            if "parking" in slug or game_day.strftime("%d-%m-%Y") not in slug:
+                continue
+            if home_alias in slug and away_alias in slug:
+                game["ticket_url"] = event_url
+                game["ticket_exact"] = True
+                break
 
 
 def parse_schedule(season_id: int, competition: str) -> list[dict]:
@@ -773,6 +817,7 @@ def main() -> None:
                     print(f"Live game detail unavailable for {game['id']}: {error}")
     live_game = next((game for game in games if game.get("live")), None)
     upcoming = [game for game in games if not game["complete"] and datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc) >= now]
+    add_ticket_links(upcoming)
     results = [game for game in games if game["complete"]]
     results.sort(key=lambda game: game["starts_at"], reverse=True)
     previous_results = {
