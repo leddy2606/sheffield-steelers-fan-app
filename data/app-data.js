@@ -1,5 +1,5 @@
 window.STEELERS_DATA = {
-  "generated_at": "2026-09-07T14:37:53+00:00",
+  "generated_at": "2026-09-07T14:42:27+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": false,

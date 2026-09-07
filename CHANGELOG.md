@@ -1,5 +1,9 @@
 # Version history
 
+## 1.14.1 — 7 September 2026
+
+- Retains verified exact event links when Ticketmaster blocks an automated refresh, instead of downgrading them.
+
 ## 1.14.0 — 7 September 2026
 
 - Made every upcoming fixture expandable with its own add-to-calendar action.

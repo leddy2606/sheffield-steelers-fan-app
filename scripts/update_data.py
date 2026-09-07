@@ -770,6 +770,7 @@ def main() -> None:
             previous_payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             pass
+    repository_payload = previous_payload
     try:
         published_payload = json.loads(fetch(LIVE_DATA_URL))
         published_at = datetime.fromisoformat(published_payload.get("generated_at", "1970-01-01T00:00:00+00:00"))
@@ -818,6 +819,16 @@ def main() -> None:
     live_game = next((game for game in games if game.get("live")), None)
     upcoming = [game for game in games if not game["complete"] and datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc) >= now]
     add_ticket_links(upcoming)
+    stored_exact_tickets = {
+        game["id"]: game["ticket_url"]
+        for payload in (repository_payload, previous_payload)
+        for game in payload.get("all_upcoming", [])
+        if game.get("id") and game.get("ticket_exact") and game.get("ticket_url")
+    }
+    for game in upcoming:
+        if not game.get("ticket_exact") and game["id"] in stored_exact_tickets:
+            game["ticket_url"] = stored_exact_tickets[game["id"]]
+            game["ticket_exact"] = True
     results = [game for game in games if game["complete"]]
     results.sort(key=lambda game: game["starts_at"], reverse=True)
     previous_results = {
