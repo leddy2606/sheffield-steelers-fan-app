@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T12:02:19+00:00",
+  "generated_at": "2026-09-07T12:32:26+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": false,
@@ -1184,7 +1184,17 @@
       "details_url": "https://www.sheffieldsteelers.co.uk/back-home-steelers-beaten-by-devils-in-arena-opener/",
       "finished_at": "2026-08-30T19:00:00+01:00",
       "featured_until": "2026-08-30T20:00:00+01:00",
-      "gamesheet_url": "https://www.eliteleague.co.uk/document/178-ps15shevcar"
+      "gamesheet_url": "https://www.eliteleague.co.uk/document/178-ps15shevcar",
+      "highlights": {
+        "video_id": "mAhtqbixW2U",
+        "title": "Sheffield Steelers v Cardiff Devils - Pre-season - 30th August 2026",
+        "description": "Highlights from the Sheffield Steelers v Cardiff Devils pre-season game on Sunday 30th August 2026. Commentary from Jonathan Fearnley & Dylan Pick. Post-match reaction from head coaches Aaron Fox and Paul Thompson. © Sheffield Steelers 2026",
+        "published_at": "2026-09-01T15:22:59+00:00",
+        "url": "https://www.youtube.com/watch?v=mAhtqbixW2U",
+        "embed_url": "https://www.youtube-nocookie.com/embed/mAhtqbixW2U",
+        "thumbnail_url": "https://i2.ytimg.com/vi/mAhtqbixW2U/hqdefault.jpg",
+        "source": "Sheffield Steelers TV"
+      }
     },
     {
       "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",

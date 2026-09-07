@@ -1,5 +1,11 @@
 # Version history
 
+## 1.13.0 — 7 September 2026
+
+- Added automatically discovered official YouTube highlights inside expandable match reports.
+- Added a polished pending state while a match video has not yet been uploaded.
+- Added automatic retrying through the free Steelers YouTube feed and official match-report embeds.
+
 ## 1.12.0 — 7 September 2026
 
 - Added automatic reading of official EIHL game-sheet PDFs for exact scorers, goal times and periods.

@@ -10,6 +10,7 @@ import ssl
 import unicodedata
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -54,6 +55,9 @@ CONFIRMED_NUMBERS = {
     "Leevi Teissala": "71", "Brandon Whistle": "74",
 }
 GAMESHEET_NAME_CORRECTIONS = {"Leevi Tiessala": "Leevi Teissala"}
+OFFICIAL_VIDEO_FEEDS = (
+    ("Sheffield Steelers TV", "https://www.youtube.com/feeds/videos.xml?channel_id=UCkROPc1dZwX75lukXesiAsg"),
+)
 
 
 def fetch_bytes(path: str) -> bytes:
@@ -69,6 +73,88 @@ def fetch(path: str) -> str:
 def text(fragment: str) -> str:
     clean = re.sub(r"<[^>]+>", " ", fragment)
     return " ".join(html.unescape(clean).split())
+
+
+def ordinal_day(day: int) -> str:
+    suffix = "th" if 10 < day % 100 < 14 else {1: "st", 2: "nd", 3: "rd"}.get(day % 10, "th")
+    return f"{day}{suffix}"
+
+
+def parse_video_feed(source: str, feed_url: str) -> list[dict]:
+    """Read an official YouTube Atom feed without requiring an API key."""
+    root = ET.fromstring(fetch_bytes(feed_url))
+    namespaces = {
+        "atom": "http://www.w3.org/2005/Atom",
+        "yt": "http://www.youtube.com/xml/schemas/2015",
+        "media": "http://search.yahoo.com/mrss/",
+    }
+    videos = []
+    for entry in root.findall("atom:entry", namespaces):
+        video_id = entry.findtext("yt:videoId", default="", namespaces=namespaces)
+        title = entry.findtext("atom:title", default="", namespaces=namespaces)
+        published = entry.findtext("atom:published", default="", namespaces=namespaces)
+        description = entry.findtext("media:group/media:description", default="", namespaces=namespaces)
+        thumbnail = entry.find("media:group/media:thumbnail", namespaces)
+        if not video_id or not title or not published:
+            continue
+        videos.append({
+            "video_id": video_id,
+            "title": title,
+            "description": description,
+            "published_at": published,
+            "url": f"https://www.youtube.com/watch?v={video_id}",
+            "embed_url": f"https://www.youtube-nocookie.com/embed/{video_id}",
+            "thumbnail_url": thumbnail.get("url") if thumbnail is not None else f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg",
+            "source": source,
+        })
+    return videos
+
+
+def match_highlight_video(game: dict, videos: list[dict]) -> dict | None:
+    """Match an official highlight upload to a completed fixture conservatively."""
+    game_day = datetime.fromisoformat(game["starts_at"]).date()
+    opponent = game["away"] if game["home"] == TEAM else game["home"]
+    opponent_alias = opponent.split()[-1].lower()
+    date_markers = {
+        game_day.strftime("%Y-%m-%d"),
+        game_day.strftime("%d/%m/%Y"),
+        f"{game_day.day} {game_day.strftime('%B %Y')}".lower(),
+        f"{ordinal_day(game_day.day)} {game_day.strftime('%B %Y')}".lower(),
+    }
+    candidates = []
+    for video in videos:
+        published_day = datetime.fromisoformat(video["published_at"].replace("Z", "+00:00")).date()
+        days_after_game = (published_day - game_day).days
+        combined = f'{video["title"]} {video.get("description", "")}'.lower()
+        if not 0 <= days_after_game <= 10 or "steelers" not in combined or opponent_alias not in combined:
+            continue
+        exact_date = any(marker in combined for marker in date_markers)
+        looks_like_highlights = "highlight" in combined or bool(re.search(r"steelers\s+(?:v|vs)\s+", combined))
+        if exact_date and looks_like_highlights:
+            candidates.append((days_after_game, video))
+    return min(candidates, key=lambda item: item[0])[1] if candidates else None
+
+
+def embedded_youtube_video(page_url: str) -> dict | None:
+    """Use a YouTube video embedded in an official match report as a backup."""
+    page = fetch(page_url)
+    video = re.search(
+        r"<iframe[^>]+src=[\"'][^\"']*(?:youtube(?:-nocookie)?\.com/embed/)([A-Za-z0-9_-]{11})",
+        page,
+        re.I,
+    )
+    if not video:
+        return None
+    video_id = video.group(1)
+    return {
+        "video_id": video_id,
+        "title": "Official match highlights",
+        "published_at": "",
+        "url": f"https://www.youtube.com/watch?v={video_id}",
+        "embed_url": f"https://www.youtube-nocookie.com/embed/{video_id}",
+        "thumbnail_url": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg",
+        "source": "Official match report",
+    }
 
 
 def parse_schedule(season_id: int, competition: str) -> list[dict]:
@@ -694,7 +780,7 @@ def main() -> None:
     }
     for game in results:
         previous = previous_results.get(game["id"], {})
-        for key in ("scorers", "finished_at", "featured_until", "gamesheet_url"):
+        for key in ("scorers", "finished_at", "featured_until", "gamesheet_url", "highlights"):
             if not game.get(key) and previous.get(key):
                 game[key] = previous[key]
     for game in results[:3]:
@@ -708,6 +794,24 @@ def main() -> None:
                     game["scorers"] = gamesheet_scorers
             except Exception as error:
                 print(f"Official gamesheet detail unavailable for {game['id']}: {error}")
+
+    official_videos = []
+    for source, feed_url in OFFICIAL_VIDEO_FEEDS:
+        try:
+            official_videos.extend(parse_video_feed(source, feed_url))
+        except Exception as error:
+            print(f"{source} highlights feed unavailable; retained existing links: {error}")
+    for game in results[:6]:
+        if game.get("highlights"):
+            continue
+        highlight = match_highlight_video(game, official_videos)
+        if not highlight and game.get("details_url"):
+            try:
+                highlight = embedded_youtube_video(game["details_url"])
+            except Exception as error:
+                print(f"Embedded highlights unavailable for {game['id']}: {error}")
+        if highlight:
+            game["highlights"] = highlight
     if results and results[0]["competition"] != "Pre-season" and not results[0].get("scorers"):
         try:
             results[0].update(parse_eihl_game_details(results[0]))
