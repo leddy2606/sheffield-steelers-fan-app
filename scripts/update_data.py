@@ -1,11 +1,13 @@
-"""Refresh the fan app from public EIHL pages using only Python's standard library."""
+"""Refresh the fan app from official EIHL and Sheffield Steelers sources."""
 
 from __future__ import annotations
 
 import html
+import io
 import json
 import re
 import ssl
+import unicodedata
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -51,12 +53,17 @@ CONFIRMED_NUMBERS = {
     "Evan Jasper": "62", "Mikko Juusola": "63", "Ryan Tait": "8",
     "Leevi Teissala": "71", "Brandon Whistle": "74",
 }
+GAMESHEET_NAME_CORRECTIONS = {"Leevi Tiessala": "Leevi Teissala"}
+
+
+def fetch_bytes(path: str) -> bytes:
+    request = urllib.request.Request(urllib.parse.urljoin(BASE, path), headers=HEADERS)
+    with urllib.request.urlopen(request, context=SSL_CONTEXT, timeout=30) as response:
+        return response.read()
 
 
 def fetch(path: str) -> str:
-    request = urllib.request.Request(urllib.parse.urljoin(BASE, path), headers=HEADERS)
-    with urllib.request.urlopen(request, context=SSL_CONTEXT, timeout=30) as response:
-        return response.read().decode("utf-8", "ignore")
+    return fetch_bytes(path).decode("utf-8", "ignore")
 
 
 def text(fragment: str) -> str:
@@ -399,6 +406,12 @@ def parse_preseason_hub(previous_url: str = "") -> tuple[list[dict], str]:
         home, away = home.strip(), away.strip()
         if home not in SLUGS and away not in SLUGS:
             continue
+        gamesheet = re.search(
+            rf"{re.escape(home)}\s+{home_score}\s*[-–:]\s*{away_score}(?:\s+(?:OT|SO))?\s+"
+            rf"{re.escape(away)}\s*\|\s*<a[^>]+href=\"([^\"]+)\"[^>]*>\s*<b>Gamesheet",
+            article.group(1),
+            re.I,
+        )
         game_date = datetime(season_year, current_month, current_day, tzinfo=LONDON)
         games.append({
             "id": f"friendly-{game_date.date().isoformat()}-{SLUGS.get(home, comparable_name(home))}-{SLUGS.get(away, comparable_name(away))}",
@@ -408,6 +421,7 @@ def parse_preseason_hub(previous_url: str = "") -> tuple[list[dict], str]:
             "home_score": int(home_score),
             "away_score": int(away_score),
             "overtime": bool(overtime),
+            "gamesheet_url": html.unescape(gamesheet.group(1)) if gamesheet else None,
         })
     if not games:
         raise ValueError("Official pre-season hub did not contain completed games")
@@ -453,6 +467,58 @@ def build_preseason_table(games: list[dict]) -> list[dict]:
     return ordered
 
 
+def gamesheet_player_name(raw_name: str) -> str:
+    """Convert a gamesheet's SURNAME Given format into a readable player name."""
+    parts = raw_name.split()
+    if len(parts) < 2:
+        return raw_name.title()
+    return " ".join([parts[-1].title(), *(part.title() for part in parts[:-1])])
+
+
+def parse_gamesheet_scorers(gamesheet_url: str, team: str = TEAM, player_names: list[str] | None = None) -> list[dict]:
+    """Read scorer numbers and exact goal times from an official EIHL PDF."""
+    from pypdf import PdfReader
+
+    document = "\n".join(page.extract_text() or "" for page in PdfReader(io.BytesIO(fetch_bytes(gamesheet_url))).pages)
+    document = unicodedata.normalize("NFKD", document).encode("ascii", "ignore").decode()
+    section = re.search(
+        rf"(?:Home \(A\)|Visitor \(B\))\s+{re.escape(team)}\s*\n([\s\S]*?)(?=(?:Home \(A\)|Visitor \(B\))\s+|Game Summary|\Z)",
+        document,
+        re.I,
+    )
+    if not section:
+        raise ValueError(f"{team} section was not found in the official gamesheet")
+    team_text = section.group(1)
+    roster_text, separator, remainder = team_text.partition("Goals\n")
+    goals_text = remainder.partition("Penalties\n")[0] if separator else ""
+    roster = {}
+    for number, name in re.findall(
+        r"^(\d{1,3})\s+(.+?)\s+(?:(?:A|C)\s+)?(?:GK|D|F)\b",
+        roster_text,
+        re.M,
+    ):
+        roster[number] = gamesheet_player_name(name.strip())
+    canonical_names = {comparable_name(name): name for name in (player_names or [])}
+    scorers = []
+    for goal_time, number, suffix in re.findall(
+        r"^\d+\s+(\d{2}:\d{2})\s+(\d{1,3})([^\n]*)$",
+        goals_text,
+        re.M,
+    ):
+        scorer = roster.get(number)
+        if not scorer:
+            continue
+        scorer = GAMESHEET_NAME_CORRECTIONS.get(scorer, canonical_names.get(comparable_name(scorer), scorer))
+        is_shootout = bool(re.search(r"\bPS\b", suffix)) or int(goal_time.split(":", 1)[0]) >= 65
+        scorers.append({
+            "team": team,
+            "scorer": scorer,
+            "time": goal_time,
+            "period": "Shootout" if is_shootout else period_for_time(goal_time),
+        })
+    return scorers
+
+
 def apply_preseason_hub_results(games: list[dict], hub_games: list[dict], source_url: str) -> None:
     """Use the official EIHL hub as a fast score fallback for Steelers friendlies."""
     results_by_fixture = {
@@ -461,11 +527,15 @@ def apply_preseason_hub_results(games: list[dict], hub_games: list[dict], source
         if game.get("date") and game.get("home") and game.get("away")
     }
     for game in games:
-        if game.get("competition") != "Pre-season" or game.get("complete"):
+        if game.get("competition") != "Pre-season":
             continue
         game_date = datetime.fromisoformat(game["starts_at"]).date().isoformat()
         result = results_by_fixture.get((game_date, game["home"], game["away"]))
         if not result:
+            continue
+        if result.get("gamesheet_url"):
+            game["gamesheet_url"] = result["gamesheet_url"]
+        if game.get("complete"):
             continue
         game.update({
             "score": f'{result["home_score"]}–{result["away_score"]}',
@@ -624,9 +694,20 @@ def main() -> None:
     }
     for game in results:
         previous = previous_results.get(game["id"], {})
-        for key in ("scorers", "finished_at", "featured_until"):
+        for key in ("scorers", "finished_at", "featured_until", "gamesheet_url"):
             if not game.get(key) and previous.get(key):
                 game[key] = previous[key]
+    for game in results[:3]:
+        missing_detail = not game.get("scorers") or any(
+            goal.get("time") == "Time unavailable" for goal in game.get("scorers", [])
+        )
+        if game.get("competition") == "Pre-season" and game.get("gamesheet_url") and missing_detail:
+            try:
+                gamesheet_scorers = parse_gamesheet_scorers(game["gamesheet_url"], player_names=player_names)
+                if gamesheet_scorers:
+                    game["scorers"] = gamesheet_scorers
+            except Exception as error:
+                print(f"Official gamesheet detail unavailable for {game['id']}: {error}")
     if results and results[0]["competition"] != "Pre-season" and not results[0].get("scorers"):
         try:
             results[0].update(parse_eihl_game_details(results[0]))
@@ -649,6 +730,7 @@ def main() -> None:
             "id": game["id"], "date": game_date, "home": game["home"], "away": game["away"],
             "home_score": home_score, "away_score": away_score,
             "overtime": previous_friendly.get("overtime", False),
+            "gamesheet_url": game.get("gamesheet_url") or previous_friendly.get("gamesheet_url"),
         }
     preseason_games = sorted(preseason_games_by_key.values(), key=lambda game: (game["date"], game["home"], game["away"]))
     preseason_table = build_preseason_table(preseason_games)

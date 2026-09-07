@@ -1,5 +1,11 @@
 # Version history
 
+## 1.12.0 — 7 September 2026
+
+- Added automatic reading of official EIHL game-sheet PDFs for exact scorers, goal times and periods.
+- Established a free fallback chain: Steelers report, EIHL game sheet, then EIHL roundup score.
+- Filled the complete scoring details for both Manchester Storm pre-season games.
+
 ## 1.11.0 — 7 September 2026
 
 - Added the official EIHL pre-season hub as a score fallback when a Steelers match report is delayed.

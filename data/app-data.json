@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T11:39:11+00:00",
+  "generated_at": "2026-09-07T12:02:19+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": false,
@@ -34,15 +34,46 @@
     "scorers": [
       {
         "team": "Sheffield Steelers",
+        "scorer": "Sean Collins",
+        "time": "23:41",
+        "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Robbie Stucker",
+        "time": "31:38",
+        "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Brandon Whistle",
+        "time": "31:53",
+        "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Leevi Teissala",
+        "time": "49:41",
+        "period": "3rd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Logan Roe",
+        "time": "58:58",
+        "period": "3rd period"
+      },
+      {
+        "team": "Sheffield Steelers",
         "scorer": "Mitchell Balmas",
-        "time": "Time unavailable",
-        "period": "Period unavailable"
+        "time": "65:00",
+        "period": "Shootout"
       }
     ],
     "venue": "AO Arena, Manchester",
     "details_url": "https://www.sheffieldsteelers.co.uk/steelers-storm-back-from-3-0-down-to-win-ao-arena-thriller/",
     "finished_at": "2026-09-06T19:00:00+01:00",
-    "featured_until": "2026-09-06T20:00:00+01:00"
+    "featured_until": "2026-09-06T20:00:00+01:00",
+    "gamesheet_url": "https://www.eliteleague.co.uk/document/187-ps27manvshe"
   },
   "upcoming": [
     {
@@ -1044,15 +1075,46 @@
       "scorers": [
         {
           "team": "Sheffield Steelers",
+          "scorer": "Sean Collins",
+          "time": "23:41",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Robbie Stucker",
+          "time": "31:38",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Brandon Whistle",
+          "time": "31:53",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Leevi Teissala",
+          "time": "49:41",
+          "period": "3rd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Logan Roe",
+          "time": "58:58",
+          "period": "3rd period"
+        },
+        {
+          "team": "Sheffield Steelers",
           "scorer": "Mitchell Balmas",
-          "time": "Time unavailable",
-          "period": "Period unavailable"
+          "time": "65:00",
+          "period": "Shootout"
         }
       ],
       "venue": "AO Arena, Manchester",
       "details_url": "https://www.sheffieldsteelers.co.uk/steelers-storm-back-from-3-0-down-to-win-ao-arena-thriller/",
       "finished_at": "2026-09-06T19:00:00+01:00",
-      "featured_until": "2026-09-06T20:00:00+01:00"
+      "featured_until": "2026-09-06T20:00:00+01:00",
+      "gamesheet_url": "https://www.eliteleague.co.uk/document/187-ps27manvshe"
     },
     {
       "id": "preseason-20260905-1900-sheffield-steelers-manchester-storm",
@@ -1066,11 +1128,37 @@
       "complete": true,
       "live": false,
       "status": "Final",
-      "scorers": [],
+      "scorers": [
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Leevi Teissala",
+          "time": "00:14",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Sean Collins",
+          "time": "22:51",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Logan Roe",
+          "time": "23:41",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Tim Gettinger",
+          "time": "40:33",
+          "period": "3rd period"
+        }
+      ],
       "venue": "Utilita Arena, Sheffield",
       "details_url": "https://www.sheffieldsteelers.co.uk/steelers-too-strong-for-storm-in-4-1-home-victory/",
       "finished_at": "2026-09-05T22:00:00+01:00",
-      "featured_until": "2026-09-05T23:00:00+01:00"
+      "featured_until": "2026-09-05T23:00:00+01:00",
+      "gamesheet_url": "https://www.eliteleague.co.uk/document/184-ps22shevman"
     },
     {
       "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
@@ -1095,7 +1183,8 @@
       "venue": "Utilita Arena, Sheffield",
       "details_url": "https://www.sheffieldsteelers.co.uk/back-home-steelers-beaten-by-devils-in-arena-opener/",
       "finished_at": "2026-08-30T19:00:00+01:00",
-      "featured_until": "2026-08-30T20:00:00+01:00"
+      "featured_until": "2026-08-30T20:00:00+01:00",
+      "gamesheet_url": "https://www.eliteleague.co.uk/document/178-ps15shevcar"
     },
     {
       "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",
@@ -1460,7 +1549,8 @@
         "away": "Odense Bulldogs",
         "home_score": 8,
         "away_score": 5,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/161-ps1-carvsode"
       },
       {
         "id": "friendly-2026-08-16-cardiff-devils-odensebulldogs",
@@ -1469,7 +1559,8 @@
         "away": "Odense Bulldogs",
         "home_score": 4,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/162-ps2-carvsode"
       },
       {
         "id": "friendly-2026-08-22-cardiff-devils-ducsdangers",
@@ -1478,7 +1569,8 @@
         "away": "Ducs D'Angers",
         "home_score": 4,
         "away_score": 2,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": null
       },
       {
         "id": "friendly-2026-08-22-jokersdecergypontoise-guildford-flames",
@@ -1487,7 +1579,8 @@
         "away": "Guildford Flames",
         "home_score": 1,
         "away_score": 4,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": null
       },
       {
         "id": "friendly-2026-08-23-glasgow-clan-dundee-stars",
@@ -1496,7 +1589,8 @@
         "away": "Dundee Stars",
         "home_score": 0,
         "away_score": 3,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/164-ps5gla-dun"
       },
       {
         "id": "friendly-2026-08-23-nottingham-panthers-ducsdangers",
@@ -1505,7 +1599,8 @@
         "away": "Ducs D'Angers",
         "home_score": 4,
         "away_score": 2,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": null
       },
       {
         "id": "friendly-2026-08-28-belfast-giants-herleveagles",
@@ -1514,7 +1609,8 @@
         "away": "Herlev Eagles",
         "home_score": 3,
         "away_score": 4,
-        "overtime": true
+        "overtime": true,
+        "gamesheet_url": null
       },
       {
         "id": "friendly-2026-08-28-fife-flyers-kyivcapitals",
@@ -1523,7 +1619,8 @@
         "away": "Kyiv Capitals",
         "home_score": 6,
         "away_score": 5,
-        "overtime": true
+        "overtime": true,
+        "gamesheet_url": "\\https://www.eliteleague.co.uk/document/168-ps6fifvskyi"
       },
       {
         "id": "friendly-2026-08-28-glasgow-clan-hkliepaja",
@@ -1532,7 +1629,8 @@
         "away": "HK Liepäja",
         "home_score": 6,
         "away_score": 4,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/167-ps8glavslie"
       },
       {
         "id": "friendly-2026-08-29-bristolpitbulls-guildford-flames",
@@ -1541,7 +1639,8 @@
         "away": "Guildford Flames",
         "home_score": 1,
         "away_score": 11,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": null
       },
       {
         "id": "preseason-20260829-1900-cardiff-devils-sheffield-steelers",
@@ -1550,7 +1649,8 @@
         "away": "Sheffield Steelers",
         "home_score": 4,
         "away_score": 3,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": null
       },
       {
         "id": "friendly-2026-08-29-coventry-blaze-manchester-storm",
@@ -1559,7 +1659,8 @@
         "away": "Manchester Storm",
         "home_score": 3,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/174-ps13covvman"
       },
       {
         "id": "friendly-2026-08-29-dundee-stars-hkliepaja",
@@ -1568,7 +1669,8 @@
         "away": "HK Liepäja",
         "home_score": 7,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/171-ps12dunvlie"
       },
       {
         "id": "friendly-2026-08-29-fife-flyers-hullseahawks",
@@ -1577,7 +1679,8 @@
         "away": "Hull Seahawks",
         "home_score": 6,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/169-ps14fifvhul"
       },
       {
         "id": "friendly-2026-08-29-glasgow-clan-kyivcapitals",
@@ -1586,7 +1689,8 @@
         "away": "Kyiv Capitals",
         "home_score": 4,
         "away_score": 7,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/173-ps11glavkyi"
       },
       {
         "id": "friendly-2026-08-29-nottingham-panthers-gothiquesdamiens",
@@ -1595,7 +1699,8 @@
         "away": "Gothiques d'Amiens",
         "home_score": 4,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/170-ps10notvami"
       },
       {
         "id": "friendly-2026-08-30-belfast-giants-herleveagles",
@@ -1604,7 +1709,8 @@
         "away": "Herlev Eagles",
         "home_score": 2,
         "away_score": 1,
-        "overtime": true
+        "overtime": true,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/177-ps16belvher"
       },
       {
         "id": "friendly-2026-08-30-coventry-blaze-gothiquesdamiens",
@@ -1613,7 +1719,8 @@
         "away": "Gothiques d'Amiens",
         "home_score": 5,
         "away_score": 4,
-        "overtime": true
+        "overtime": true,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/179-ps17covvami"
       },
       {
         "id": "friendly-2026-08-30-dundee-stars-kyivcapitals",
@@ -1622,7 +1729,8 @@
         "away": "Kyiv Capitals",
         "home_score": 6,
         "away_score": 3,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/175-ps19dunvkyi"
       },
       {
         "id": "friendly-2026-08-30-guildford-flames-bristolpitbulls",
@@ -1631,7 +1739,8 @@
         "away": "Bristol Pitbulls",
         "home_score": 9,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/176-ps18guivbri"
       },
       {
         "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
@@ -1640,7 +1749,8 @@
         "away": "Cardiff Devils",
         "home_score": 1,
         "away_score": 3,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/178-ps15shevcar"
       },
       {
         "id": "friendly-2026-09-04-glasgow-clan-ecdcmemmingen",
@@ -1649,7 +1759,8 @@
         "away": "ECDC Memmingen",
         "home_score": 4,
         "away_score": 2,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/180-ps20glavmem"
       },
       {
         "id": "friendly-2026-09-05-belfast-giants-hcambripiottawarriorcup",
@@ -1658,7 +1769,8 @@
         "away": "HC Ambri-Piotta ( Warrior Cup )",
         "home_score": 6,
         "away_score": 3,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": null
       },
       {
         "id": "friendly-2026-09-05-dundee-stars-ecdcmemmingen",
@@ -1667,7 +1779,8 @@
         "away": "ECDC Memmingen",
         "home_score": 6,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/182-ps24dunvmem"
       },
       {
         "id": "friendly-2026-09-05-guildford-flames-coventry-blaze",
@@ -1676,7 +1789,8 @@
         "away": "Coventry Blaze",
         "home_score": 7,
         "away_score": 2,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/181-ps23guivcov"
       },
       {
         "id": "friendly-2026-09-05-nottingham-panthers-cardiff-devils",
@@ -1685,7 +1799,8 @@
         "away": "Cardiff Devils",
         "home_score": 5,
         "away_score": 4,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/183-ps21notvcar"
       },
       {
         "id": "preseason-20260905-1900-sheffield-steelers-manchester-storm",
@@ -1694,7 +1809,8 @@
         "away": "Manchester Storm",
         "home_score": 4,
         "away_score": 1,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/184-ps22shevman"
       },
       {
         "id": "friendly-2026-09-06-belfast-giants-ehcredbullmunichwarriorcup",
@@ -1703,7 +1819,8 @@
         "away": "EHC Red Bull Munich ( Warrior Cup )",
         "home_score": 1,
         "away_score": 5,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": null
       },
       {
         "id": "friendly-2026-09-06-cardiff-devils-nottingham-panthers",
@@ -1712,7 +1829,8 @@
         "away": "Nottingham Panthers",
         "home_score": 5,
         "away_score": 2,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/188-ps26carvnot"
       },
       {
         "id": "friendly-2026-09-06-fife-flyers-dundee-stars",
@@ -1721,7 +1839,8 @@
         "away": "Dundee Stars",
         "home_score": 7,
         "away_score": 2,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/186-ps30fifvdun"
       },
       {
         "id": "friendly-2026-09-06-glasgow-clan-ecdcmemmingen",
@@ -1730,7 +1849,8 @@
         "away": "ECDC Memmingen",
         "home_score": 4,
         "away_score": 2,
-        "overtime": false
+        "overtime": false,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/180-ps20glavmem"
       },
       {
         "id": "preseason-20260906-1600-manchester-storm-sheffield-steelers",
@@ -1739,7 +1859,8 @@
         "away": "Sheffield Steelers",
         "home_score": 5,
         "away_score": 6,
-        "overtime": true
+        "overtime": true,
+        "gamesheet_url": "https://www.eliteleague.co.uk/document/187-ps27manvshe"
       }
     ],
     "table": [
