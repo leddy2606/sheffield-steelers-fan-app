@@ -1,5 +1,11 @@
 # Version history
 
+## 1.11.0 — 7 September 2026
+
+- Added the official EIHL pre-season hub as a score fallback when a Steelers match report is delayed.
+- Kept Steelers match reports as the richer source for scorers, periods and match details.
+- Confirmed the updater and hosting still use only free public sources and GitHub Pages.
+
 ## 1.10.0 — 30 August 2026
 
 - Showed the latest three completed games before hiding older results behind the history expander.

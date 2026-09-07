@@ -453,6 +453,32 @@ def build_preseason_table(games: list[dict]) -> list[dict]:
     return ordered
 
 
+def apply_preseason_hub_results(games: list[dict], hub_games: list[dict], source_url: str) -> None:
+    """Use the official EIHL hub as a fast score fallback for Steelers friendlies."""
+    results_by_fixture = {
+        (game["date"], game["home"], game["away"]): game
+        for game in hub_games
+        if game.get("date") and game.get("home") and game.get("away")
+    }
+    for game in games:
+        if game.get("competition") != "Pre-season" or game.get("complete"):
+            continue
+        game_date = datetime.fromisoformat(game["starts_at"]).date().isoformat()
+        result = results_by_fixture.get((game_date, game["home"], game["away"]))
+        if not result:
+            continue
+        game.update({
+            "score": f'{result["home_score"]}–{result["away_score"]}',
+            "complete": True,
+            "live": False,
+            "status": "Final (SO)" if result.get("overtime") else "Final",
+            "scorers": game.get("scorers", []),
+            "finished_at": (datetime.fromisoformat(game["starts_at"]) + timedelta(hours=3)).isoformat(),
+            "featured_until": (datetime.fromisoformat(game["starts_at"]) + timedelta(hours=4)).isoformat(),
+            "details_url": source_url or game.get("details_url"),
+        })
+
+
 def parse_standings(path: str) -> list[dict]:
     page = fetch(path)
     table_match = re.search(r"<tbody>([\s\S]*?)</tbody>", page)
@@ -563,6 +589,22 @@ def main() -> None:
         if datetime.fromisoformat(game["starts_at"]) < competitive_start:
             games_by_id[game["id"]] = game
     games = sorted(games_by_id.values(), key=lambda game: game["starts_at"])
+
+    previous_preseason = previous_payload.get("preseason", {})
+    preseason_source_url = previous_preseason.get("source_url", "")
+    preseason_games_by_key = {
+        (game["date"], game["home"], game["away"]): game
+        for game in previous_preseason.get("games", [])
+        if game.get("date") and game.get("home") and game.get("away")
+    }
+    try:
+        official_preseason_games, preseason_source_url = parse_preseason_hub(preseason_source_url)
+        for game in official_preseason_games:
+            preseason_games_by_key[(game["date"], game["home"], game["away"])] = game
+    except Exception as error:
+        print(f"Pre-season hub refresh unavailable; retained last good table: {error}")
+    apply_preseason_hub_results(games, list(preseason_games_by_key.values()), preseason_source_url)
+
     live_window = False
     for game in games:
         seconds_from_start = (now - datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc)).total_seconds()
@@ -596,19 +638,6 @@ def main() -> None:
     ), None)
     featured_game = live_game or recent_final
 
-    previous_preseason = previous_payload.get("preseason", {})
-    preseason_source_url = previous_preseason.get("source_url", "")
-    preseason_games_by_key = {
-        (game["date"], game["home"], game["away"]): game
-        for game in previous_preseason.get("games", [])
-        if game.get("date") and game.get("home") and game.get("away")
-    }
-    try:
-        official_preseason_games, preseason_source_url = parse_preseason_hub(preseason_source_url)
-        for game in official_preseason_games:
-            preseason_games_by_key[(game["date"], game["home"], game["away"])] = game
-    except Exception as error:
-        print(f"Pre-season hub refresh unavailable; retained last good table: {error}")
     for game in results:
         if game["competition"] != "Pre-season":
             continue
