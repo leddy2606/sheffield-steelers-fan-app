@@ -3,8 +3,8 @@ name: Refresh and publish
 on:
   schedule:
     - cron: "17 */3 * * *"
-    # Offset from the busiest start-of-hour window to reduce delayed/dropped GitHub schedules.
-    - cron: "3,13,23,33,43,53 * * * *"
+    # Five-minute lightweight checks; full EIHL requests only run around a scheduled match.
+    - cron: "4,9,14,19,24,29,34,39,44,49,54,59 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -23,29 +23,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check scheduled match window without contacting EIHL
+        id: window
+        run: python scripts/check_match_window.py >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         with:
           python-version: "3.12"
           cache: pip
       - name: Install free gamesheet reader
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         run: python -m pip install -r requirements.txt
       - name: Refresh official EIHL data
         id: refresh
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         run: python scripts/update_data.py
-      - name: Check live game window
-        id: live
-        run: python -c "import json; print('active=' + str(json.load(open('data/app-data.json'))['live_window']).lower())" >> "$GITHUB_OUTPUT"
       - name: Prepare free static site
-        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         run: |
           mkdir public
           cp index.html manifest.webmanifest service-worker.js public/
           cp -r assets data public/
       - uses: actions/configure-pages@v5
-        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         with:
           path: public
       - uses: actions/deploy-pages@v4
-        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.live.outputs.active == 'true'
+        if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'

@@ -281,7 +281,7 @@ def parse_eihl_game_details(game: dict) -> dict:
     score_match = re.search(r'<div class="match-score[^>]*>\s*(\d+)\s*:\s*(\d+)\s*</div>', page)
     score = f"{score_match.group(1)}–{score_match.group(2)}" if score_match else game.get("score")
     normalized = raw_status.lower()
-    complete = normalized in {"end", "final", "finished"} or normalized.startswith(("end ", "final ", "finished "))
+    complete = bool(re.fullmatch(r"(?:end(?: after (?:overtime|penalty shots?|shootout))?|final(?: score)?|finished)", normalized))
     scheduled = not raw_status or "before game" in normalized or "game starts" in normalized
     live = bool(raw_status and not complete and not scheduled)
     live_status = raw_status[:1].upper() + raw_status[1:] if raw_status else "Live"
@@ -313,6 +313,24 @@ def parse_eihl_game_details(game: dict) -> dict:
         details["finished_at"] = finished_at.isoformat()
         details["featured_until"] = (finished_at + timedelta(hours=1)).isoformat()
     return details
+
+
+def timeline_phase(status: str) -> tuple[str, str]:
+    """Translate the official coarse status into a phase for the estimated live timeline."""
+    normalized = status.lower()
+    if "shootout" in normalized or "penalt" in normalized:
+        return "shootout", "Shootout"
+    if "overtime" in normalized:
+        return "overtime", "Overtime"
+    if "intermission" in normalized or "break" in normalized or "end of" in normalized:
+        if "2" in normalized or "second" in normalized:
+            return "break2", "Second break"
+        return "break1", "First break"
+    if "3rd" in normalized or "third" in normalized:
+        return "period3", "Third period"
+    if "2nd" in normalized or "second" in normalized:
+        return "period2", "Second period"
+    return "period1", "First period"
 
 
 def parse_preseason_fixtures(player_names: list[str]) -> list[dict]:
@@ -818,6 +836,22 @@ def main() -> None:
             except Exception as error:
                 print(f"Recent game detail unavailable for {game['id']}: {error}")
     live_game = next((game for game in games if game.get("live")), None)
+    live_timeline = None
+    if live_game:
+        phase, phase_label = timeline_phase(live_game.get("status", ""))
+        previous_timeline = previous_payload.get("live_timeline") or {}
+        same_phase = (
+            previous_timeline.get("game_id") == live_game["id"]
+            and previous_timeline.get("phase") == phase
+        )
+        live_timeline = {
+            "game_id": live_game["id"],
+            "phase": phase,
+            "phase_label": phase_label,
+            "phase_started_at": previous_timeline.get("phase_started_at") if same_phase else now.replace(microsecond=0).isoformat(),
+            "observed_at": now.replace(microsecond=0).isoformat(),
+            "estimated": True,
+        }
     upcoming = [game for game in games if not game["complete"] and datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc) >= now]
     add_ticket_links(upcoming)
     stored_exact_tickets = {
@@ -953,6 +987,7 @@ def main() -> None:
         "source": "Official EIHL website",
         "live_window": live_window,
         "live_game": live_game,
+        "live_timeline": live_timeline,
         "featured_game": featured_game,
         "next_game": upcoming[0] if upcoming else None,
         "last_game": results[0] if results else None,

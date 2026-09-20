@@ -1,5 +1,12 @@
 # Version history
 
+## 1.17.0 — 20 September 2026
+
+- Increased match-window checks to GitHub's free five-minute scheduling limit.
+- Avoided unnecessary EIHL requests and deployments outside match windows; regular data still refreshes every three hours.
+- Added a minimalist live-only timeline for three periods, two breaks, overtime and shootout.
+- Clearly labels timeline movement as an estimate based on the latest official EIHL phase update.
+
 ## 1.16.0 — 20 September 2026
 
 - Rebuilt the season snapshot around automatic competition views.

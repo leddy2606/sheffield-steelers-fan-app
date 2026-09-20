@@ -1,5 +1,5 @@
 window.STEELERS_DATA = {
-  "generated_at": "2026-09-20T16:22:04+00:00",
+  "generated_at": "2026-09-20T16:59:13+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": true,
@@ -11,10 +11,10 @@ window.STEELERS_DATA = {
     "away": "Sheffield Steelers",
     "home_slug": "glasgow-clan",
     "away_slug": "sheffield-steelers",
-    "score": "0–5",
+    "score": "1–6",
     "complete": false,
     "live": true,
-    "status": "2nd period",
+    "status": "3rd period",
     "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
     "scorers": [
       {
@@ -46,8 +46,22 @@ window.STEELERS_DATA = {
         "scorer": "Mitchell Balmas",
         "time": "28:35",
         "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Sean Collins",
+        "time": "45:05",
+        "period": "3rd period"
       }
     ]
+  },
+  "live_timeline": {
+    "game_id": "7114-gla-she",
+    "phase": "period3",
+    "phase_label": "Third period",
+    "phase_started_at": "2026-09-20T16:59:13+00:00",
+    "observed_at": "2026-09-20T16:59:13+00:00",
+    "estimated": true
   },
   "featured_game": {
     "id": "7114-gla-she",
@@ -57,10 +71,10 @@ window.STEELERS_DATA = {
     "away": "Sheffield Steelers",
     "home_slug": "glasgow-clan",
     "away_slug": "sheffield-steelers",
-    "score": "0–5",
+    "score": "1–6",
     "complete": false,
     "live": true,
-    "status": "2nd period",
+    "status": "3rd period",
     "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
     "scorers": [
       {
@@ -92,6 +106,12 @@ window.STEELERS_DATA = {
         "scorer": "Mitchell Balmas",
         "time": "28:35",
         "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Sean Collins",
+        "time": "45:05",
+        "period": "3rd period"
       }
     ]
   },
