@@ -90,19 +90,24 @@ def text(fragment: str) -> str:
 
 
 def news_category(title: str, excerpt: str = "") -> str:
-    """Apply conservative labels without inventing a reason for a roster change."""
-    value = f"{title} {excerpt}".casefold()
-    rules = (
-        ("Suspension", ("suspend", "ban", "disciplin")),
-        ("Injury / availability", ("injur", "ruled out", "unavailable", "fitness")),
-        ("Signing", ("signs", "signed", "signing", "joins", "re-sign", "returns to sheffield")),
-        ("Departure", ("depart", "released", "leaves", "parts company", "contract terminated")),
-        ("Team news", ("roster", "line-up", "lineup", "squad", "team news")),
+    """Keep only concrete player-status news and reject promotional club stories."""
+    headline = title.casefold()
+    detail = f"{title} {excerpt}".casefold()
+    if any(needle in detail for needle in ("suspended", "suspension", "banned", "match ban", "dops", "disciplinary")):
+        return "Suspension"
+    if any(needle in detail for needle in ("injured", "injury", "ruled out", "will miss", "unavailable for", "injured reserve")):
+        return "Injury / availability"
+    promotional = any(needle in headline for needle in ("signed shirt", "team signed", "win a ", "auction", "raffle", "closing in", "could sign"))
+    signing_phrases = (
+        "signs for", "signs with", "new signing", "signing of", "joins the steelers",
+        "joins sheffield", "re-signing", "re-signs", "steelers sign", "announce signing",
+        "returns to sheffield", "added to the roster",
     )
-    for label, needles in rules:
-        if any(needle in value for needle in needles):
-            return label
-    return "Club news"
+    if not promotional and any(needle in headline for needle in signing_phrases):
+        return "Signing"
+    if any(needle in headline for needle in ("departs", "departure", "released", " leaves", "parts company", "contract terminated")):
+        return "Departure"
+    return ""
 
 
 def parse_news_date(value: str) -> str:
@@ -125,7 +130,7 @@ def parse_eihl_display_date(value: str) -> str:
         return ""
 def parse_steelers_news() -> list[dict]:
     """Read the club's public WordPress feed without an API key."""
-    query = urllib.parse.urlencode({"per_page": 30, "orderby": "date", "order": "desc"})
+    query = urllib.parse.urlencode({"per_page": 100, "orderby": "date", "order": "desc"})
     posts = json.loads(fetch(f"{STEELERS_NEWS_API}?{query}"))
     items = []
     for post in posts:
@@ -134,11 +139,14 @@ def parse_steelers_news() -> list[dict]:
         url = post.get("link", "")
         if not title or not url:
             continue
+        category = news_category(title, excerpt)
+        if not category:
+            continue
         items.append({
             "id": f"steelers-{post.get('id', urllib.parse.urlparse(url).path)}",
             "title": title,
             "excerpt": excerpt[:240],
-            "category": news_category(title, excerpt),
+            "category": category,
             "published_at": parse_news_date(post.get("date_gmt") or post.get("date", "")),
             "source": "Sheffield Steelers",
             "url": url,
@@ -158,15 +166,16 @@ def parse_eihl_news(player_names: list[str]) -> list[dict]:
             url = urllib.parse.urljoin(BASE, html.unescape(match.group("href")))
             title = text(match.group("body"))
             context = text(page[max(0, match.start() - 500):match.end() + 500])
-            searchable = comparable_name(f"{title} {context}")
-            if not title or not any(term in searchable for term in identity_terms):
+            searchable = comparable_name(title)
+            category = news_category(title, context)
+            if not title or not category or not any(term in searchable for term in identity_terms):
                 continue
             slug_id = re.search(r"/article/(\d+)", url)
             items[url] = {
                 "id": f"eihl-{slug_id.group(1) if slug_id else urllib.parse.urlparse(url).path}",
                 "title": title,
                 "excerpt": "Official EIHL announcement concerning Sheffield Steelers.",
-                "category": news_category(title, context),
+                "category": category,
                 "published_at": parse_eihl_display_date(context),
                 "source": "EIHL",
                 "url": url,
@@ -193,9 +202,14 @@ def refresh_news(previous: dict | None, player_names: list[str], now: datetime) 
         if not existing or item.get("published_at", "") > existing.get("published_at", ""):
             by_url[item["url"]] = item
     items = sorted(by_url.values(), key=lambda item: item.get("published_at") or "", reverse=True)
-    if not items and previous and previous.get("items"):
+    previous_items = []
+    for item in (previous or {}).get("items", []):
+        category = news_category(item.get("title", ""), item.get("excerpt", ""))
+        if category:
+            previous_items.append({**item, "category": category})
+    if not items and previous_items:
         print(f"News refresh unavailable; retained last good feed: {'; '.join(errors)}")
-        return previous
+        return {**previous, "items": previous_items}
     if errors:
         print(f"News refresh partially unavailable: {'; '.join(errors)}")
     club_items = [item for item in items if item["source"] == "Sheffield Steelers"][:24]

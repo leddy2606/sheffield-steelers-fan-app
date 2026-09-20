@@ -1,5 +1,11 @@
 # Version history
 
+## 1.18.1 — 20 September 2026
+
+- Replaced the broad news feed with a focused player-availability and roster feed.
+- Excluded match reactions, interviews, sponsorship posts, promotions and general club chatter.
+- Retained only confirmed injuries, suspensions, signings and departures from official sources.
+
 ## 1.18.0 — 20 September 2026
 
 - Added a Steelers-focused news section above Quick Links.
