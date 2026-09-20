@@ -1,5 +1,10 @@
 # Version history
 
+## 1.17.1 — 20 September 2026
+
+- Added a second-by-second estimated clock to the live period/break timeline.
+- Shows both elapsed time and estimated time remaining, with an open-ended elapsed clock for shootouts.
+
 ## 1.17.0 — 20 September 2026
 
 - Increased match-window checks to GitHub's free five-minute scheduling limit.
