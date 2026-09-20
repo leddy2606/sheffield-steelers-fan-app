@@ -898,22 +898,54 @@ def main() -> None:
 
     league = parse_standings("/standings/2026/57-elite-ice-hockey-league")
     cup = parse_standings("/standings/2026/58-challenge-cup")
-    steelers_row = next((row for row in league if row["team"] == TEAM), None)
+    competition_rows = {
+        "league": next((row for row in league if row["team"] == TEAM), None),
+        "cup": next((row for row in cup if row["team"] == TEAM), None),
+        "preseason": next((row for row in preseason_table if row["team"] == TEAM), None),
+    }
+    competition_names = {
+        "league": "EIHL League",
+        "cup": "Challenge Cup",
+        "preseason": "Pre-season",
+    }
 
-    form = []
-    for game in results[:5]:
-        home_score, away_score = (int(value) for value in game["score"].split("–"))
-        steelers_score = home_score if game["home"] == TEAM else away_score
-        opponent_score = away_score if game["home"] == TEAM else home_score
-        form.append("W" if steelers_score > opponent_score else "L")
+    def recent_form(competition: str | None = None) -> list[str]:
+        form = []
+        matching_results = (
+            game for game in results
+            if competition is None or game["competition"] == competition
+        )
+        for game in matching_results:
+            home_score, away_score = (int(value) for value in game["score"].split("–"))
+            steelers_score = home_score if game["home"] == TEAM else away_score
+            opponent_score = away_score if game["home"] == TEAM else home_score
+            form.append("W" if steelers_score > opponent_score else "L")
+            if len(form) == 5:
+                break
+        return form
 
-    snapshot = {
-        "position": steelers_row["position"] if steelers_row and steelers_row["played"] > 0 else None,
-        "played": steelers_row["played"] if steelers_row else 0,
-        "points": steelers_row["points"] if steelers_row else 0,
-        "wins": steelers_row["wins"] if steelers_row else 0,
-        "goals_for": steelers_row["goals_for"] if steelers_row else 0,
-        "form": form,
+    snapshots = {}
+    for key, competition in competition_names.items():
+        row = competition_rows[key] or {}
+        snapshots[key] = {
+            "label": competition,
+            "rank_label": "Position",
+            "rank_value": row.get("position") if row.get("played", 0) > 0 else None,
+            "played": row.get("played", 0),
+            "points": row.get("points", 0),
+            "wins": row.get("wins", 0),
+            "goals_for": row.get("goals_for", 0),
+            "form": recent_form(competition),
+        }
+    snapshots["all"] = {
+        "label": "All competitions",
+        "rank_label": "Competitions",
+        "rank_value": sum(1 for row in competition_rows.values() if row and row.get("played", 0) > 0),
+        "played": sum((row or {}).get("played", 0) for row in competition_rows.values()),
+        "points": sum((row or {}).get("points", 0) for row in competition_rows.values()),
+        "wins": sum((row or {}).get("wins", 0) for row in competition_rows.values()),
+        "goals_for": sum((row or {}).get("goals_for", 0) for row in competition_rows.values()),
+        "form": recent_form(),
     }
     payload = {
         "generated_at": now.replace(microsecond=0).isoformat(),
@@ -934,7 +966,8 @@ def main() -> None:
             "games": preseason_games,
             "table": preseason_table,
         },
-        "snapshot": snapshot,
+        "snapshots": snapshots,
+        "snapshot": snapshots["all"],
         "roster": roster,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

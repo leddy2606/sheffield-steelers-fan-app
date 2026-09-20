@@ -1,5 +1,5 @@
 window.STEELERS_DATA = {
-  "generated_at": "2026-09-20T16:08:02+00:00",
+  "generated_at": "2026-09-20T16:22:04+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": true,
@@ -11,7 +11,7 @@ window.STEELERS_DATA = {
     "away": "Sheffield Steelers",
     "home_slug": "glasgow-clan",
     "away_slug": "sheffield-steelers",
-    "score": "0–4",
+    "score": "0–5",
     "complete": false,
     "live": true,
     "status": "2nd period",
@@ -40,6 +40,12 @@ window.STEELERS_DATA = {
         "scorer": "Ryan Tait",
         "time": "21:26",
         "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "28:35",
+        "period": "2nd period"
       }
     ]
   },
@@ -51,7 +57,7 @@ window.STEELERS_DATA = {
     "away": "Sheffield Steelers",
     "home_slug": "glasgow-clan",
     "away_slug": "sheffield-steelers",
-    "score": "0–4",
+    "score": "0–5",
     "complete": false,
     "live": true,
     "status": "2nd period",
@@ -79,6 +85,12 @@ window.STEELERS_DATA = {
         "team": "Sheffield Steelers",
         "scorer": "Ryan Tait",
         "time": "21:26",
+        "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "28:35",
         "period": "2nd period"
       }
     ]
@@ -2318,12 +2330,71 @@ window.STEELERS_DATA = {
       }
     ]
   },
+  "snapshots": {
+    "league": {
+      "label": "EIHL League",
+      "rank_label": "Position",
+      "rank_value": null,
+      "played": 0,
+      "points": 0,
+      "wins": 0,
+      "goals_for": 0,
+      "form": []
+    },
+    "cup": {
+      "label": "Challenge Cup",
+      "rank_label": "Position",
+      "rank_value": 1,
+      "played": 3,
+      "points": 6,
+      "wins": 3,
+      "goals_for": 14,
+      "form": [
+        "W",
+        "W",
+        "W"
+      ]
+    },
+    "preseason": {
+      "label": "Pre-season",
+      "rank_label": "Position",
+      "rank_value": 8,
+      "played": 4,
+      "points": 4,
+      "wins": 2,
+      "goals_for": 14,
+      "form": [
+        "W",
+        "W",
+        "L",
+        "L"
+      ]
+    },
+    "all": {
+      "label": "All competitions",
+      "rank_label": "Competitions",
+      "rank_value": 2,
+      "played": 7,
+      "points": 10,
+      "wins": 5,
+      "goals_for": 28,
+      "form": [
+        "W",
+        "W",
+        "W",
+        "W",
+        "W"
+      ]
+    }
+  },
   "snapshot": {
-    "position": null,
-    "played": 0,
-    "points": 0,
-    "wins": 0,
-    "goals_for": 0,
+    "label": "All competitions",
+    "rank_label": "Competitions",
+    "rank_value": 2,
+    "played": 7,
+    "points": 10,
+    "wins": 5,
+    "goals_for": 28,
     "form": [
       "W",
       "W",

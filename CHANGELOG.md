@@ -1,5 +1,11 @@
 # Version history
 
+## 1.16.0 — 20 September 2026
+
+- Rebuilt the season snapshot around automatic competition views.
+- Added All competitions, EIHL League, Challenge Cup and Pre-season filters.
+- Each view now recalculates position/scope, games, points, wins, goals and recent form from its matching table and results.
+
 ## 1.15.0 — 20 September 2026
 
 - Fixed completed overtime games being mistaken for matches still in progress.
