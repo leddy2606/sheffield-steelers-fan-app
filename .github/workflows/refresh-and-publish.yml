@@ -3,7 +3,8 @@ name: Refresh and publish
 on:
   schedule:
     - cron: "17 */3 * * *"
-    - cron: "*/10 * * * *"
+    # Offset from the busiest start-of-hour window to reduce delayed/dropped GitHub schedules.
+    - cron: "3,13,23,33,43,53 * * * *"
   workflow_dispatch:
   push:
     branches: [main]

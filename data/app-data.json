@@ -1,147 +1,153 @@
 {
-  "generated_at": "2026-09-07T14:42:27+00:00",
+  "generated_at": "2026-09-20T16:08:02+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
-  "live_window": false,
-  "live_game": null,
-  "featured_game": null,
-  "next_game": {
-    "id": "7383-she-cov",
-    "starts_at": "2026-09-12T19:00:00+01:00",
-    "competition": "Challenge Cup",
-    "home": "Sheffield Steelers",
-    "away": "Coventry Blaze",
-    "home_slug": "sheffield-steelers",
-    "away_slug": "coventry-blaze",
-    "score": null,
-    "complete": false,
-    "live": false,
-    "status": "Scheduled",
-    "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov",
-    "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-blaze-sheffield-12-09-2026/event/35006501E65D9B26",
-    "ticket_exact": true
-  },
-  "last_game": {
-    "id": "preseason-20260906-1600-manchester-storm-sheffield-steelers",
-    "starts_at": "2026-09-06T16:00:00+01:00",
-    "competition": "Pre-season",
-    "home": "Manchester Storm",
+  "live_window": true,
+  "live_game": {
+    "id": "7114-gla-she",
+    "starts_at": "2026-09-20T16:00:00+01:00",
+    "competition": "EIHL League",
+    "home": "Glasgow Clan",
     "away": "Sheffield Steelers",
-    "home_slug": "manchester-storm",
+    "home_slug": "glasgow-clan",
     "away_slug": "sheffield-steelers",
-    "score": "5–6",
-    "complete": true,
-    "live": false,
-    "status": "Final",
+    "score": "0–4",
+    "complete": false,
+    "live": true,
+    "status": "2nd period",
+    "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
     "scorers": [
       {
         "team": "Sheffield Steelers",
-        "scorer": "Sean Collins",
-        "time": "23:41",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Robbie Stucker",
-        "time": "31:38",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Brandon Whistle",
-        "time": "31:53",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Leevi Teissala",
-        "time": "49:41",
-        "period": "3rd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Logan Roe",
-        "time": "58:58",
-        "period": "3rd period"
+        "scorer": "Mitchell Balmas",
+        "time": "03:38",
+        "period": "1st period"
       },
       {
         "team": "Sheffield Steelers",
         "scorer": "Mitchell Balmas",
-        "time": "65:00",
-        "period": "Shootout"
+        "time": "07:05",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Dominic Cormier",
+        "time": "14:51",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Ryan Tait",
+        "time": "21:26",
+        "period": "2nd period"
+      }
+    ]
+  },
+  "featured_game": {
+    "id": "7114-gla-she",
+    "starts_at": "2026-09-20T16:00:00+01:00",
+    "competition": "EIHL League",
+    "home": "Glasgow Clan",
+    "away": "Sheffield Steelers",
+    "home_slug": "glasgow-clan",
+    "away_slug": "sheffield-steelers",
+    "score": "0–4",
+    "complete": false,
+    "live": true,
+    "status": "2nd period",
+    "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
+    "scorers": [
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "03:38",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "07:05",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Dominic Cormier",
+        "time": "14:51",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Ryan Tait",
+        "time": "21:26",
+        "period": "2nd period"
+      }
+    ]
+  },
+  "next_game": {
+    "id": "7116-gui-she",
+    "starts_at": "2026-09-23T19:30:00+01:00",
+    "competition": "EIHL League",
+    "home": "Guildford Flames",
+    "away": "Sheffield Steelers",
+    "home_slug": "guildford-flames",
+    "away_slug": "sheffield-steelers",
+    "score": null,
+    "complete": false,
+    "live": false,
+    "status": "Scheduled",
+    "details_url": "https://www.eliteleague.co.uk/game/7116-gui-she",
+    "ticket_url": "https://www.guildfordflames.co.uk/tickets",
+    "ticket_exact": false
+  },
+  "last_game": {
+    "id": "7398-she-not",
+    "starts_at": "2026-09-19T19:00:00+01:00",
+    "competition": "Challenge Cup",
+    "home": "Sheffield Steelers",
+    "away": "Nottingham Panthers",
+    "home_slug": "sheffield-steelers",
+    "away_slug": "nottingham-panthers",
+    "score": "3–2",
+    "complete": true,
+    "live": false,
+    "status": "Final",
+    "details_url": "https://www.eliteleague.co.uk/game/7398-she-not",
+    "scorers": [
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "20:16",
+        "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "51:11",
+        "period": "3rd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Ryan Tait",
+        "time": "64:23",
+        "period": "Overtime"
+      },
+      {
+        "team": "Nottingham Panthers",
+        "scorer": "Tim Doherty",
+        "time": "26:47",
+        "period": "2nd period"
+      },
+      {
+        "team": "Nottingham Panthers",
+        "scorer": "Joe Hazeldine",
+        "time": "29:36",
+        "period": "2nd period"
       }
     ],
-    "venue": "AO Arena, Manchester",
-    "details_url": "https://www.sheffieldsteelers.co.uk/steelers-storm-back-from-3-0-down-to-win-ao-arena-thriller/",
-    "finished_at": "2026-09-06T19:00:00+01:00",
-    "featured_until": "2026-09-06T20:00:00+01:00",
-    "gamesheet_url": "https://www.eliteleague.co.uk/document/187-ps27manvshe"
+    "finished_at": "2026-09-19T21:49:00+01:00",
+    "featured_until": "2026-09-19T22:49:00+01:00"
   },
   "upcoming": [
-    {
-      "id": "7383-she-cov",
-      "starts_at": "2026-09-12T19:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Sheffield Steelers",
-      "away": "Coventry Blaze",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "coventry-blaze",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-blaze-sheffield-12-09-2026/event/35006501E65D9B26",
-      "ticket_exact": true
-    },
-    {
-      "id": "7392-gui-she",
-      "starts_at": "2026-09-13T18:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Guildford Flames",
-      "away": "Sheffield Steelers",
-      "home_slug": "guildford-flames",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she",
-      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
-      "ticket_exact": false
-    },
-    {
-      "id": "7398-she-not",
-      "starts_at": "2026-09-19T19:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Sheffield Steelers",
-      "away": "Nottingham Panthers",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "nottingham-panthers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-panthers-sheffield-19-09-2026/event/35006505DADD4EC9",
-      "ticket_exact": true
-    },
-    {
-      "id": "7114-gla-she",
-      "starts_at": "2026-09-20T16:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Glasgow Clan",
-      "away": "Sheffield Steelers",
-      "home_slug": "glasgow-clan",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
-      "ticket_url": "https://clanihc.com/tickets/game-day-tickets/",
-      "ticket_exact": false
-    },
     {
       "id": "7116-gui-she",
       "starts_at": "2026-09-23T19:30:00+01:00",
@@ -173,73 +179,73 @@
       "details_url": "https://www.eliteleague.co.uk/game/7404-she-car",
       "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-devils-sheffield-26-09-2026/event/35006505DADF4ECE",
       "ticket_exact": true
+    },
+    {
+      "id": "7408-cov-she",
+      "starts_at": "2026-09-27T17:30:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Coventry Blaze",
+      "away": "Sheffield Steelers",
+      "home_slug": "coventry-blaze",
+      "away_slug": "sheffield-steelers",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7408-cov-she",
+      "ticket_url": "https://coventryblaze.co.uk/tickets/",
+      "ticket_exact": false
+    },
+    {
+      "id": "7121-she-fif",
+      "starts_at": "2026-10-03T19:00:00+01:00",
+      "competition": "EIHL League",
+      "home": "Sheffield Steelers",
+      "away": "Fife Flyers",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "fife-flyers",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7121-she-fif",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flyers-sheffield-03-10-2026/event/35006505DAE14ED7",
+      "ticket_exact": true
+    },
+    {
+      "id": "7123-fif-she",
+      "starts_at": "2026-10-04T17:00:00+01:00",
+      "competition": "EIHL League",
+      "home": "Fife Flyers",
+      "away": "Sheffield Steelers",
+      "home_slug": "fife-flyers",
+      "away_slug": "sheffield-steelers",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7123-fif-she",
+      "ticket_url": "https://fifeflyers.co.uk/tickets-2/",
+      "ticket_exact": false
+    },
+    {
+      "id": "7130-she-gla",
+      "starts_at": "2026-10-10T19:00:00+01:00",
+      "competition": "EIHL League",
+      "home": "Sheffield Steelers",
+      "away": "Glasgow Clan",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "glasgow-clan",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7130-she-gla",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-clan-sheffield-10-10-2026/event/35006505DAE24ED9",
+      "ticket_exact": true
     }
   ],
   "all_upcoming": [
-    {
-      "id": "7383-she-cov",
-      "starts_at": "2026-09-12T19:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Sheffield Steelers",
-      "away": "Coventry Blaze",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "coventry-blaze",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-blaze-sheffield-12-09-2026/event/35006501E65D9B26",
-      "ticket_exact": true
-    },
-    {
-      "id": "7392-gui-she",
-      "starts_at": "2026-09-13T18:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Guildford Flames",
-      "away": "Sheffield Steelers",
-      "home_slug": "guildford-flames",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she",
-      "ticket_url": "https://www.guildfordflames.co.uk/tickets",
-      "ticket_exact": false
-    },
-    {
-      "id": "7398-she-not",
-      "starts_at": "2026-09-19T19:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Sheffield Steelers",
-      "away": "Nottingham Panthers",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "nottingham-panthers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-panthers-sheffield-19-09-2026/event/35006505DADD4EC9",
-      "ticket_exact": true
-    },
-    {
-      "id": "7114-gla-she",
-      "starts_at": "2026-09-20T16:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Glasgow Clan",
-      "away": "Sheffield Steelers",
-      "home_slug": "glasgow-clan",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
-      "ticket_url": "https://clanihc.com/tickets/game-day-tickets/",
-      "ticket_exact": false
-    },
     {
       "id": "7116-gui-she",
       "starts_at": "2026-09-23T19:30:00+01:00",
@@ -525,8 +531,8 @@
       "live": false,
       "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7166-she-cov",
-      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
-      "ticket_exact": false
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-blaze-sheffield-15-11-2026/event/35006505DAEF4F0E",
+      "ticket_exact": true
     },
     {
       "id": "7172-cov-she",
@@ -557,8 +563,8 @@
       "live": false,
       "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7175-she-car",
-      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
-      "ticket_exact": false
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-devils-sheffield-22-11-2026/event/35006505DAF14F1D",
+      "ticket_exact": true
     },
     {
       "id": "7184-dun-she",
@@ -1203,6 +1209,190 @@
   ],
   "results": [
     {
+      "id": "7398-she-not",
+      "starts_at": "2026-09-19T19:00:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Sheffield Steelers",
+      "away": "Nottingham Panthers",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "nottingham-panthers",
+      "score": "3–2",
+      "complete": true,
+      "live": false,
+      "status": "Final",
+      "details_url": "https://www.eliteleague.co.uk/game/7398-she-not",
+      "scorers": [
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "20:16",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "51:11",
+          "period": "3rd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Ryan Tait",
+          "time": "64:23",
+          "period": "Overtime"
+        },
+        {
+          "team": "Nottingham Panthers",
+          "scorer": "Tim Doherty",
+          "time": "26:47",
+          "period": "2nd period"
+        },
+        {
+          "team": "Nottingham Panthers",
+          "scorer": "Joe Hazeldine",
+          "time": "29:36",
+          "period": "2nd period"
+        }
+      ],
+      "finished_at": "2026-09-19T21:49:00+01:00",
+      "featured_until": "2026-09-19T22:49:00+01:00"
+    },
+    {
+      "id": "7392-gui-she",
+      "starts_at": "2026-09-13T18:00:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Guildford Flames",
+      "away": "Sheffield Steelers",
+      "home_slug": "guildford-flames",
+      "away_slug": "sheffield-steelers",
+      "score": "4–5",
+      "complete": true,
+      "live": false,
+      "status": "Final",
+      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she",
+      "scorers": [
+        {
+          "team": "Guildford Flames",
+          "scorer": "Jake Willets",
+          "time": "06:06",
+          "period": "1st period"
+        },
+        {
+          "team": "Guildford Flames",
+          "scorer": "Jonathan Racine",
+          "time": "06:29",
+          "period": "1st period"
+        },
+        {
+          "team": "Guildford Flames",
+          "scorer": "Jonathan Racine",
+          "time": "16:21",
+          "period": "1st period"
+        },
+        {
+          "team": "Guildford Flames",
+          "scorer": "Chase Gresock",
+          "time": "52:37",
+          "period": "3rd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Olivier Archambault",
+          "time": "18:14",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Robert Dowd",
+          "time": "30:42",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Ryan Tait",
+          "time": "35:56",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "57:46",
+          "period": "3rd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "65:00",
+          "period": "Overtime"
+        }
+      ],
+      "finished_at": "2026-09-13T20:48:00+01:00",
+      "featured_until": "2026-09-13T21:48:00+01:00"
+    },
+    {
+      "id": "7383-she-cov",
+      "starts_at": "2026-09-12T19:00:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Sheffield Steelers",
+      "away": "Coventry Blaze",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "coventry-blaze",
+      "score": "6–0",
+      "complete": true,
+      "live": false,
+      "status": "Final",
+      "details_url": "https://www.eliteleague.co.uk/game/7383-she-cov",
+      "scorers": [
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Ivan Bjorkly Nordstrom",
+          "time": "13:54",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Olivier Archambault",
+          "time": "16:14",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Robert Dowd",
+          "time": "18:27",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mikko Juusola",
+          "time": "20:18",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Evan Jasper",
+          "time": "28:21",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Leevi Teissala",
+          "time": "50:58",
+          "period": "3rd period"
+        }
+      ],
+      "finished_at": "2026-09-12T21:30:00+01:00",
+      "featured_until": "2026-09-12T22:30:00+01:00",
+      "highlights": {
+        "video_id": "_twJUp7trAw",
+        "title": "Sheffield Steelers v Coventry Blaze - Challenge Cup - 12th September 2026",
+        "description": "",
+        "published_at": "2026-09-15T11:45:27+00:00",
+        "url": "https://www.youtube.com/watch?v=_twJUp7trAw",
+        "embed_url": "https://www.youtube-nocookie.com/embed/_twJUp7trAw",
+        "thumbnail_url": "https://i4.ytimg.com/vi/_twJUp7trAw/hqdefault.jpg",
+        "source": "Sheffield Steelers TV"
+      }
+    },
+    {
       "id": "preseason-20260906-1600-manchester-storm-sheffield-steelers",
       "starts_at": "2026-09-06T16:00:00+01:00",
       "competition": "Pre-season",
@@ -1217,39 +1407,9 @@
       "scorers": [
         {
           "team": "Sheffield Steelers",
-          "scorer": "Sean Collins",
-          "time": "23:41",
-          "period": "2nd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Robbie Stucker",
-          "time": "31:38",
-          "period": "2nd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Brandon Whistle",
-          "time": "31:53",
-          "period": "2nd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Leevi Teissala",
-          "time": "49:41",
-          "period": "3rd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Logan Roe",
-          "time": "58:58",
-          "period": "3rd period"
-        },
-        {
-          "team": "Sheffield Steelers",
           "scorer": "Mitchell Balmas",
-          "time": "65:00",
-          "period": "Shootout"
+          "time": "Time unavailable",
+          "period": "Period unavailable"
         }
       ],
       "venue": "AO Arena, Manchester",
@@ -1300,7 +1460,17 @@
       "details_url": "https://www.sheffieldsteelers.co.uk/steelers-too-strong-for-storm-in-4-1-home-victory/",
       "finished_at": "2026-09-05T22:00:00+01:00",
       "featured_until": "2026-09-05T23:00:00+01:00",
-      "gamesheet_url": "https://www.eliteleague.co.uk/document/184-ps22shevman"
+      "gamesheet_url": "https://www.eliteleague.co.uk/document/184-ps22shevman",
+      "highlights": {
+        "video_id": "tuU2EqFuCkY",
+        "title": "Sheffield Steelers v Manchester Storm - Pre-Season - 5th September 2026",
+        "description": "Highlights from the Sheffield Steelers v Manchester Storm pre-season game on Saturday 5th September 2026. Post-match reaction from head coaches Aaron Fox and Cam Critchlow. Commentary from Jonathan Fearnley and Dylan Pick.  © Sheffield Steelers 2026",
+        "published_at": "2026-09-08T10:26:04+00:00",
+        "url": "https://www.youtube.com/watch?v=tuU2EqFuCkY",
+        "embed_url": "https://www.youtube-nocookie.com/embed/tuU2EqFuCkY",
+        "thumbnail_url": "https://i1.ytimg.com/vi/tuU2EqFuCkY/hqdefault.jpg",
+        "source": "Sheffield Steelers TV"
+      }
     },
     {
       "id": "preseason-20260830-1600-sheffield-steelers-cardiff-devils",
@@ -1494,67 +1664,67 @@
         "position": 1,
         "team": "Sheffield Steelers",
         "slug": "sheffield-steelers",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
+        "played": 3,
+        "points": 6,
+        "wins": 3,
         "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "goals_for": 14,
+        "goals_against": 6
       },
       {
         "position": 2,
-        "team": "Nottingham Panthers",
-        "slug": "nottingham-panthers",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "team": "Cardiff Devils",
+        "slug": "cardiff-devils",
+        "played": 4,
+        "points": 4,
+        "wins": 2,
+        "losses": 2,
+        "goals_for": 10,
+        "goals_against": 11
       },
       {
         "position": 3,
-        "team": "Cardiff Devils",
-        "slug": "cardiff-devils",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "team": "Nottingham Panthers",
+        "slug": "nottingham-panthers",
+        "played": 2,
+        "points": 3,
+        "wins": 1,
+        "losses": 1,
+        "goals_for": 6,
+        "goals_against": 6
       },
       {
         "position": 4,
         "team": "Manchester Storm",
         "slug": "manchester-storm",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "played": 3,
+        "points": 3,
+        "wins": 1,
+        "losses": 2,
+        "goals_for": 10,
+        "goals_against": 11
       },
       {
         "position": 5,
-        "team": "Coventry Blaze",
-        "slug": "coventry-blaze",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "team": "Guildford Flames",
+        "slug": "guildford-flames",
+        "played": 3,
+        "points": 3,
+        "wins": 1,
+        "losses": 2,
+        "goals_for": 10,
+        "goals_against": 9
       },
       {
         "position": 6,
-        "team": "Guildford Flames",
-        "slug": "guildford-flames",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "team": "Coventry Blaze",
+        "slug": "coventry-blaze",
+        "played": 3,
+        "points": 2,
+        "wins": 1,
+        "losses": 2,
+        "goals_for": 6,
+        "goals_against": 13
       }
     ],
     "preseason": [
@@ -2157,8 +2327,9 @@
     "form": [
       "W",
       "W",
-      "L",
-      "L"
+      "W",
+      "W",
+      "W"
     ]
   },
   "roster": {
@@ -2176,7 +2347,7 @@
         },
         {
           "name": "Curtis Warburton",
-          "number": null
+          "number": "34"
         }
       ],
       "defence": [
@@ -2224,7 +2395,7 @@
         },
         {
           "name": "Tim Gettinger",
-          "number": null
+          "number": "25"
         },
         {
           "name": "Evan Jasper",
@@ -2236,7 +2407,7 @@
         },
         {
           "name": "Adam Rockwood",
-          "number": null
+          "number": "91"
         },
         {
           "name": "Ryan Tait",

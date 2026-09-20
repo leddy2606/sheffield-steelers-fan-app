@@ -1,5 +1,11 @@
 # Version history
 
+## 1.15.0 — 20 September 2026
+
+- Fixed completed overtime games being mistaken for matches still in progress.
+- Added a seven-day recovery check for missing results, so delayed schedule scores do not make games disappear.
+- Offset the free ten-minute GitHub schedule to reduce delayed or dropped runs at busy times.
+
 ## 1.14.1 — 7 September 2026
 
 - Retains verified exact event links when Ticketmaster blocks an automated refresh, instead of downgrading them.

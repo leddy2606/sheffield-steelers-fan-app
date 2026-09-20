@@ -281,7 +281,7 @@ def parse_eihl_game_details(game: dict) -> dict:
     score_match = re.search(r'<div class="match-score[^>]*>\s*(\d+)\s*:\s*(\d+)\s*</div>', page)
     score = f"{score_match.group(1)}–{score_match.group(2)}" if score_match else game.get("score")
     normalized = raw_status.lower()
-    complete = normalized in {"end", "final", "finished"}
+    complete = normalized in {"end", "final", "finished"} or normalized.startswith(("end ", "final ", "finished "))
     scheduled = not raw_status or "before game" in normalized or "game starts" in normalized
     live = bool(raw_status and not complete and not scheduled)
     live_status = raw_status[:1].upper() + raw_status[1:] if raw_status else "Live"
@@ -811,11 +811,12 @@ def main() -> None:
         seconds_from_start = (now - datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc)).total_seconds()
         if -15 * 60 <= seconds_from_start <= 12 * 60 * 60:
             live_window = True
-            if game["competition"] != "Pre-season":
-                try:
-                    game.update(parse_eihl_game_details(game))
-                except Exception as error:
-                    print(f"Live game detail unavailable for {game['id']}: {error}")
+        recover_recent_result = not game["complete"] and 12 * 60 * 60 < seconds_from_start <= 7 * 24 * 60 * 60
+        if game["competition"] != "Pre-season" and (-15 * 60 <= seconds_from_start <= 12 * 60 * 60 or recover_recent_result):
+            try:
+                game.update(parse_eihl_game_details(game))
+            except Exception as error:
+                print(f"Recent game detail unavailable for {game['id']}: {error}")
     live_game = next((game for game in games if game.get("live")), None)
     upcoming = [game for game in games if not game["complete"] and datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc) >= now]
     add_ticket_links(upcoming)
