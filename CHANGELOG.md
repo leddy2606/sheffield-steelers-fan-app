@@ -1,5 +1,10 @@
 # Version history
 
+## 1.18.2 — 20 September 2026
+
+- Moved player updates into a fixed-height feed with its own touch-friendly scrollbar.
+- Removed the expanding older-stories panel so news no longer lengthens the whole page.
+
 ## 1.18.1 — 20 September 2026
 
 - Replaced the broad news feed with a focused player-availability and roster feed.
