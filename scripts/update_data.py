@@ -70,6 +70,8 @@ TICKET_PAGES = {
     "Nottingham Panthers": "https://www.panthers.co.uk/tickets",
     "Sheffield Steelers": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
 }
+STEELERS_NEWS_API = "https://www.sheffieldsteelers.co.uk/wp-json/wp/v2/posts"
+EIHL_NEWS_PAGES = ("/", "/articles?id_category=12&search=")
 
 
 def fetch_bytes(path: str) -> bytes:
@@ -85,6 +87,121 @@ def fetch(path: str) -> str:
 def text(fragment: str) -> str:
     clean = re.sub(r"<[^>]+>", " ", fragment)
     return " ".join(html.unescape(clean).split())
+
+
+def news_category(title: str, excerpt: str = "") -> str:
+    """Apply conservative labels without inventing a reason for a roster change."""
+    value = f"{title} {excerpt}".casefold()
+    rules = (
+        ("Suspension", ("suspend", "ban", "disciplin")),
+        ("Injury / availability", ("injur", "ruled out", "unavailable", "fitness")),
+        ("Signing", ("signs", "signed", "signing", "joins", "re-sign", "returns to sheffield")),
+        ("Departure", ("depart", "released", "leaves", "parts company", "contract terminated")),
+        ("Team news", ("roster", "line-up", "lineup", "squad", "team news")),
+    )
+    for label, needles in rules:
+        if any(needle in value for needle in needles):
+            return label
+    return "Club news"
+
+
+def parse_news_date(value: str) -> str:
+    if not value:
+        return ""
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc).replace(microsecond=0).isoformat()
+    except ValueError:
+        return ""
+
+
+def parse_eihl_display_date(value: str) -> str:
+    match = re.search(r"\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+([A-Z][a-z]{2})\.?\s+(\d{1,2}),\s+(20\d{2})\b", value)
+    if not match:
+        return ""
+    try:
+        parsed = datetime.strptime(f"{match.group(1)} {match.group(2)} {match.group(3)}", "%b %d %Y")
+        return parsed.replace(tzinfo=timezone.utc).isoformat()
+    except ValueError:
+        return ""
+def parse_steelers_news() -> list[dict]:
+    """Read the club's public WordPress feed without an API key."""
+    query = urllib.parse.urlencode({"per_page": 30, "orderby": "date", "order": "desc"})
+    posts = json.loads(fetch(f"{STEELERS_NEWS_API}?{query}"))
+    items = []
+    for post in posts:
+        title = text(post.get("title", {}).get("rendered", ""))
+        excerpt = text(post.get("excerpt", {}).get("rendered", ""))
+        url = post.get("link", "")
+        if not title or not url:
+            continue
+        items.append({
+            "id": f"steelers-{post.get('id', urllib.parse.urlparse(url).path)}",
+            "title": title,
+            "excerpt": excerpt[:240],
+            "category": news_category(title, excerpt),
+            "published_at": parse_news_date(post.get("date_gmt") or post.get("date", "")),
+            "source": "Sheffield Steelers",
+            "url": url,
+            "verified": True,
+        })
+    return items
+
+
+def parse_eihl_news(player_names: list[str]) -> list[dict]:
+    """Find Steelers-related EIHL announcements, including disciplinary news."""
+    items: dict[str, dict] = {}
+    identity_terms = ("sheffield", "steelers", *(comparable_name(name) for name in player_names))
+    for path in EIHL_NEWS_PAGES:
+        page = fetch(path)
+        pattern = r'<a\b[^>]*href=["\'](?P<href>[^"\']*/article/\d+[^"\']*)["\'][^>]*>(?P<body>.*?)</a>'
+        for match in re.finditer(pattern, page, re.I | re.S):
+            url = urllib.parse.urljoin(BASE, html.unescape(match.group("href")))
+            title = text(match.group("body"))
+            context = text(page[max(0, match.start() - 500):match.end() + 500])
+            searchable = comparable_name(f"{title} {context}")
+            if not title or not any(term in searchable for term in identity_terms):
+                continue
+            slug_id = re.search(r"/article/(\d+)", url)
+            items[url] = {
+                "id": f"eihl-{slug_id.group(1) if slug_id else urllib.parse.urlparse(url).path}",
+                "title": title,
+                "excerpt": "Official EIHL announcement concerning Sheffield Steelers.",
+                "category": news_category(title, context),
+                "published_at": parse_eihl_display_date(context),
+                "source": "EIHL",
+                "url": url,
+                "verified": True,
+            }
+    return list(items.values())
+
+
+def refresh_news(previous: dict | None, player_names: list[str], now: datetime) -> dict:
+    """Combine official sources and retain the last good feed through outages."""
+    collected = []
+    errors = []
+    try:
+        collected.extend(parse_steelers_news())
+    except Exception as error:
+        errors.append(f"Steelers news: {error}")
+    try:
+        collected.extend(parse_eihl_news(player_names))
+    except Exception as error:
+        errors.append(f"EIHL news: {error}")
+    by_url = {}
+    for item in collected:
+        existing = by_url.get(item["url"])
+        if not existing or item.get("published_at", "") > existing.get("published_at", ""):
+            by_url[item["url"]] = item
+    items = sorted(by_url.values(), key=lambda item: item.get("published_at") or "", reverse=True)
+    if not items and previous and previous.get("items"):
+        print(f"News refresh unavailable; retained last good feed: {'; '.join(errors)}")
+        return previous
+    if errors:
+        print(f"News refresh partially unavailable: {'; '.join(errors)}")
+    club_items = [item for item in items if item["source"] == "Sheffield Steelers"][:24]
+    league_items = [item for item in items if item["source"] == "EIHL"][:6]
+    selected = sorted((*club_items, *league_items), key=lambda item: item.get("published_at") or "", reverse=True)
+    return {"updated_at": now.replace(microsecond=0).isoformat(), "sources": ["Sheffield Steelers", "EIHL"], "items": selected}
 
 
 def ordinal_day(day: int) -> str:
@@ -799,6 +916,7 @@ def main() -> None:
         print(f"Published-data carry-forward unavailable; using repository data: {error}")
     roster = parse_roster(previous_payload.get("roster"))
     player_names = [player["name"] for group in roster["groups"].values() for player in group]
+    news = refresh_news(previous_payload.get("news"), player_names, now)
     games_by_id: dict[str, dict] = {}
     for season_id, competition in SEASONS.items():
         for game in parse_schedule(season_id, competition):
@@ -1004,6 +1122,7 @@ def main() -> None:
         "snapshots": snapshots,
         "snapshot": snapshots["all"],
         "roster": roster,
+        "news": news,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     serialized = json.dumps(payload, indent=2, ensure_ascii=False)

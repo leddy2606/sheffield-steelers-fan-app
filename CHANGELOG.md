@@ -1,5 +1,13 @@
 # Version history
 
+## 1.18.0 — 20 September 2026
+
+- Added a Steelers-focused news section above Quick Links.
+- Pulls official club news and relevant EIHL announcements automatically every three hours.
+- Categorises confirmed signings, departures, injuries/availability, suspensions and team news.
+- Keeps the last known-good feed when an official source is temporarily unavailable.
+- Uses only public official sources and the existing free GitHub Pages workflow.
+
 ## 1.17.1 — 20 September 2026
 
 - Added a second-by-second estimated clock to the live period/break timeline.

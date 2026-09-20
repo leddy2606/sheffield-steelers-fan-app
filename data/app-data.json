@@ -1,120 +1,11 @@
 {
-  "generated_at": "2026-09-20T16:59:13+00:00",
+  "generated_at": "2026-09-20T20:10:59+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
   "live_window": true,
-  "live_game": {
-    "id": "7114-gla-she",
-    "starts_at": "2026-09-20T16:00:00+01:00",
-    "competition": "EIHL League",
-    "home": "Glasgow Clan",
-    "away": "Sheffield Steelers",
-    "home_slug": "glasgow-clan",
-    "away_slug": "sheffield-steelers",
-    "score": "1–6",
-    "complete": false,
-    "live": true,
-    "status": "3rd period",
-    "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
-    "scorers": [
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "03:38",
-        "period": "1st period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "07:05",
-        "period": "1st period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Dominic Cormier",
-        "time": "14:51",
-        "period": "1st period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Ryan Tait",
-        "time": "21:26",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "28:35",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Sean Collins",
-        "time": "45:05",
-        "period": "3rd period"
-      }
-    ]
-  },
-  "live_timeline": {
-    "game_id": "7114-gla-she",
-    "phase": "period3",
-    "phase_label": "Third period",
-    "phase_started_at": "2026-09-20T16:59:13+00:00",
-    "observed_at": "2026-09-20T16:59:13+00:00",
-    "estimated": true
-  },
-  "featured_game": {
-    "id": "7114-gla-she",
-    "starts_at": "2026-09-20T16:00:00+01:00",
-    "competition": "EIHL League",
-    "home": "Glasgow Clan",
-    "away": "Sheffield Steelers",
-    "home_slug": "glasgow-clan",
-    "away_slug": "sheffield-steelers",
-    "score": "1–6",
-    "complete": false,
-    "live": true,
-    "status": "3rd period",
-    "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
-    "scorers": [
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "03:38",
-        "period": "1st period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "07:05",
-        "period": "1st period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Dominic Cormier",
-        "time": "14:51",
-        "period": "1st period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Ryan Tait",
-        "time": "21:26",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "28:35",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Sean Collins",
-        "time": "45:05",
-        "period": "3rd period"
-      }
-    ]
-  },
+  "live_game": null,
+  "live_timeline": null,
+  "featured_game": null,
   "next_game": {
     "id": "7116-gui-she",
     "starts_at": "2026-09-23T19:30:00+01:00",
@@ -132,52 +23,64 @@
     "ticket_exact": false
   },
   "last_game": {
-    "id": "7398-she-not",
-    "starts_at": "2026-09-19T19:00:00+01:00",
-    "competition": "Challenge Cup",
-    "home": "Sheffield Steelers",
-    "away": "Nottingham Panthers",
-    "home_slug": "sheffield-steelers",
-    "away_slug": "nottingham-panthers",
-    "score": "3–2",
+    "id": "7114-gla-she",
+    "starts_at": "2026-09-20T16:00:00+01:00",
+    "competition": "EIHL League",
+    "home": "Glasgow Clan",
+    "away": "Sheffield Steelers",
+    "home_slug": "glasgow-clan",
+    "away_slug": "sheffield-steelers",
+    "score": "1–6",
     "complete": true,
     "live": false,
     "status": "Final",
-    "details_url": "https://www.eliteleague.co.uk/game/7398-she-not",
+    "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
     "scorers": [
       {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "20:16",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "51:11",
+        "team": "Glasgow Clan",
+        "scorer": "Alex Forbes",
+        "time": "49:07",
         "period": "3rd period"
       },
       {
         "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "03:38",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "07:05",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Dominic Cormier",
+        "time": "14:51",
+        "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
         "scorer": "Ryan Tait",
-        "time": "64:23",
-        "period": "Overtime"
-      },
-      {
-        "team": "Nottingham Panthers",
-        "scorer": "Tim Doherty",
-        "time": "26:47",
+        "time": "21:26",
         "period": "2nd period"
       },
       {
-        "team": "Nottingham Panthers",
-        "scorer": "Joe Hazeldine",
-        "time": "29:36",
+        "team": "Sheffield Steelers",
+        "scorer": "Mitchell Balmas",
+        "time": "28:35",
         "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Sean Collins",
+        "time": "45:05",
+        "period": "3rd period"
       }
     ],
-    "finished_at": "2026-09-19T21:49:00+01:00",
-    "featured_until": "2026-09-19T22:49:00+01:00"
+    "finished_at": "2026-09-20T18:13:00+01:00",
+    "featured_until": "2026-09-20T19:13:00+01:00"
   },
   "upcoming": [
     {
@@ -1241,6 +1144,66 @@
   ],
   "results": [
     {
+      "id": "7114-gla-she",
+      "starts_at": "2026-09-20T16:00:00+01:00",
+      "competition": "EIHL League",
+      "home": "Glasgow Clan",
+      "away": "Sheffield Steelers",
+      "home_slug": "glasgow-clan",
+      "away_slug": "sheffield-steelers",
+      "score": "1–6",
+      "complete": true,
+      "live": false,
+      "status": "Final",
+      "details_url": "https://www.eliteleague.co.uk/game/7114-gla-she",
+      "scorers": [
+        {
+          "team": "Glasgow Clan",
+          "scorer": "Alex Forbes",
+          "time": "49:07",
+          "period": "3rd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "03:38",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "07:05",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Dominic Cormier",
+          "time": "14:51",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Ryan Tait",
+          "time": "21:26",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "28:35",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Sean Collins",
+          "time": "45:05",
+          "period": "3rd period"
+        }
+      ],
+      "finished_at": "2026-09-20T18:13:00+01:00",
+      "featured_until": "2026-09-20T19:13:00+01:00"
+    },
+    {
       "id": "7398-she-not",
       "starts_at": "2026-09-19T19:00:00+01:00",
       "competition": "Challenge Cup",
@@ -1287,78 +1250,6 @@
       ],
       "finished_at": "2026-09-19T21:49:00+01:00",
       "featured_until": "2026-09-19T22:49:00+01:00"
-    },
-    {
-      "id": "7392-gui-she",
-      "starts_at": "2026-09-13T18:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Guildford Flames",
-      "away": "Sheffield Steelers",
-      "home_slug": "guildford-flames",
-      "away_slug": "sheffield-steelers",
-      "score": "4–5",
-      "complete": true,
-      "live": false,
-      "status": "Final",
-      "details_url": "https://www.eliteleague.co.uk/game/7392-gui-she",
-      "scorers": [
-        {
-          "team": "Guildford Flames",
-          "scorer": "Jake Willets",
-          "time": "06:06",
-          "period": "1st period"
-        },
-        {
-          "team": "Guildford Flames",
-          "scorer": "Jonathan Racine",
-          "time": "06:29",
-          "period": "1st period"
-        },
-        {
-          "team": "Guildford Flames",
-          "scorer": "Jonathan Racine",
-          "time": "16:21",
-          "period": "1st period"
-        },
-        {
-          "team": "Guildford Flames",
-          "scorer": "Chase Gresock",
-          "time": "52:37",
-          "period": "3rd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Olivier Archambault",
-          "time": "18:14",
-          "period": "1st period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Robert Dowd",
-          "time": "30:42",
-          "period": "2nd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Ryan Tait",
-          "time": "35:56",
-          "period": "2nd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Mitchell Balmas",
-          "time": "57:46",
-          "period": "3rd period"
-        },
-        {
-          "team": "Sheffield Steelers",
-          "scorer": "Mitchell Balmas",
-          "time": "65:00",
-          "period": "Overtime"
-        }
-      ],
-      "finished_at": "2026-09-13T20:48:00+01:00",
-      "featured_until": "2026-09-13T21:48:00+01:00"
     },
     {
       "id": "7383-she-cov",
@@ -1582,6 +1473,28 @@
     "league": [
       {
         "position": 1,
+        "team": "Sheffield Steelers",
+        "slug": "sheffield-steelers",
+        "played": 1,
+        "points": 2,
+        "wins": 1,
+        "losses": 0,
+        "goals_for": 6,
+        "goals_against": 1
+      },
+      {
+        "position": 2,
+        "team": "Coventry Blaze",
+        "slug": "coventry-blaze",
+        "played": 1,
+        "points": 2,
+        "wins": 1,
+        "losses": 0,
+        "goals_for": 4,
+        "goals_against": 3
+      },
+      {
+        "position": 3,
         "team": "Belfast Giants",
         "slug": "belfast-giants",
         "played": 0,
@@ -1592,31 +1505,9 @@
         "goals_against": 0
       },
       {
-        "position": 2,
+        "position": 4,
         "team": "Cardiff Devils",
         "slug": "cardiff-devils",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
-      },
-      {
-        "position": 3,
-        "team": "Coventry Blaze",
-        "slug": "coventry-blaze",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
-      },
-      {
-        "position": 4,
-        "team": "Dundee Stars",
-        "slug": "dundee-stars",
         "played": 0,
         "points": 0,
         "wins": 0,
@@ -1637,17 +1528,6 @@
       },
       {
         "position": 6,
-        "team": "Glasgow Clan",
-        "slug": "glasgow-clan",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
-      },
-      {
-        "position": 7,
         "team": "Guildford Flames",
         "slug": "guildford-flames",
         "played": 0,
@@ -1658,7 +1538,7 @@
         "goals_against": 0
       },
       {
-        "position": 8,
+        "position": 7,
         "team": "Manchester Storm",
         "slug": "manchester-storm",
         "played": 0,
@@ -1669,7 +1549,7 @@
         "goals_against": 0
       },
       {
-        "position": 9,
+        "position": 8,
         "team": "Nottingham Panthers",
         "slug": "nottingham-panthers",
         "played": 0,
@@ -1680,15 +1560,26 @@
         "goals_against": 0
       },
       {
-        "position": 10,
-        "team": "Sheffield Steelers",
-        "slug": "sheffield-steelers",
-        "played": 0,
+        "position": 9,
+        "team": "Dundee Stars",
+        "slug": "dundee-stars",
+        "played": 1,
         "points": 0,
         "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "losses": 1,
+        "goals_for": 3,
+        "goals_against": 4
+      },
+      {
+        "position": 10,
+        "team": "Glasgow Clan",
+        "slug": "glasgow-clan",
+        "played": 1,
+        "points": 0,
+        "wins": 0,
+        "losses": 1,
+        "goals_for": 1,
+        "goals_against": 6
       }
     ],
     "cup": [
@@ -1705,6 +1596,17 @@
       },
       {
         "position": 2,
+        "team": "Guildford Flames",
+        "slug": "guildford-flames",
+        "played": 4,
+        "points": 5,
+        "wins": 2,
+        "losses": 2,
+        "goals_for": 14,
+        "goals_against": 10
+      },
+      {
+        "position": 3,
         "team": "Cardiff Devils",
         "slug": "cardiff-devils",
         "played": 4,
@@ -1713,17 +1615,6 @@
         "losses": 2,
         "goals_for": 10,
         "goals_against": 11
-      },
-      {
-        "position": 3,
-        "team": "Nottingham Panthers",
-        "slug": "nottingham-panthers",
-        "played": 2,
-        "points": 3,
-        "wins": 1,
-        "losses": 1,
-        "goals_for": 6,
-        "goals_against": 6
       },
       {
         "position": 4,
@@ -1738,14 +1629,14 @@
       },
       {
         "position": 5,
-        "team": "Guildford Flames",
-        "slug": "guildford-flames",
+        "team": "Nottingham Panthers",
+        "slug": "nottingham-panthers",
         "played": 3,
         "points": 3,
         "wins": 1,
         "losses": 2,
-        "goals_for": 10,
-        "goals_against": 9
+        "goals_for": 7,
+        "goals_against": 10
       },
       {
         "position": 6,
@@ -2354,12 +2245,14 @@
     "league": {
       "label": "EIHL League",
       "rank_label": "Position",
-      "rank_value": null,
-      "played": 0,
-      "points": 0,
-      "wins": 0,
-      "goals_for": 0,
-      "form": []
+      "rank_value": 1,
+      "played": 1,
+      "points": 2,
+      "wins": 1,
+      "goals_for": 6,
+      "form": [
+        "W"
+      ]
     },
     "cup": {
       "label": "Challenge Cup",
@@ -2370,7 +2263,6 @@
       "wins": 3,
       "goals_for": 14,
       "form": [
-        "W",
         "W",
         "W"
       ]
@@ -2393,11 +2285,11 @@
     "all": {
       "label": "All competitions",
       "rank_label": "Competitions",
-      "rank_value": 2,
-      "played": 7,
-      "points": 10,
-      "wins": 5,
-      "goals_for": 28,
+      "rank_value": 3,
+      "played": 8,
+      "points": 12,
+      "wins": 6,
+      "goals_for": 34,
       "form": [
         "W",
         "W",
@@ -2410,11 +2302,11 @@
   "snapshot": {
     "label": "All competitions",
     "rank_label": "Competitions",
-    "rank_value": 2,
-    "played": 7,
-    "points": 10,
-    "wins": 5,
-    "goals_for": 28,
+    "rank_value": 3,
+    "played": 8,
+    "points": 12,
+    "wins": 6,
+    "goals_for": 34,
     "form": [
       "W",
       "W",
@@ -2514,5 +2406,274 @@
         }
       ]
     }
+  },
+  "news": {
+    "updated_at": "2026-09-20T20:10:59+00:00",
+    "sources": [
+      "Sheffield Steelers",
+      "EIHL"
+    ],
+    "items": [
+      {
+        "id": "steelers-32535",
+        "title": "Five Goals, Four Points – But Balmas Puts the Team First",
+        "excerpt": "Mitchell Balmas enjoyed quite a weekend. Two goals against Nottingham Panthers on Saturday night followed by a hat-trick less than 24 hours later in Glasgow. Five goals in two games as the Steelers collected a Challenge Cup victory over the",
+        "category": "Club news",
+        "published_at": "2026-09-20T17:23:26+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/five-goals-four-points-but-balmas-puts-the-team-first/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32517",
+        "title": "Balmas Hat-Trick Leads Steelers to 6-1 League-Opening Win in Glasgow",
+        "excerpt": "5 Goal Weekend for the Ice Man The Sheffield Steelers made the perfect start to their Motorpoint Elite League campaign with an emphatic 6-1 victory over Glasgow Clan on Sunday afternoon. Less than 24 hours after scoring twice in Saturday ni",
+        "category": "Club news",
+        "published_at": "2026-09-20T17:03:47+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/balmas-hat-trick-leads-steelers-to-6-1-league-opening-win-in-glasgow/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32493",
+        "title": "Tait: “There’s No Better Feeling” After Overtime Winner Against Panthers",
+        "excerpt": "“What a feeling” says Tait Ryan Tait described the emotion of scoring an overtime winner against Nottingham Panthers as one of the best feelings in hockey after his goal secured a dramatic 3-2 victory for Sheffield Steelers on Saturday nigh",
+        "category": "Club news",
+        "published_at": "2026-09-19T21:34:04+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/tait-theres-no-better-feeling-after-overtime-winner-against-panthers/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32472",
+        "title": "Tait Wins Overtime Thriller as Steelers Edge Panthers 3-2",
+        "excerpt": "Balmas with a Brace The latest chapter in the Steelers-Panthers rivalry delivered once again as Sheffield came from behind to beat Nottingham 3-2 in overtime at the Utilita Arena. A goalless opening period was followed by a fast start to th",
+        "category": "Club news",
+        "published_at": "2026-09-19T21:10:42+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/tait-wins-overtime-thriller-as-steelers-edge-panthers-3-2/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32393",
+        "title": "Fun with the Ice Sponsors This Week",
+        "excerpt": "Tea, Toast and Few Photos with the Mitch and Brandon Several of the Steelers on ice sponsors took the opportunity to its of popping down to the arena this week in order to have their photos taken with some of their branding, and meet Mitche",
+        "category": "Club news",
+        "published_at": "2026-09-17T12:02:35+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/fun-with-the-ice-sponsors-this-week/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32329",
+        "title": "Macoy Erkamps the Victor in SSSC Bowling Night",
+        "excerpt": "Team Jasper take the team event title In the end it wasn’t even close as Macoy Erkamps raced to victory in the 2026 SSSC Bowling night at Hollywood Bowl Macoy’s score of 277 was 36 ahead of Tim Gettinger (241) and 43 more than Matt Greenfie",
+        "category": "Club news",
+        "published_at": "2026-09-15T20:14:25+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/macoy-erkamps-the-victor-in-sssc-bowling-night/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32282",
+        "title": "New Wheels for Roe and Archambault thanks to Motorpoint",
+        "excerpt": "The EIHL new sponsors assisting the Steelers in putting our boys on the road. Olivier Archambault and Logan Roe paid a visit to Motorpoint Sheffield after practice on Tuesday … and with good reason The boys were collecting their new cars fr",
+        "category": "Club news",
+        "published_at": "2026-09-15T14:14:31+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/new-wheels-for-roe-and-archambault-thanks-to-motorpoint/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32267",
+        "title": "Roe Ready for First Taste of Steelers-Panthers Rivalry",
+        "excerpt": "Saturday | 7.00pm | Steelers Vs. Panthers at the Arena New Sheffield Steelers signing Logan Roe says he is looking forward to experiencing the club’s rivalry with Nottingham Panthers for the first time when the two sides meet on Saturday. T",
+        "category": "Signing",
+        "published_at": "2026-09-15T13:48:32+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/roe-ready-for-first-taste-of-steelers-panthers-rivalry/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32240",
+        "title": "Steelers Business Club Launched",
+        "excerpt": "Meet | Discover | Discuss | Build The DSM Sheffield Steelers officially launched their new Business Club this morning inside the impressive Beat Lounge at the Utilita Arena. Close to 100 local business people attended the launch event, hear",
+        "category": "Club news",
+        "published_at": "2026-09-15T13:39:21+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/steelers-business-club-launched/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32208",
+        "title": "Greenfield: Shutout No.26 – But the Team Comes First",
+        "excerpt": "Matt Greenfield added another milestone to his Sheffield Steelers career on Saturday night as he recorded the 26th shutout of his time with the club in the 6-0 win over Coventry Blaze. The previous Steelers record of 24 had been held by Jod",
+        "category": "Club news",
+        "published_at": "2026-09-14T08:02:24+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/greenfield-shutout-no-26-but-the-team-comes-first/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32194",
+        "title": "The Panthers in Sheffield on Saturday at 7pm",
+        "excerpt": "The Rivalry Continues on Saturday The biggest rivalry in British hockey returns this Saturday when the Steelers welcome the Nottingham Panthers to the Utilita Arena for the first time this season. Steelers will come into the game at the top",
+        "category": "Club news",
+        "published_at": "2026-09-13T20:02:16+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/the-panthers-in-sheffield-on-saturday-at-7pm/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32177",
+        "title": "Balmas wins it in a shoot out as Dowdy breaks the all time scoring record.",
+        "excerpt": "4 Point Weekend for the Steelers Steelers Come Back From Three Down to Win Shootout Thriller in Guildford The Sheffield Steelers produced another remarkable comeback on Sunday night, recovering from 3-0 down to beat Guildford Flames 5-4 aft",
+        "category": "Club news",
+        "published_at": "2026-09-13T19:38:58+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/balmas-wins-it-in-a-shoot-out-as-dowdy-breaks-the-all-time-scoring-record/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32163",
+        "title": "Dowd Stands Alone as Steelers’ All-Time Leading Scorer",
+        "excerpt": "793 Steelers Points for Robert Dowd Dowd Stands Alone as Steelers’ All-Time Leading Scorer Robert Dowd has written another chapter into Sheffield Steelers history after becoming the club’s all-time leading points scorer. The Steelers captai",
+        "category": "Club news",
+        "published_at": "2026-09-12T21:06:22+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/dowd-draws-level-with-shudra-as-steelers-greats-hit-new-milestones/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32137",
+        "title": "Steelers Hit Six as Coventry Are Shut Out in Season Opener",
+        "excerpt": "A Great Start to a New Season The Sheffield Steelers opened their competitive season in emphatic fashion with a 6-0 victory over Coventry Blaze at the Utilita Arena. Three goals in the opening period put Aaron Fox’s side firmly in control b",
+        "category": "Club news",
+        "published_at": "2026-09-12T20:47:31+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/steelers-hit-six-as-coventry-are-shut-out-in-season-opener/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32057",
+        "title": "COMPETITION: Show Us Your Steelers Night! 🎥🏒",
+        "excerpt": "Create the best video this Saturday – and win incredible behind-the-scenes access with the Steelers We love seeing the videos you share from Steelers game nights. Whether it is your first ever game or you have been coming to the Arena for y",
+        "category": "Club news",
+        "published_at": "2026-09-10T12:47:56+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/competition-show-us-your-steelers-night-%f0%9f%8e%a5%f0%9f%8f%92/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32035",
+        "title": "“Glad It’s Over – Now Let’s Get Down to Business on Saturday Vs. Coventry,” Says Greenfield",
+        "excerpt": "Matt Greenfield is happy to see the back of pre-season. Matt Greenfield is happy to see the back of pre-season. The Steelers’ number one is preparing for his fifth campaign in Sheffield and admits that, while exhibition games serve a purpos",
+        "category": "Club news",
+        "published_at": "2026-09-10T08:33:58+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/glad-its-over-now-lets-get-down-to-business-on-saturday-vs-coventry-says-greenfield/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32018",
+        "title": "Beston-Will Eyes Challenge Cup Hat-Trick With Steelers",
+        "excerpt": "“Winning the Challenge Cup, they are honestly two of the best memories I have as a coach,” Sheffield Steelers associate coach Carter Beston-Will admits the Challenge Cup holds a special place in his career, and he would love nothing more th",
+        "category": "Club news",
+        "published_at": "2026-09-09T10:57:21+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/beston-will-eyes-challenge-cup-hat-trick-with-steelers/",
+        "verified": true
+      },
+      {
+        "id": "steelers-32007",
+        "title": "PSCL Beds Join the Steelers Family",
+        "excerpt": "A Good Nights Sleep Guaranteed After the Excitement of a Steelers Game The Sheffield Steelers are delighted to welcome PSCL Beds as a new official partner for the 2026-27 season. The Yorkshire-based company has joined the club in what repre",
+        "category": "Club news",
+        "published_at": "2026-09-09T10:17:26+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/pscl-beds-join-the-steelers-family/",
+        "verified": true
+      },
+      {
+        "id": "steelers-31972",
+        "title": "Your Seating Options This Saturday at the Arena Vs. Coventry Blaze (7pm)",
+        "excerpt": "So Many Ways to Watch Your Steelers With the new EIHL season getting underway this weekend, the Steelers can offer supporters a fantastic range of seating options around the incredible Utilita Arena Sheffield. This Saturday sees the Steeler",
+        "category": "Club news",
+        "published_at": "2026-09-08T11:30:28+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/your-seating-options-this-saturday-at-the-arena/",
+        "verified": true
+      },
+      {
+        "id": "steelers-31949",
+        "title": "Pre Season is Over – It Starts for Real on Saturday vs. Coventry Blaze.",
+        "excerpt": "EIHL Season Starts at 7pm on Saturday – will you be there? Pre season is over, after four exhibition games it is time for the real action to start, and that time is this Saturday at the Utilita Arena Coventry Blaze visit with their new look",
+        "category": "Club news",
+        "published_at": "2026-09-07T10:00:06+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/pre-season-is-over-it-starts-for-real-on-saturday-vs-coventry-blaze/",
+        "verified": true
+      },
+      {
+        "id": "steelers-31684",
+        "title": "Steelers Shirts for 2026-27",
+        "excerpt": "On Sale Now: Steelers Replica Shirts Steelers 2026-27 Replica Shirts are now for sale after being launched at the clubs “Shirt Launch and Meet the players Night” this evening. Many fans have already pre-ordered the shirts with many more buy",
+        "category": "Club news",
+        "published_at": "2026-09-07T09:59:00+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/steelers-shirts-for-2026-27/",
+        "verified": true
+      },
+      {
+        "id": "steelers-31935",
+        "title": "Seven Saves and One Big Night for Brine",
+        "excerpt": "Man of the Match for Lucas in Manchester Lucas Brine is no stranger to facing a penalty shot. But seven in one night?, That was a little different. The Steelers goaltender produced one of the standout performances of pre-season in Mancheste",
+        "category": "Club news",
+        "published_at": "2026-09-07T09:43:40+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/seven-saves-and-one-big-night-for-brine/",
+        "verified": true
+      },
+      {
+        "id": "steelers-31924",
+        "title": "Steelers Storm Back From 3-0 Down to Win AO Arena Thriller",
+        "excerpt": "Balmas and Brine Combine in Steelers Victory The Sheffield Steelers completed their pre-season programme in dramatic fashion, coming back from 3-0 down to beat Manchester Storm 6-5 after a penalty shootout in front of more than 11,000 suppo",
+        "category": "Club news",
+        "published_at": "2026-09-06T20:36:20+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/steelers-storm-back-from-3-0-down-to-win-ao-arena-thriller/",
+        "verified": true
+      },
+      {
+        "id": "steelers-31880",
+        "title": "Lots of Hockey Choices on Sunday",
+        "excerpt": "Steelers and Steeldogs Both in Action on Sunday The hockey weekend in Sheffield is only half way On Sunday both the Steelers and Steeldogs are back in action with the Steelers heading to Manchester and the Steeldogs back at home at Ice Shef",
+        "category": "Club news",
+        "published_at": "2026-09-05T21:39:29+00:00",
+        "source": "Sheffield Steelers",
+        "url": "https://www.sheffieldsteelers.co.uk/lots-of-hockey-choices-on-sunday/",
+        "verified": true
+      },
+      {
+        "id": "eihl-5533",
+        "title": "Steelers stay perfect, go top of league",
+        "excerpt": "Official EIHL announcement concerning Sheffield Steelers.",
+        "category": "Club news",
+        "published_at": "",
+        "source": "EIHL",
+        "url": "https://www.eliteleague.co.uk/article/5533-steelers-stay-perfect-go-top-of-league",
+        "verified": true
+      },
+      {
+        "id": "eihl-5530",
+        "title": "Steelers pick up OT win against Panthers",
+        "excerpt": "Official EIHL announcement concerning Sheffield Steelers.",
+        "category": "Club news",
+        "published_at": "",
+        "source": "EIHL",
+        "url": "https://www.eliteleague.co.uk/article/5530-steelers-pick-up-ot-win-against-panthers",
+        "verified": true
+      }
+    ]
   }
 }
