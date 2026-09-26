@@ -42,6 +42,7 @@ SSL_CONTEXT = ssl._create_unverified_context()
 HEADERS = {"User-Agent": "SteelCityMatchCentre/1.0 (unofficial fan app)"}
 ROSTER_TRACKER = "/article/5422-2026-27-rosters"
 ROSTER_PAGE = "/team/13-sheffield-steelers/roster?id_season=57"
+PLAYER_STATS_PAGE = "/team/13-sheffield-steelers/player-stats?id_season={season_id}"
 MONTHS = {name.lower(): number for number, name in enumerate((
     "", "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December",
@@ -911,6 +912,117 @@ def parse_roster(previous: dict | None = None) -> dict:
         raise
 
 
+def stat_number(value: str, decimal: bool = False) -> int | float:
+    cleaned = value.replace("%", "").replace(",", "").strip()
+    try:
+        return float(cleaned) if decimal else int(float(cleaned))
+    except (TypeError, ValueError):
+        return 0.0 if decimal else 0
+
+
+def parse_minutes(value: str) -> float:
+    parts = value.strip().split(":")
+    try:
+        if len(parts) == 2:
+            return int(parts[0]) + int(parts[1]) / 60
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def parse_player_stats_table(page: str) -> dict:
+    """Parse the official team skater and goalie tables by their published headers."""
+    output = {"skaters": [], "goalies": []}
+    for table in re.findall(r"<table\b[^>]*>(.*?)</table>", page, re.I | re.S):
+        headers = re.findall(r'data-title="([^"]+)"', table, re.I)
+        if "Player name" not in headers:
+            continue
+        goalie_table = "Save percentage" in headers
+        for row in re.findall(r"<tr\b[^>]*>(.*?)</tr>", table, re.I | re.S):
+            cells = re.findall(r"<td\b[^>]*>(.*?)</td>", row, re.I | re.S)
+            if len(cells) < len(headers):
+                continue
+            values = {header: text(cell) for header, cell in zip(headers, cells)}
+            player_link = re.search(r'<a\b[^>]*href="(/player/[^"]+)"[^>]*>(.*?)</a>', row, re.I | re.S)
+            name = text(player_link.group(2)) if player_link else values.get("Player name", "")
+            if not name:
+                continue
+            common = {
+                "name": name,
+                "number": values.get("Jersey", ""),
+                "profile_url": urllib.parse.urljoin(BASE, player_link.group(1)) if player_link else "",
+                "games_played": stat_number(values.get("Games played", "0")),
+            }
+            if goalie_table:
+                output["goalies"].append({
+                    **common,
+                    "wins": stat_number(values.get("Wins", "0")),
+                    "losses": stat_number(values.get("Losts", "0")),
+                    "shutouts": stat_number(values.get("Shutouts", "0")),
+                    "shots_against": stat_number(values.get("Shots against", "0")),
+                    "goals_against": stat_number(values.get("Goals against", "0")),
+                    "minutes": parse_minutes(values.get("Minutes played", "0")),
+                    "gaa": stat_number(values.get("Goals against average", "0"), decimal=True),
+                    "save_percentage": stat_number(values.get("Save percentage", "0"), decimal=True),
+                })
+            else:
+                output["skaters"].append({
+                    **common,
+                    "position": values.get("Position", ""),
+                    "goals": stat_number(values.get("Goals", "0")),
+                    "assists": stat_number(values.get("Assists", "0")),
+                    "points": stat_number(values.get("Points", "0")),
+                    "pim": stat_number(values.get("Penalty minutes", "0")),
+                })
+    if not output["skaters"]:
+        raise ValueError("Official EIHL skater statistics table was empty")
+    return output
+
+
+def combined_player_stats(competitions: dict[str, dict]) -> dict:
+    skaters: dict[str, dict] = {}
+    goalies: dict[str, dict] = {}
+    for stats in competitions.values():
+        for player in stats.get("skaters", []):
+            key = comparable_name(player["name"])
+            aggregate = skaters.setdefault(key, {**player, "games_played": 0, "goals": 0, "assists": 0, "points": 0, "pim": 0})
+            for field in ("games_played", "goals", "assists", "points", "pim"):
+                aggregate[field] += player.get(field, 0)
+        for player in stats.get("goalies", []):
+            key = comparable_name(player["name"])
+            aggregate = goalies.setdefault(key, {**player, "games_played": 0, "wins": 0, "losses": 0, "shutouts": 0, "shots_against": 0, "goals_against": 0, "minutes": 0})
+            for field in ("games_played", "wins", "losses", "shutouts", "shots_against", "goals_against", "minutes"):
+                aggregate[field] += player.get(field, 0)
+    for player in goalies.values():
+        minutes = player["minutes"]
+        shots = player["shots_against"]
+        player["gaa"] = round(player["goals_against"] * 60 / minutes, 2) if minutes else 0
+        player["save_percentage"] = round((shots - player["goals_against"]) * 100 / shots, 2) if shots else 0
+    return {"skaters": list(skaters.values()), "goalies": list(goalies.values())}
+
+
+def refresh_player_stats(previous: dict | None, now: datetime) -> dict:
+    competitions = {}
+    previous_competitions = (previous or {}).get("competitions", {})
+    for key, season_id in (("league", 57), ("cup", 58)):
+        try:
+            competitions[key] = parse_player_stats_table(fetch(PLAYER_STATS_PAGE.format(season_id=season_id)))
+        except Exception as error:
+            if previous_competitions.get(key):
+                print(f"{key.title()} player stats unavailable; retained last good data: {error}")
+                competitions[key] = previous_competitions[key]
+            else:
+                print(f"{key.title()} player stats unavailable: {error}")
+                competitions[key] = {"skaters": [], "goalies": []}
+    competitions["all"] = combined_player_stats({key: value for key, value in competitions.items() if key != "all"})
+    return {
+        "updated_at": now.replace(microsecond=0).isoformat(),
+        "source": "Official EIHL player statistics",
+        "source_url": urllib.parse.urljoin(BASE, PLAYER_STATS_PAGE.format(season_id=57)),
+        "competitions": competitions,
+    }
+
+
 def main() -> None:
     now = datetime.now(timezone.utc)
     previous_payload = {}
@@ -931,6 +1043,7 @@ def main() -> None:
     roster = parse_roster(previous_payload.get("roster"))
     player_names = [player["name"] for group in roster["groups"].values() for player in group]
     news = refresh_news(previous_payload.get("news"), player_names, now)
+    player_stats = refresh_player_stats(previous_payload.get("player_stats"), now)
     games_by_id: dict[str, dict] = {}
     for season_id, competition in SEASONS.items():
         for game in parse_schedule(season_id, competition):
@@ -1136,6 +1249,7 @@ def main() -> None:
         "snapshots": snapshots,
         "snapshot": snapshots["all"],
         "roster": roster,
+        "player_stats": player_stats,
         "news": news,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

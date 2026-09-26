@@ -1,8 +1,8 @@
 # Steel City Match Centre
 
-An unofficial, installable Sheffield Steelers fan app. It includes near-live competitive scores, fixtures, expandable match history and reports, standings, roster data, verified player-status updates and the season snapshot from official sources.
+An unofficial, installable Sheffield Steelers fan app. It includes near-live competitive scores, fixtures, expandable match history and reports, standings, roster data, sortable player statistics, verified player-status updates and the season snapshot from official sources.
 
-Current local version: **1.18.2**. See `CHANGELOG.md` for the recoverable version history.
+Current local version: **1.19.0**. See `CHANGELOG.md` for the recoverable version history.
 
 ## Free hosting model
 
@@ -24,6 +24,7 @@ The included GitHub Pages workflow uses only free services for a public reposito
 - Every upcoming fixture expands to offer its own calendar download and official ticket link.
 - Ticket links automatically use an exact official event page when one can be identified, otherwise the home club's official ticket page.
 - Official sources are checked every three hours for confirmed injuries, suspensions, signings and departures; interviews, promotions and general club chatter are excluded.
+- Official EIHL skater and goalie statistics are refreshed automatically for League, Challenge Cup and a combined All view.
 - The unofficial pre-season form table is calculated from the official league-wide EIHL pre-season hub.
 - The updater writes `data/app-data.json` and `data/app-data.js`.
 - The app keeps the last successful update available offline.

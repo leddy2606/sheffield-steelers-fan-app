@@ -1,5 +1,14 @@
 # Version history
 
+## 1.19.0 — 26 September 2026
+
+- Added a full Player Stats section between Roster and Player Updates.
+- Added official League, Challenge Cup and combined All competition views.
+- Added points, goals and assists leader cards plus sortable skater statistics.
+- Added a separate goalie table with games, wins, goals-against average, save percentage and shutouts.
+- Added Player Stats and Player Updates destinations to the synchronized mobile navigation bar.
+- Player statistics refresh automatically using the existing free GitHub workflow and retain last-known-good competition data on source failure.
+
 ## 1.18.2 — 20 September 2026
 
 - Moved player updates into a fixed-height feed with its own touch-friendly scrollbar.
