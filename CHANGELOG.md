@@ -1,5 +1,12 @@
 # Version history
 
+## 1.19.1 — 26 September 2026
+
+- Fixed stale live estimates remaining trapped in an old period or intermission.
+- A phase older than eight minutes now advances through realistic 35-minute wall-clock periods and 20-minute breaks.
+- The displayed period clock still maps each estimated playing period onto 20 minutes and clearly identifies when it has advanced beyond the last official check.
+- When EIHL skips one or more phase updates, the next official phase now carries forward the intervening estimated wall time instead of restarting at 00:00.
+
 ## 1.19.0 — 26 September 2026
 
 - Added a full Player Stats section between Roster and Player Updates.

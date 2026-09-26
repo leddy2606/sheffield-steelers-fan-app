@@ -1089,11 +1089,27 @@ def main() -> None:
             previous_timeline.get("game_id") == live_game["id"]
             and previous_timeline.get("phase") == phase
         )
+        phase_started_at = now.replace(microsecond=0).isoformat()
+        phase_order = ["period1", "break1", "period2", "break2", "period3", "overtime", "shootout"]
+        wall_seconds = {"period1": 2100, "break1": 1200, "period2": 2100, "break2": 1200, "period3": 2100, "overtime": 600}
+        if same_phase:
+            phase_started_at = previous_timeline.get("phase_started_at") or phase_started_at
+        elif previous_timeline.get("game_id") == live_game["id"]:
+            previous_phase = previous_timeline.get("phase")
+            if previous_phase in phase_order and phase in phase_order:
+                old_index, new_index = phase_order.index(previous_phase), phase_order.index(phase)
+                if old_index < new_index:
+                    try:
+                        estimated_start = datetime.fromisoformat(previous_timeline["phase_started_at"])
+                        estimated_start += timedelta(seconds=sum(wall_seconds.get(item, 0) for item in phase_order[old_index:new_index]))
+                        phase_started_at = min(estimated_start, now).replace(microsecond=0).isoformat()
+                    except (KeyError, ValueError, TypeError):
+                        pass
         live_timeline = {
             "game_id": live_game["id"],
             "phase": phase,
             "phase_label": phase_label,
-            "phase_started_at": previous_timeline.get("phase_started_at") if same_phase else now.replace(microsecond=0).isoformat(),
+            "phase_started_at": phase_started_at,
             "observed_at": now.replace(microsecond=0).isoformat(),
             "estimated": True,
         }
