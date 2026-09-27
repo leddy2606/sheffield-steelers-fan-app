@@ -3,7 +3,9 @@ name: Refresh and publish
 on:
   schedule:
     - cron: "17 */3 * * *"
-    # Five-minute lightweight checks; full EIHL requests only run around a scheduled match.
+    # Two staggered schedules provide match-time redundancy. Outside a scheduled
+    # match window they only run the local timestamp check below and contact no sites.
+    - cron: "1,6,11,16,21,26,31,36,41,46,51,56 * * * *"
     - cron: "4,9,14,19,24,29,34,39,44,49,54,59 * * * *"
   workflow_dispatch:
   push:
@@ -23,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check scheduled match window without contacting EIHL
+      - name: Check scheduled match window without contacting external sites
         id: window
         run: python scripts/check_match_window.py >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5

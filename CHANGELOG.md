@@ -1,5 +1,12 @@
 # Version history
 
+## 1.19.2 — 27 September 2026
+
+- Added a second staggered match-time schedule, targeting official score refreshes every 2–3 minutes.
+- Each live schedule backs up the other when GitHub delays a scheduled queue.
+- Outside match windows, rapid jobs perform only a local fixture-time check: no EIHL request, data rebuild or Pages deployment.
+- Updated the live indicator and footer so the displayed refresh behaviour matches the automation.
+
 ## 1.19.1 — 26 September 2026
 
 - Fixed stale live estimates remaining trapped in an old period or intermission.
