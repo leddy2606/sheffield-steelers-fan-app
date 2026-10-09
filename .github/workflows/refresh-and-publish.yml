@@ -44,7 +44,7 @@ jobs:
         if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         run: |
           mkdir public
-          cp index.html manifest.webmanifest service-worker.js public/
+          cp index.html manifest.webmanifest service-worker.js CNAME public/
           cp -r assets data public/
       - uses: actions/configure-pages@v5
         if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
