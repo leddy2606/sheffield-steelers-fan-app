@@ -24,6 +24,10 @@
     @media(min-width:760px){.shell{padding:0 26px}.hero{padding:34px 8%}.game-row{max-width:580px;margin:25px auto}.snapshot{grid-template-columns:repeat(6,1fr)}.grid-two{grid-template-columns:1.1fr .9fr}.bottom-nav{display:none}body{padding-bottom:30px}.topbar{height:86px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast{transition:none}}
   </style>
+
+  <style>
+    .pwa-install{position:fixed;z-index:9999;left:16px;right:16px;bottom:100px;max-width:430px;margin:auto;background:#1b1e23;color:#eef6fb;border:1px solid #ff690080;border-radius:20px;padding:18px;box-shadow:0 20px 60px #000b;font-family:inherit}.pwa-install[hidden]{display:none}.pwa-install-head{display:flex;gap:12px;align-items:center}.pwa-install-head img{width:54px;height:54px;object-fit:contain;border-radius:12px}.pwa-install strong{font-size:16px}.pwa-install p{font-size:13px;color:#c4cbd2;line-height:1.5;margin:7px 0 14px}.pwa-install-actions{display:flex;gap:9px}.pwa-install-actions button{border:0;border-radius:11px;padding:11px 14px;font-weight:800;cursor:pointer}.pwa-install-yes{background:#ff6900;color:#111;flex:1}.pwa-install-no{background:#343840;color:#fff}
+  </style>
 </head>
 <body>
   <main class="shell">
@@ -86,6 +90,32 @@
     navLinks.forEach(link=>link.addEventListener('click',()=>setActiveNav(link.hash.slice(1))));addEventListener('scroll',()=>{if(!navFrame)navFrame=requestAnimationFrame(syncNavToScroll)},{passive:true});addEventListener('resize',syncNavToScroll);addEventListener('hashchange',()=>requestAnimationFrame(syncNavToScroll));syncNavToScroll();
     async function refreshData(){try{const response=await fetch(`data/app-data.json?v=${Date.now()}`,{cache:'no-store'});if(!response.ok)return;const fresh=await response.json();if(fresh.generated_at!==data?.generated_at){data=fresh;render()}}catch(error){console.info('Waiting for the next official update')}}refreshData();setInterval(refreshData,120000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshData()});
     if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./service-worker.js');
+  </script>
+
+  <aside id="pwaInstallPrompt" class="pwa-install" role="dialog" aria-label="Install Steel City Match Centre" hidden>
+    <div class="pwa-install-head"><img src="assets/teams/sheffield-steelers.png" alt=""><div><strong>Get Steel City on your phone</strong><p style="margin-bottom:0">Fixtures, scores and match updates — one tap from your home screen.</p></div></div>
+    <p id="pwaInstallInstructions" hidden>On iPhone, tap Share in Safari, then choose <strong>Add to Home Screen</strong>.</p>
+    <div class="pwa-install-actions"><button id="pwaInstallDismiss" class="pwa-install-no" type="button">Not now</button><button id="pwaInstallAccept" class="pwa-install-yes" type="button">Install app</button></div>
+  </aside>
+  <script>
+  (() => {
+    const promptBox=document.getElementById('pwaInstallPrompt');
+    const accept=document.getElementById('pwaInstallAccept');
+    const dismiss=document.getElementById('pwaInstallDismiss');
+    const instructions=document.getElementById('pwaInstallInstructions');
+    const installed=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+    const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+    const safari=/Safari/.test(navigator.userAgent)&&!/CriOS|FxiOS|EdgiOS|OPiOS/.test(navigator.userAgent);
+    let deferred=null;
+    const dismissed=()=>{try{return localStorage.getItem('steel-city-install-dismissed')==='1'}catch{return false}};
+    const hide=()=>{promptBox.hidden=true};
+    const show=()=>{if(!installed&&!dismissed())promptBox.hidden=false};
+    dismiss.addEventListener('click',()=>{try{localStorage.setItem('steel-city-install-dismissed','1')}catch{}hide()});
+    window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferred=event;accept.hidden=false;instructions.hidden=true;setTimeout(show,2500)});
+    accept.addEventListener('click',async()=>{if(!deferred)return;const event=deferred;deferred=null;hide();try{await event.prompt();const choice=await event.userChoice;if(choice.outcome==='dismissed'){/* allow browser to offer again later */}}catch(error){console.info('Install prompt unavailable',error)}});
+    window.addEventListener('appinstalled',()=>{deferred=null;hide()});
+    if(ios&&safari&&!installed){accept.hidden=true;instructions.hidden=false;setTimeout(show,3500)}
+  })();
   </script>
 </body>
 </html>
