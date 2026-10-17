@@ -843,6 +843,8 @@ def parse_standings(path: str) -> list[dict]:
             continue
         values = [text(cell) for cell in cells[1:]]
         team_name = text(team_match.group(1))
+        goals_for = int(values[6])
+        goals_against = int(values[7])
         rows.append({
             "position": int(position_match.group(1)),
             "team": team_name,
@@ -851,8 +853,9 @@ def parse_standings(path: str) -> list[dict]:
             "points": int(values[1]),
             "wins": int(values[2]) + int(values[3]),
             "losses": int(values[4]) + int(values[5]),
-            "goals_for": int(values[6]),
-            "goals_against": int(values[7]),
+            "goals_for": goals_for,
+            "goals_against": goals_against,
+            "goal_difference": goals_for - goals_against,
         })
     return rows
 

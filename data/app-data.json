@@ -1,231 +1,88 @@
 {
-  "generated_at": "2026-09-27T18:45:46+00:00",
+  "generated_at": "2026-10-17T10:29:04+00:00",
   "season": "2026/27",
   "source": "Official EIHL website",
-  "live_window": true,
-  "live_game": {
-    "id": "7408-cov-she",
-    "starts_at": "2026-09-27T17:30:00+01:00",
-    "competition": "Challenge Cup",
-    "home": "Coventry Blaze",
-    "away": "Sheffield Steelers",
-    "home_slug": "coventry-blaze",
-    "away_slug": "sheffield-steelers",
-    "score": "4–1",
-    "complete": false,
-    "live": true,
-    "status": "3rd period",
-    "details_url": "https://www.eliteleague.co.uk/game/7408-cov-she",
-    "scorers": [
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Ryan Richardson",
-        "time": "01:53",
-        "period": "1st period"
-      },
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Brett Perlini",
-        "time": "17:54",
-        "period": "1st period"
-      },
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Jaxson Ezman",
-        "time": "21:18",
-        "period": "2nd period"
-      },
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Artem Buzoverya",
-        "time": "23:39",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "28:23",
-        "period": "2nd period"
-      }
-    ]
-  },
-  "live_timeline": {
-    "game_id": "7408-cov-she",
-    "phase": "period3",
-    "phase_label": "Third period",
-    "phase_started_at": "2026-09-27T18:45:46+00:00",
-    "observed_at": "2026-09-27T18:45:46+00:00",
-    "estimated": true
-  },
-  "featured_game": {
-    "id": "7408-cov-she",
-    "starts_at": "2026-09-27T17:30:00+01:00",
-    "competition": "Challenge Cup",
-    "home": "Coventry Blaze",
-    "away": "Sheffield Steelers",
-    "home_slug": "coventry-blaze",
-    "away_slug": "sheffield-steelers",
-    "score": "4–1",
-    "complete": false,
-    "live": true,
-    "status": "3rd period",
-    "details_url": "https://www.eliteleague.co.uk/game/7408-cov-she",
-    "scorers": [
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Ryan Richardson",
-        "time": "01:53",
-        "period": "1st period"
-      },
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Brett Perlini",
-        "time": "17:54",
-        "period": "1st period"
-      },
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Jaxson Ezman",
-        "time": "21:18",
-        "period": "2nd period"
-      },
-      {
-        "team": "Coventry Blaze",
-        "scorer": "Artem Buzoverya",
-        "time": "23:39",
-        "period": "2nd period"
-      },
-      {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "28:23",
-        "period": "2nd period"
-      }
-    ]
-  },
+  "live_window": false,
+  "live_game": null,
+  "live_timeline": null,
+  "featured_game": null,
   "next_game": {
-    "id": "7121-she-fif",
-    "starts_at": "2026-10-03T19:00:00+01:00",
-    "competition": "EIHL League",
-    "home": "Sheffield Steelers",
-    "away": "Fife Flyers",
-    "home_slug": "sheffield-steelers",
-    "away_slug": "fife-flyers",
+    "id": "7415-not-she",
+    "starts_at": "2026-10-17T19:00:00+01:00",
+    "competition": "Challenge Cup",
+    "home": "Nottingham Panthers",
+    "away": "Sheffield Steelers",
+    "home_slug": "nottingham-panthers",
+    "away_slug": "sheffield-steelers",
     "score": null,
     "complete": false,
     "live": false,
     "status": "Scheduled",
-    "details_url": "https://www.eliteleague.co.uk/game/7121-she-fif",
-    "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flyers-sheffield-03-10-2026/event/35006505DAE14ED7",
-    "ticket_exact": true
+    "details_url": "https://www.eliteleague.co.uk/game/7415-not-she",
+    "ticket_url": "https://www.panthers.co.uk/tickets",
+    "ticket_exact": false
   },
   "last_game": {
-    "id": "7404-she-car",
-    "starts_at": "2026-09-26T19:00:00+01:00",
+    "id": "7413-man-she",
+    "starts_at": "2026-10-11T16:00:00+01:00",
     "competition": "Challenge Cup",
-    "home": "Sheffield Steelers",
-    "away": "Cardiff Devils",
-    "home_slug": "sheffield-steelers",
-    "away_slug": "cardiff-devils",
-    "score": "3–1",
+    "home": "Manchester Storm",
+    "away": "Sheffield Steelers",
+    "home_slug": "manchester-storm",
+    "away_slug": "sheffield-steelers",
+    "score": "3–4",
     "complete": true,
     "live": false,
     "status": "Final",
-    "details_url": "https://www.eliteleague.co.uk/game/7404-she-car",
+    "details_url": "https://www.eliteleague.co.uk/game/7413-man-she",
     "scorers": [
       {
-        "team": "Sheffield Steelers",
-        "scorer": "Brandon Whistle",
-        "time": "19:33",
+        "team": "Manchester Storm",
+        "scorer": "Kyle Maksimovich",
+        "time": "17:31",
         "period": "1st period"
       },
       {
-        "team": "Sheffield Steelers",
-        "scorer": "Mitchell Balmas",
-        "time": "29:42",
+        "team": "Manchester Storm",
+        "scorer": "Dennis Busby",
+        "time": "35:26",
+        "period": "2nd period"
+      },
+      {
+        "team": "Manchester Storm",
+        "scorer": "Brady Gilmour",
+        "time": "39:40",
         "period": "2nd period"
       },
       {
         "team": "Sheffield Steelers",
-        "scorer": "Macoy Erkamps",
-        "time": "59:48",
-        "period": "3rd period"
+        "scorer": "Tim Gettinger",
+        "time": "04:33",
+        "period": "1st period"
       },
       {
-        "team": "Cardiff Devils",
-        "scorer": "Ryan Barrow",
-        "time": "09:17",
+        "team": "Sheffield Steelers",
+        "scorer": "Ryan Tait",
+        "time": "14:22",
         "period": "1st period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Tim Gettinger",
+        "time": "25:39",
+        "period": "2nd period"
+      },
+      {
+        "team": "Sheffield Steelers",
+        "scorer": "Ryan Tait",
+        "time": "58:11",
+        "period": "3rd period"
       }
     ],
-    "finished_at": "2026-09-26T21:24:00+01:00",
-    "featured_until": "2026-09-26T22:24:00+01:00"
+    "finished_at": "2026-10-11T18:18:00+01:00",
+    "featured_until": "2026-10-11T19:18:00+01:00"
   },
   "upcoming": [
-    {
-      "id": "7121-she-fif",
-      "starts_at": "2026-10-03T19:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Sheffield Steelers",
-      "away": "Fife Flyers",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "fife-flyers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7121-she-fif",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flyers-sheffield-03-10-2026/event/35006505DAE14ED7",
-      "ticket_exact": true
-    },
-    {
-      "id": "7123-fif-she",
-      "starts_at": "2026-10-04T17:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Fife Flyers",
-      "away": "Sheffield Steelers",
-      "home_slug": "fife-flyers",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7123-fif-she",
-      "ticket_url": "https://fifeflyers.co.uk/tickets-2/",
-      "ticket_exact": false
-    },
-    {
-      "id": "7130-she-gla",
-      "starts_at": "2026-10-10T19:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Sheffield Steelers",
-      "away": "Glasgow Clan",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "glasgow-clan",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7130-she-gla",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-clan-sheffield-10-10-2026/event/35006505DAE24ED9",
-      "ticket_exact": true
-    },
-    {
-      "id": "7413-man-she",
-      "starts_at": "2026-10-11T16:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Manchester Storm",
-      "away": "Sheffield Steelers",
-      "home_slug": "manchester-storm",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7413-man-she",
-      "ticket_url": "https://www.ticketmaster.co.uk/manchester-storm-vs-sheffield-steelers-manchester-11-10-2026/event/1F0064FBD74D55E5",
-      "ticket_exact": true
-    },
     {
       "id": "7415-not-she",
       "starts_at": "2026-10-17T19:00:00+01:00",
@@ -255,76 +112,76 @@
       "live": false,
       "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7420-she-gui",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flames-sheffield-18-10-2026/event/35006505DAE44EDE",
+      "ticket_url": "https://www.ticketmaster.co.uk/the-seven-upgrade-steelers-vs-flames-sheffield-18-10-2026/event/3500654CDDEE5F95",
+      "ticket_exact": true
+    },
+    {
+      "id": "7425-car-she",
+      "starts_at": "2026-10-24T19:00:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Cardiff Devils",
+      "away": "Sheffield Steelers",
+      "home_slug": "cardiff-devils",
+      "away_slug": "sheffield-steelers",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7425-car-she",
+      "ticket_url": "https://www.cardiffdevils.com/tickets/match-night-tickets/",
+      "ticket_exact": false
+    },
+    {
+      "id": "7141-she-fif",
+      "starts_at": "2026-10-25T16:00:00+00:00",
+      "competition": "EIHL League",
+      "home": "Sheffield Steelers",
+      "away": "Fife Flyers",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "fife-flyers",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7141-she-fif",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flyers-sheffield-25-10-2026/event/35006505DAE64EE9",
+      "ticket_exact": true
+    },
+    {
+      "id": "7429-she-man",
+      "starts_at": "2026-10-28T19:30:00+00:00",
+      "competition": "Challenge Cup",
+      "home": "Sheffield Steelers",
+      "away": "Manchester Storm",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "manchester-storm",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7429-she-man",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-storm-sheffield-28-10-2026/event/35006505DAE84EF1",
+      "ticket_exact": true
+    },
+    {
+      "id": "7145-she-not",
+      "starts_at": "2026-10-31T19:00:00+00:00",
+      "competition": "EIHL League",
+      "home": "Sheffield Steelers",
+      "away": "Nottingham Panthers",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "nottingham-panthers",
+      "score": null,
+      "complete": false,
+      "live": false,
+      "status": "Scheduled",
+      "details_url": "https://www.eliteleague.co.uk/game/7145-she-not",
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-panthers-sheffield-31-10-2026/event/35006505DAEA4EF8",
       "ticket_exact": true
     }
   ],
   "all_upcoming": [
     {
-      "id": "7121-she-fif",
-      "starts_at": "2026-10-03T19:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Sheffield Steelers",
-      "away": "Fife Flyers",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "fife-flyers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7121-she-fif",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flyers-sheffield-03-10-2026/event/35006505DAE14ED7",
-      "ticket_exact": true
-    },
-    {
-      "id": "7123-fif-she",
-      "starts_at": "2026-10-04T17:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Fife Flyers",
-      "away": "Sheffield Steelers",
-      "home_slug": "fife-flyers",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7123-fif-she",
-      "ticket_url": "https://fifeflyers.co.uk/tickets-2/",
-      "ticket_exact": false
-    },
-    {
-      "id": "7130-she-gla",
-      "starts_at": "2026-10-10T19:00:00+01:00",
-      "competition": "EIHL League",
-      "home": "Sheffield Steelers",
-      "away": "Glasgow Clan",
-      "home_slug": "sheffield-steelers",
-      "away_slug": "glasgow-clan",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7130-she-gla",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-clan-sheffield-10-10-2026/event/35006505DAE24ED9",
-      "ticket_exact": true
-    },
-    {
-      "id": "7413-man-she",
-      "starts_at": "2026-10-11T16:00:00+01:00",
-      "competition": "Challenge Cup",
-      "home": "Manchester Storm",
-      "away": "Sheffield Steelers",
-      "home_slug": "manchester-storm",
-      "away_slug": "sheffield-steelers",
-      "score": null,
-      "complete": false,
-      "live": false,
-      "status": "Scheduled",
-      "details_url": "https://www.eliteleague.co.uk/game/7413-man-she",
-      "ticket_url": "https://www.ticketmaster.co.uk/manchester-storm-vs-sheffield-steelers-manchester-11-10-2026/event/1F0064FBD74D55E5",
-      "ticket_exact": true
-    },
-    {
       "id": "7415-not-she",
       "starts_at": "2026-10-17T19:00:00+01:00",
       "competition": "Challenge Cup",
@@ -353,7 +210,7 @@
       "live": false,
       "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7420-she-gui",
-      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-flames-sheffield-18-10-2026/event/35006505DAE44EDE",
+      "ticket_url": "https://www.ticketmaster.co.uk/the-seven-upgrade-steelers-vs-flames-sheffield-18-10-2026/event/3500654CDDEE5F95",
       "ticket_exact": true
     },
     {
@@ -577,8 +434,8 @@
       "live": false,
       "status": "Scheduled",
       "details_url": "https://www.eliteleague.co.uk/game/7191-she-dun",
-      "ticket_url": "https://www.ticketmaster.co.uk/sheffield-steelers-tickets/artist/30123?brand=uk_sheffieldarena&venueId=435513",
-      "ticket_exact": false
+      "ticket_url": "https://www.ticketmaster.co.uk/steelers-v-stars-sheffield-05-12-2026/event/35006505DAF54F30",
+      "ticket_exact": true
     },
     {
       "id": "7198-gui-she",
@@ -1175,6 +1032,178 @@
   ],
   "results": [
     {
+      "id": "7413-man-she",
+      "starts_at": "2026-10-11T16:00:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Manchester Storm",
+      "away": "Sheffield Steelers",
+      "home_slug": "manchester-storm",
+      "away_slug": "sheffield-steelers",
+      "score": "3–4",
+      "complete": true,
+      "live": false,
+      "status": "Final",
+      "details_url": "https://www.eliteleague.co.uk/game/7413-man-she",
+      "scorers": [
+        {
+          "team": "Manchester Storm",
+          "scorer": "Kyle Maksimovich",
+          "time": "17:31",
+          "period": "1st period"
+        },
+        {
+          "team": "Manchester Storm",
+          "scorer": "Dennis Busby",
+          "time": "35:26",
+          "period": "2nd period"
+        },
+        {
+          "team": "Manchester Storm",
+          "scorer": "Brady Gilmour",
+          "time": "39:40",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Tim Gettinger",
+          "time": "04:33",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Ryan Tait",
+          "time": "14:22",
+          "period": "1st period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Tim Gettinger",
+          "time": "25:39",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Ryan Tait",
+          "time": "58:11",
+          "period": "3rd period"
+        }
+      ],
+      "finished_at": "2026-10-11T18:18:00+01:00",
+      "featured_until": "2026-10-11T19:18:00+01:00"
+    },
+    {
+      "id": "7130-she-gla",
+      "starts_at": "2026-10-10T19:00:00+01:00",
+      "competition": "EIHL League",
+      "home": "Sheffield Steelers",
+      "away": "Glasgow Clan",
+      "home_slug": "sheffield-steelers",
+      "away_slug": "glasgow-clan",
+      "score": "5–0",
+      "complete": true,
+      "live": false,
+      "status": "Final",
+      "details_url": "https://www.eliteleague.co.uk/game/7130-she-gla",
+      "scorers": [
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Tim Gettinger",
+          "time": "29:08",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Ryan Tait",
+          "time": "30:10",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Brandon Whistle",
+          "time": "31:58",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Tim Gettinger",
+          "time": "36:13",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Brandon Whistle",
+          "time": "48:33",
+          "period": "3rd period"
+        }
+      ],
+      "finished_at": "2026-10-10T21:21:00+01:00",
+      "featured_until": "2026-10-10T22:21:00+01:00",
+      "highlights": {
+        "video_id": "oPazQWxGU2Q",
+        "title": "Sheffield Steelers v Glagow Clan - Motorpoint Elite League 10th October 2026",
+        "description": "Highlights from the Sheffield Steelers v Glasgow Clan League game on Saturday 10th October 2026. Commentary from Jonathan Fearnley and Dylan Pick reporting at Rinkside. Post-match reaction from head coaches Aaron Fox and Mike Sirant. © Sheffield Steelers 2026",
+        "published_at": "2026-10-13T17:38:59+00:00",
+        "url": "https://www.youtube.com/watch?v=oPazQWxGU2Q",
+        "embed_url": "https://www.youtube-nocookie.com/embed/oPazQWxGU2Q",
+        "thumbnail_url": "https://i4.ytimg.com/vi/oPazQWxGU2Q/hqdefault.jpg",
+        "source": "Sheffield Steelers TV"
+      }
+    },
+    {
+      "id": "7408-cov-she",
+      "starts_at": "2026-09-27T17:30:00+01:00",
+      "competition": "Challenge Cup",
+      "home": "Coventry Blaze",
+      "away": "Sheffield Steelers",
+      "home_slug": "coventry-blaze",
+      "away_slug": "sheffield-steelers",
+      "score": "4–2",
+      "complete": true,
+      "live": false,
+      "status": "Final",
+      "details_url": "https://www.eliteleague.co.uk/game/7408-cov-she",
+      "scorers": [
+        {
+          "team": "Coventry Blaze",
+          "scorer": "Ryan Richardson",
+          "time": "01:53",
+          "period": "1st period"
+        },
+        {
+          "team": "Coventry Blaze",
+          "scorer": "Brett Perlini",
+          "time": "17:54",
+          "period": "1st period"
+        },
+        {
+          "team": "Coventry Blaze",
+          "scorer": "Jaxson Ezman",
+          "time": "21:18",
+          "period": "2nd period"
+        },
+        {
+          "team": "Coventry Blaze",
+          "scorer": "Artem Buzoverya",
+          "time": "23:39",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Mitchell Balmas",
+          "time": "28:23",
+          "period": "2nd period"
+        },
+        {
+          "team": "Sheffield Steelers",
+          "scorer": "Robert Dowd",
+          "time": "53:23",
+          "period": "3rd period"
+        }
+      ],
+      "finished_at": "2026-09-27T20:10:00+01:00",
+      "featured_until": "2026-09-27T21:10:00+01:00"
+    },
+    {
       "id": "7404-she-car",
       "starts_at": "2026-09-26T19:00:00+01:00",
       "competition": "Challenge Cup",
@@ -1214,7 +1243,17 @@
         }
       ],
       "finished_at": "2026-09-26T21:24:00+01:00",
-      "featured_until": "2026-09-26T22:24:00+01:00"
+      "featured_until": "2026-09-26T22:24:00+01:00",
+      "highlights": {
+        "video_id": "iKilNoGM6PM",
+        "title": "Sheffield Steelers v Cardiff Devils - Challenge Cup - 26th September 2026",
+        "description": "Highlights from the Sheffield Steelers v Cardiff Devils Challenge cup game on Saturday 26th September 2026. Commentary from Jonathan Fearnley. Post-match reaction from head coaches Aaron Fox and Paul Thompson. © Sheffield Steelers 2026",
+        "published_at": "2026-09-29T12:35:22+00:00",
+        "url": "https://www.youtube.com/watch?v=iKilNoGM6PM",
+        "embed_url": "https://www.youtube-nocookie.com/embed/iKilNoGM6PM",
+        "thumbnail_url": "https://i2.ytimg.com/vi/iKilNoGM6PM/hqdefault.jpg",
+        "source": "Sheffield Steelers TV"
+      }
     },
     {
       "id": "7116-gui-she",
@@ -1582,113 +1621,123 @@
     "league": [
       {
         "position": 1,
-        "team": "Coventry Blaze",
-        "slug": "coventry-blaze",
-        "played": 1,
-        "points": 2,
-        "wins": 1,
+        "team": "Cardiff Devils",
+        "slug": "cardiff-devils",
+        "played": 4,
+        "points": 8,
+        "wins": 4,
         "losses": 0,
-        "goals_for": 4,
-        "goals_against": 3
+        "goals_for": 12,
+        "goals_against": 3,
+        "goal_difference": 9
       },
       {
         "position": 2,
-        "team": "Guildford Flames",
-        "slug": "guildford-flames",
-        "played": 1,
-        "points": 2,
-        "wins": 1,
-        "losses": 0,
-        "goals_for": 7,
-        "goals_against": 4
+        "team": "Coventry Blaze",
+        "slug": "coventry-blaze",
+        "played": 5,
+        "points": 8,
+        "wins": 4,
+        "losses": 1,
+        "goals_for": 18,
+        "goals_against": 8,
+        "goal_difference": 10
       },
       {
         "position": 3,
-        "team": "Nottingham Panthers",
-        "slug": "nottingham-panthers",
-        "played": 1,
-        "points": 2,
-        "wins": 1,
-        "losses": 0,
-        "goals_for": 5,
-        "goals_against": 1
+        "team": "Guildford Flames",
+        "slug": "guildford-flames",
+        "played": 4,
+        "points": 6,
+        "wins": 3,
+        "losses": 1,
+        "goals_for": 19,
+        "goals_against": 19,
+        "goal_difference": 0
       },
       {
         "position": 4,
         "team": "Sheffield Steelers",
         "slug": "sheffield-steelers",
-        "played": 2,
-        "points": 2,
-        "wins": 1,
-        "losses": 1,
-        "goals_for": 10,
-        "goals_against": 8
+        "played": 5,
+        "points": 6,
+        "wins": 2,
+        "losses": 3,
+        "goals_for": 17,
+        "goals_against": 12,
+        "goal_difference": 5
       },
       {
         "position": 5,
+        "team": "Fife Flyers",
+        "slug": "fife-flyers",
+        "played": 5,
+        "points": 6,
+        "wins": 3,
+        "losses": 2,
+        "goals_for": 17,
+        "goals_against": 10,
+        "goal_difference": 7
+      },
+      {
+        "position": 6,
         "team": "Manchester Storm",
         "slug": "manchester-storm",
+        "played": 6,
+        "points": 6,
+        "wins": 3,
+        "losses": 3,
+        "goals_for": 10,
+        "goals_against": 15,
+        "goal_difference": -5
+      },
+      {
+        "position": 7,
+        "team": "Nottingham Panthers",
+        "slug": "nottingham-panthers",
+        "played": 2,
+        "points": 4,
+        "wins": 2,
+        "losses": 0,
+        "goals_for": 8,
+        "goals_against": 3,
+        "goal_difference": 5
+      },
+      {
+        "position": 8,
+        "team": "Belfast Giants",
+        "slug": "belfast-giants",
         "played": 2,
         "points": 2,
         "wins": 1,
         "losses": 1,
         "goals_for": 3,
-        "goals_against": 6
-      },
-      {
-        "position": 6,
-        "team": "Belfast Giants",
-        "slug": "belfast-giants",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
-      },
-      {
-        "position": 7,
-        "team": "Cardiff Devils",
-        "slug": "cardiff-devils",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
-      },
-      {
-        "position": 8,
-        "team": "Fife Flyers",
-        "slug": "fife-flyers",
-        "played": 0,
-        "points": 0,
-        "wins": 0,
-        "losses": 0,
-        "goals_for": 0,
-        "goals_against": 0
+        "goals_against": 5,
+        "goal_difference": -2
       },
       {
         "position": 9,
         "team": "Dundee Stars",
         "slug": "dundee-stars",
-        "played": 1,
-        "points": 0,
+        "played": 4,
+        "points": 1,
         "wins": 0,
-        "losses": 1,
-        "goals_for": 3,
-        "goals_against": 4
+        "losses": 4,
+        "goals_for": 8,
+        "goals_against": 19,
+        "goal_difference": -11
       },
       {
         "position": 10,
         "team": "Glasgow Clan",
         "slug": "glasgow-clan",
-        "played": 2,
+        "played": 7,
         "points": 0,
         "wins": 0,
-        "losses": 2,
-        "goals_for": 2,
-        "goals_against": 8
+        "losses": 7,
+        "goals_for": 9,
+        "goals_against": 27,
+        "goal_difference": -18
       }
     ],
     "cup": [
@@ -1696,15 +1745,28 @@
         "position": 1,
         "team": "Sheffield Steelers",
         "slug": "sheffield-steelers",
-        "played": 5,
-        "points": 8,
-        "wins": 4,
+        "played": 6,
+        "points": 10,
+        "wins": 5,
         "losses": 1,
-        "goals_for": 18,
-        "goals_against": 11
+        "goals_for": 23,
+        "goals_against": 14,
+        "goal_difference": 9
       },
       {
         "position": 2,
+        "team": "Nottingham Panthers",
+        "slug": "nottingham-panthers",
+        "played": 7,
+        "points": 9,
+        "wins": 4,
+        "losses": 3,
+        "goals_for": 22,
+        "goals_against": 22,
+        "goal_difference": 0
+      },
+      {
+        "position": 3,
         "team": "Cardiff Devils",
         "slug": "cardiff-devils",
         "played": 6,
@@ -1712,51 +1774,44 @@
         "wins": 3,
         "losses": 3,
         "goals_for": 16,
-        "goals_against": 17
-      },
-      {
-        "position": 3,
-        "team": "Manchester Storm",
-        "slug": "manchester-storm",
-        "played": 4,
-        "points": 5,
-        "wins": 2,
-        "losses": 2,
-        "goals_for": 14,
-        "goals_against": 14
+        "goals_against": 17,
+        "goal_difference": -1
       },
       {
         "position": 4,
-        "team": "Guildford Flames",
-        "slug": "guildford-flames",
-        "played": 5,
-        "points": 5,
+        "team": "Manchester Storm",
+        "slug": "manchester-storm",
+        "played": 6,
+        "points": 6,
         "wins": 2,
-        "losses": 3,
-        "goals_for": 17,
-        "goals_against": 14
+        "losses": 4,
+        "goals_for": 18,
+        "goals_against": 20,
+        "goal_difference": -2
       },
       {
         "position": 5,
-        "team": "Coventry Blaze",
-        "slug": "coventry-blaze",
-        "played": 4,
-        "points": 4,
+        "team": "Guildford Flames",
+        "slug": "guildford-flames",
+        "played": 6,
+        "points": 5,
         "wins": 2,
-        "losses": 2,
-        "goals_for": 10,
-        "goals_against": 14
+        "losses": 4,
+        "goals_for": 20,
+        "goals_against": 20,
+        "goal_difference": 0
       },
       {
         "position": 6,
-        "team": "Nottingham Panthers",
-        "slug": "nottingham-panthers",
-        "played": 4,
-        "points": 3,
-        "wins": 1,
+        "team": "Coventry Blaze",
+        "slug": "coventry-blaze",
+        "played": 5,
+        "points": 4,
+        "wins": 2,
         "losses": 3,
-        "goals_for": 10,
-        "goals_against": 15
+        "goals_for": 13,
+        "goals_against": 19,
+        "goal_difference": -6
       }
     ],
     "preseason": [
@@ -2355,11 +2410,12 @@
       "label": "EIHL League",
       "rank_label": "Position",
       "rank_value": 4,
-      "played": 2,
-      "points": 2,
-      "wins": 1,
-      "goals_for": 10,
+      "played": 5,
+      "points": 6,
+      "wins": 2,
+      "goals_for": 17,
       "form": [
+        "W",
         "L",
         "W"
       ]
@@ -2368,11 +2424,13 @@
       "label": "Challenge Cup",
       "rank_label": "Position",
       "rank_value": 1,
-      "played": 5,
-      "points": 8,
-      "wins": 4,
-      "goals_for": 18,
+      "played": 6,
+      "points": 10,
+      "wins": 5,
+      "goals_for": 23,
       "form": [
+        "W",
+        "L",
         "W",
         "W"
       ]
@@ -2396,16 +2454,16 @@
       "label": "All competitions",
       "rank_label": "Competitions",
       "rank_value": 3,
-      "played": 11,
-      "points": 14,
-      "wins": 7,
-      "goals_for": 42,
+      "played": 15,
+      "points": 20,
+      "wins": 9,
+      "goals_for": 54,
       "form": [
+        "W",
         "W",
         "L",
         "W",
-        "W",
-        "W"
+        "L"
       ]
     }
   },
@@ -2413,16 +2471,16 @@
     "label": "All competitions",
     "rank_label": "Competitions",
     "rank_value": 3,
-    "played": 11,
-    "points": 14,
-    "wins": 7,
-    "goals_for": 42,
+    "played": 15,
+    "points": 20,
+    "wins": 9,
+    "goals_for": 54,
     "form": [
+      "W",
       "W",
       "L",
       "W",
-      "W",
-      "W"
+      "L"
     ]
   },
   "roster": {
@@ -2518,7 +2576,7 @@
     }
   },
   "player_stats": {
-    "updated_at": "2026-09-27T18:45:46+00:00",
+    "updated_at": "2026-10-17T10:29:04+00:00",
     "source": "Official EIHL player statistics",
     "source_url": "https://www.eliteleague.co.uk/team/13-sheffield-steelers/player-stats?id_season=57",
     "competitions": {
@@ -2528,32 +2586,76 @@
             "name": "Mitchell Balmas",
             "number": "92",
             "profile_url": "https://www.eliteleague.co.uk/player/1785-mitchell-balmas",
-            "games_played": 2,
+            "games_played": 5,
             "position": "FW",
             "goals": 3,
-            "assists": 1,
-            "points": 4,
+            "assists": 4,
+            "points": 7,
             "pim": 2
           },
           {
             "name": "Brandon Whistle",
             "number": "74",
             "profile_url": "https://www.eliteleague.co.uk/player/216-brandon-whistle",
-            "games_played": 2,
+            "games_played": 5,
             "position": "FW",
-            "goals": 1,
+            "goals": 3,
             "assists": 3,
-            "points": 4,
+            "points": 6,
             "pim": 2
+          },
+          {
+            "name": "Olivier Archambault",
+            "number": "93",
+            "profile_url": "https://www.eliteleague.co.uk/player/3141-olivier-archambault",
+            "games_played": 5,
+            "position": "LW",
+            "goals": 0,
+            "assists": 6,
+            "points": 6,
+            "pim": 0
           },
           {
             "name": "Evan Jasper",
             "number": "62",
             "profile_url": "https://www.eliteleague.co.uk/player/2126-evan-jasper",
-            "games_played": 2,
+            "games_played": 5,
             "position": "FW",
             "goals": 1,
-            "assists": 2,
+            "assists": 3,
+            "points": 4,
+            "pim": 0
+          },
+          {
+            "name": "Tim Gettinger",
+            "number": "25",
+            "profile_url": "https://www.eliteleague.co.uk/player/3143-tim-gettinger",
+            "games_played": 5,
+            "position": "C",
+            "goals": 2,
+            "assists": 1,
+            "points": 3,
+            "pim": 0
+          },
+          {
+            "name": "Sean Collins",
+            "number": "81",
+            "profile_url": "https://www.eliteleague.co.uk/player/3142-sean-collins",
+            "games_played": 4,
+            "position": "C",
+            "goals": 2,
+            "assists": 1,
+            "points": 3,
+            "pim": 0
+          },
+          {
+            "name": "Ryan Tait",
+            "number": "8",
+            "profile_url": "https://www.eliteleague.co.uk/player/1695-ryan-tait",
+            "games_played": 5,
+            "position": "FW",
+            "goals": 2,
+            "assists": 1,
             "points": 3,
             "pim": 0
           },
@@ -2561,7 +2663,7 @@
             "name": "Brien Diffley",
             "number": "65",
             "profile_url": "https://www.eliteleague.co.uk/player/1784-brien-diffley",
-            "games_played": 2,
+            "games_played": 5,
             "position": "D",
             "goals": 1,
             "assists": 2,
@@ -2572,117 +2674,95 @@
             "name": "Dominic Cormier",
             "number": "58",
             "profile_url": "https://www.eliteleague.co.uk/player/1877-dominic-cormier",
-            "games_played": 2,
+            "games_played": 5,
             "position": "D",
             "goals": 1,
             "assists": 2,
             "points": 3,
-            "pim": 0
-          },
-          {
-            "name": "Olivier Archambault",
-            "number": "93",
-            "profile_url": "https://www.eliteleague.co.uk/player/3141-olivier-archambault",
-            "games_played": 2,
-            "position": "LW",
-            "goals": 0,
-            "assists": 3,
-            "points": 3,
-            "pim": 0
-          },
-          {
-            "name": "Sean Collins",
-            "number": "81",
-            "profile_url": "https://www.eliteleague.co.uk/player/3142-sean-collins",
-            "games_played": 2,
-            "position": "C",
-            "goals": 2,
-            "assists": 0,
-            "points": 2,
-            "pim": 0
-          },
-          {
-            "name": "Ivan Bjorkly Nordstrom",
-            "number": "72",
-            "profile_url": "https://www.eliteleague.co.uk/player/2001-ivan-bjorkly-nordstrom",
-            "games_played": 2,
-            "position": "FW",
-            "goals": 0,
-            "assists": 2,
-            "points": 2,
-            "pim": 0
-          },
-          {
-            "name": "Ryan Tait",
-            "number": "8",
-            "profile_url": "https://www.eliteleague.co.uk/player/1695-ryan-tait",
-            "games_played": 2,
-            "position": "FW",
-            "goals": 1,
-            "assists": 0,
-            "points": 1,
-            "pim": 0
-          },
-          {
-            "name": "Macoy Erkamps",
-            "number": "59",
-            "profile_url": "https://www.eliteleague.co.uk/player/3138-macoy-erkamps",
-            "games_played": 2,
-            "position": "RD",
-            "goals": 0,
-            "assists": 1,
-            "points": 1,
-            "pim": 0
+            "pim": 2
           },
           {
             "name": "Aatu Aarnio",
             "number": "77",
             "profile_url": "https://www.eliteleague.co.uk/player/3139-aatu-aarnio",
-            "games_played": 2,
+            "games_played": 5,
             "position": "LD",
-            "goals": 0,
+            "goals": 1,
             "assists": 1,
-            "points": 1,
-            "pim": 0
+            "points": 2,
+            "pim": 2
           },
           {
             "name": "Adam Rockwood",
             "number": "91",
             "profile_url": "https://www.eliteleague.co.uk/player/3144-adam-rockwood",
-            "games_played": 1,
+            "games_played": 4,
             "position": "C",
             "goals": 0,
-            "assists": 1,
-            "points": 1,
-            "pim": 0
-          },
-          {
-            "name": "Leevi Teissala",
-            "number": "71",
-            "profile_url": "https://www.eliteleague.co.uk/player/3147-leevi-teissala",
-            "games_played": 2,
-            "position": "RW",
-            "goals": 0,
-            "assists": 1,
-            "points": 1,
+            "assists": 2,
+            "points": 2,
             "pim": 0
           },
           {
             "name": "Logan Roe",
             "number": "57",
             "profile_url": "https://www.eliteleague.co.uk/player/3140-logan-roe",
-            "games_played": 2,
+            "games_played": 5,
             "position": "LD",
             "goals": 0,
-            "assists": 0,
-            "points": 0,
+            "assists": 2,
+            "points": 2,
             "pim": 2
+          },
+          {
+            "name": "Ivan Bjorkly Nordstrom",
+            "number": "72",
+            "profile_url": "https://www.eliteleague.co.uk/player/2001-ivan-bjorkly-nordstrom",
+            "games_played": 5,
+            "position": "FW",
+            "goals": 0,
+            "assists": 2,
+            "points": 2,
+            "pim": 0
+          },
+          {
+            "name": "Leevi Teissala",
+            "number": "71",
+            "profile_url": "https://www.eliteleague.co.uk/player/3147-leevi-teissala",
+            "games_played": 4,
+            "position": "RW",
+            "goals": 0,
+            "assists": 2,
+            "points": 2,
+            "pim": 0
+          },
+          {
+            "name": "Mikko Juusola",
+            "number": "63",
+            "profile_url": "https://www.eliteleague.co.uk/player/1782-mikko-juusola",
+            "games_played": 5,
+            "position": "FW",
+            "goals": 1,
+            "assists": 0,
+            "points": 1,
+            "pim": 2
+          },
+          {
+            "name": "Macoy Erkamps",
+            "number": "59",
+            "profile_url": "https://www.eliteleague.co.uk/player/3138-macoy-erkamps",
+            "games_played": 5,
+            "position": "RD",
+            "goals": 0,
+            "assists": 1,
+            "points": 1,
+            "pim": 5
           },
           {
             "name": "Liam Steele",
             "number": "3",
             "profile_url": "https://www.eliteleague.co.uk/player/2129-liam-steele",
-            "games_played": 2,
+            "games_played": 5,
             "position": "D",
             "goals": 0,
             "assists": 0,
@@ -2693,45 +2773,23 @@
             "name": "Robert Dowd",
             "number": "75",
             "profile_url": "https://www.eliteleague.co.uk/player/100-robert-dowd",
-            "games_played": 2,
+            "games_played": 3,
             "position": "FW",
             "goals": 0,
             "assists": 0,
             "points": 0,
             "pim": 2
-          },
-          {
-            "name": "Tim Gettinger",
-            "number": "25",
-            "profile_url": "https://www.eliteleague.co.uk/player/3143-tim-gettinger",
-            "games_played": 2,
-            "position": "C",
-            "goals": 0,
-            "assists": 0,
-            "points": 0,
-            "pim": 0
           },
           {
             "name": "Robbie Stucker",
             "number": "2",
             "profile_url": "https://www.eliteleague.co.uk/player/3146-robbie-stucker",
-            "games_played": 1,
+            "games_played": 4,
             "position": "RD",
             "goals": 0,
             "assists": 0,
             "points": 0,
             "pim": 0
-          },
-          {
-            "name": "Mikko Juusola",
-            "number": "63",
-            "profile_url": "https://www.eliteleague.co.uk/player/1782-mikko-juusola",
-            "games_played": 2,
-            "position": "FW",
-            "goals": 0,
-            "assists": 0,
-            "points": 0,
-            "pim": 2
           }
         ],
         "goalies": [
@@ -2753,15 +2811,15 @@
             "name": "Matthew Greenfield",
             "number": "1",
             "profile_url": "https://www.eliteleague.co.uk/player/1714-matthew-greenfield",
-            "games_played": 2,
-            "wins": 1,
-            "losses": 1,
-            "shutouts": 0,
-            "shots_against": 64,
-            "goals_against": 7,
-            "minutes": 108.0,
-            "gaa": 3.89,
-            "save_percentage": 89.06
+            "games_played": 5,
+            "wins": 2,
+            "losses": 3,
+            "shutouts": 1,
+            "shots_against": 141,
+            "goals_against": 11,
+            "minutes": 288.0,
+            "gaa": 2.29,
+            "save_percentage": 92.2
           }
         ]
       },
@@ -2771,12 +2829,23 @@
             "name": "Olivier Archambault",
             "number": "93",
             "profile_url": "https://www.eliteleague.co.uk/player/3141-olivier-archambault",
-            "games_played": 5,
+            "games_played": 6,
             "position": "LW",
             "goals": 2,
-            "assists": 5,
-            "points": 7,
+            "assists": 8,
+            "points": 10,
             "pim": 2
+          },
+          {
+            "name": "Mitchell Balmas",
+            "number": "92",
+            "profile_url": "https://www.eliteleague.co.uk/player/1785-mitchell-balmas",
+            "games_played": 6,
+            "position": "FW",
+            "goals": 6,
+            "assists": 2,
+            "points": 8,
+            "pim": 0
           },
           {
             "name": "Robert Dowd",
@@ -2784,30 +2853,41 @@
             "profile_url": "https://www.eliteleague.co.uk/player/100-robert-dowd",
             "games_played": 5,
             "position": "FW",
-            "goals": 2,
-            "assists": 5,
+            "goals": 3,
+            "assists": 4,
             "points": 7,
             "pim": 2
-          },
-          {
-            "name": "Mitchell Balmas",
-            "number": "92",
-            "profile_url": "https://www.eliteleague.co.uk/player/1785-mitchell-balmas",
-            "games_played": 5,
-            "position": "FW",
-            "goals": 6,
-            "assists": 0,
-            "points": 6,
-            "pim": 0
           },
           {
             "name": "Ryan Tait",
             "number": "8",
             "profile_url": "https://www.eliteleague.co.uk/player/1695-ryan-tait",
-            "games_played": 5,
+            "games_played": 6,
             "position": "FW",
-            "goals": 2,
+            "goals": 4,
             "assists": 2,
+            "points": 6,
+            "pim": 0
+          },
+          {
+            "name": "Adam Rockwood",
+            "number": "91",
+            "profile_url": "https://www.eliteleague.co.uk/player/3144-adam-rockwood",
+            "games_played": 4,
+            "position": "C",
+            "goals": 0,
+            "assists": 5,
+            "points": 5,
+            "pim": 0
+          },
+          {
+            "name": "Evan Jasper",
+            "number": "62",
+            "profile_url": "https://www.eliteleague.co.uk/player/2126-evan-jasper",
+            "games_played": 6,
+            "position": "FW",
+            "goals": 1,
+            "assists": 3,
             "points": 4,
             "pim": 0
           },
@@ -2815,29 +2895,29 @@
             "name": "Brien Diffley",
             "number": "65",
             "profile_url": "https://www.eliteleague.co.uk/player/1784-brien-diffley",
-            "games_played": 5,
+            "games_played": 6,
             "position": "D",
             "goals": 0,
             "assists": 4,
             "points": 4,
-            "pim": 4
+            "pim": 6
           },
           {
-            "name": "Evan Jasper",
-            "number": "62",
-            "profile_url": "https://www.eliteleague.co.uk/player/2126-evan-jasper",
-            "games_played": 5,
-            "position": "FW",
-            "goals": 1,
-            "assists": 2,
+            "name": "Tim Gettinger",
+            "number": "25",
+            "profile_url": "https://www.eliteleague.co.uk/player/3143-tim-gettinger",
+            "games_played": 6,
+            "position": "C",
+            "goals": 2,
+            "assists": 1,
             "points": 3,
-            "pim": 0
+            "pim": 2
           },
           {
             "name": "Mikko Juusola",
             "number": "63",
             "profile_url": "https://www.eliteleague.co.uk/player/1782-mikko-juusola",
-            "games_played": 5,
+            "games_played": 6,
             "position": "FW",
             "goals": 1,
             "assists": 2,
@@ -2845,33 +2925,22 @@
             "pim": 0
           },
           {
-            "name": "Adam Rockwood",
-            "number": "91",
-            "profile_url": "https://www.eliteleague.co.uk/player/3144-adam-rockwood",
-            "games_played": 3,
-            "position": "C",
-            "goals": 0,
-            "assists": 3,
+            "name": "Leevi Teissala",
+            "number": "71",
+            "profile_url": "https://www.eliteleague.co.uk/player/3147-leevi-teissala",
+            "games_played": 6,
+            "position": "RW",
+            "goals": 1,
+            "assists": 2,
             "points": 3,
-            "pim": 0
+            "pim": 7
           },
           {
             "name": "Brandon Whistle",
             "number": "74",
             "profile_url": "https://www.eliteleague.co.uk/player/216-brandon-whistle",
-            "games_played": 5,
+            "games_played": 6,
             "position": "FW",
-            "goals": 1,
-            "assists": 1,
-            "points": 2,
-            "pim": 2
-          },
-          {
-            "name": "Leevi Teissala",
-            "number": "71",
-            "profile_url": "https://www.eliteleague.co.uk/player/3147-leevi-teissala",
-            "games_played": 5,
-            "position": "RW",
             "goals": 1,
             "assists": 1,
             "points": 2,
@@ -2881,7 +2950,7 @@
             "name": "Ivan Bjorkly Nordstrom",
             "number": "72",
             "profile_url": "https://www.eliteleague.co.uk/player/2001-ivan-bjorkly-nordstrom",
-            "games_played": 5,
+            "games_played": 6,
             "position": "FW",
             "goals": 1,
             "assists": 1,
@@ -2892,18 +2961,18 @@
             "name": "Logan Roe",
             "number": "57",
             "profile_url": "https://www.eliteleague.co.uk/player/3140-logan-roe",
-            "games_played": 5,
+            "games_played": 6,
             "position": "LD",
             "goals": 0,
             "assists": 2,
             "points": 2,
-            "pim": 0
+            "pim": 2
           },
           {
             "name": "Dominic Cormier",
             "number": "58",
             "profile_url": "https://www.eliteleague.co.uk/player/1877-dominic-cormier",
-            "games_played": 5,
+            "games_played": 6,
             "position": "D",
             "goals": 0,
             "assists": 2,
@@ -2914,7 +2983,7 @@
             "name": "Macoy Erkamps",
             "number": "59",
             "profile_url": "https://www.eliteleague.co.uk/player/3138-macoy-erkamps",
-            "games_played": 5,
+            "games_played": 6,
             "position": "RD",
             "goals": 1,
             "assists": 0,
@@ -2922,32 +2991,32 @@
             "pim": 0
           },
           {
-            "name": "Tim Gettinger",
-            "number": "25",
-            "profile_url": "https://www.eliteleague.co.uk/player/3143-tim-gettinger",
-            "games_played": 5,
-            "position": "C",
+            "name": "Aatu Aarnio",
+            "number": "77",
+            "profile_url": "https://www.eliteleague.co.uk/player/3139-aatu-aarnio",
+            "games_played": 6,
+            "position": "LD",
             "goals": 0,
             "assists": 1,
             "points": 1,
             "pim": 2
           },
           {
-            "name": "Aatu Aarnio",
-            "number": "77",
-            "profile_url": "https://www.eliteleague.co.uk/player/3139-aatu-aarnio",
-            "games_played": 5,
-            "position": "LD",
+            "name": "Liam Steele",
+            "number": "3",
+            "profile_url": "https://www.eliteleague.co.uk/player/2129-liam-steele",
+            "games_played": 6,
+            "position": "D",
             "goals": 0,
-            "assists": 1,
-            "points": 1,
+            "assists": 0,
+            "points": 0,
             "pim": 0
           },
           {
             "name": "Robbie Stucker",
             "number": "2",
             "profile_url": "https://www.eliteleague.co.uk/player/3146-robbie-stucker",
-            "games_played": 2,
+            "games_played": 3,
             "position": "RD",
             "goals": 0,
             "assists": 0,
@@ -2964,17 +3033,6 @@
             "assists": 0,
             "points": 0,
             "pim": 0
-          },
-          {
-            "name": "Liam Steele",
-            "number": "3",
-            "profile_url": "https://www.eliteleague.co.uk/player/2129-liam-steele",
-            "games_played": 5,
-            "position": "D",
-            "goals": 0,
-            "assists": 0,
-            "points": 0,
-            "pim": 0
           }
         ],
         "goalies": [
@@ -2982,15 +3040,15 @@
             "name": "Matthew Greenfield",
             "number": "1",
             "profile_url": "https://www.eliteleague.co.uk/player/1714-matthew-greenfield",
-            "games_played": 4,
-            "wins": 4,
+            "games_played": 5,
+            "wins": 5,
             "losses": 0,
             "shutouts": 1,
-            "shots_against": 109,
-            "goals_against": 7,
-            "minutes": 249.0,
-            "gaa": 1.69,
-            "save_percentage": 93.58
+            "shots_against": 141,
+            "goals_against": 10,
+            "minutes": 309.0,
+            "gaa": 1.94,
+            "save_percentage": 92.91
           },
           {
             "name": "Lucas Brine",
@@ -3000,11 +3058,11 @@
             "wins": 0,
             "losses": 1,
             "shutouts": 0,
-            "shots_against": 21,
+            "shots_against": 29,
             "goals_against": 4,
-            "minutes": 40.0,
-            "gaa": 6.0,
-            "save_percentage": 80.95
+            "minutes": 60.0,
+            "gaa": 4.0,
+            "save_percentage": 86.21
           }
         ]
       },
@@ -3014,84 +3072,139 @@
             "name": "Mitchell Balmas",
             "number": "92",
             "profile_url": "https://www.eliteleague.co.uk/player/1785-mitchell-balmas",
-            "games_played": 7,
+            "games_played": 11,
             "position": "FW",
             "goals": 9,
-            "assists": 1,
-            "points": 10,
+            "assists": 6,
+            "points": 15,
             "pim": 2
           },
           {
             "name": "Brandon Whistle",
             "number": "74",
             "profile_url": "https://www.eliteleague.co.uk/player/216-brandon-whistle",
-            "games_played": 7,
+            "games_played": 11,
             "position": "FW",
-            "goals": 2,
+            "goals": 4,
             "assists": 4,
-            "points": 6,
+            "points": 8,
             "pim": 4
-          },
-          {
-            "name": "Evan Jasper",
-            "number": "62",
-            "profile_url": "https://www.eliteleague.co.uk/player/2126-evan-jasper",
-            "games_played": 7,
-            "position": "FW",
-            "goals": 2,
-            "assists": 4,
-            "points": 6,
-            "pim": 0
-          },
-          {
-            "name": "Brien Diffley",
-            "number": "65",
-            "profile_url": "https://www.eliteleague.co.uk/player/1784-brien-diffley",
-            "games_played": 7,
-            "position": "D",
-            "goals": 1,
-            "assists": 6,
-            "points": 7,
-            "pim": 4
-          },
-          {
-            "name": "Dominic Cormier",
-            "number": "58",
-            "profile_url": "https://www.eliteleague.co.uk/player/1877-dominic-cormier",
-            "games_played": 7,
-            "position": "D",
-            "goals": 1,
-            "assists": 4,
-            "points": 5,
-            "pim": 2
           },
           {
             "name": "Olivier Archambault",
             "number": "93",
             "profile_url": "https://www.eliteleague.co.uk/player/3141-olivier-archambault",
-            "games_played": 7,
+            "games_played": 11,
             "position": "LW",
             "goals": 2,
-            "assists": 8,
-            "points": 10,
+            "assists": 14,
+            "points": 16,
+            "pim": 2
+          },
+          {
+            "name": "Evan Jasper",
+            "number": "62",
+            "profile_url": "https://www.eliteleague.co.uk/player/2126-evan-jasper",
+            "games_played": 11,
+            "position": "FW",
+            "goals": 2,
+            "assists": 6,
+            "points": 8,
+            "pim": 0
+          },
+          {
+            "name": "Tim Gettinger",
+            "number": "25",
+            "profile_url": "https://www.eliteleague.co.uk/player/3143-tim-gettinger",
+            "games_played": 11,
+            "position": "C",
+            "goals": 4,
+            "assists": 2,
+            "points": 6,
             "pim": 2
           },
           {
             "name": "Sean Collins",
             "number": "81",
             "profile_url": "https://www.eliteleague.co.uk/player/3142-sean-collins",
-            "games_played": 7,
+            "games_played": 9,
             "position": "C",
             "goals": 2,
-            "assists": 0,
-            "points": 2,
+            "assists": 1,
+            "points": 3,
             "pim": 0
+          },
+          {
+            "name": "Ryan Tait",
+            "number": "8",
+            "profile_url": "https://www.eliteleague.co.uk/player/1695-ryan-tait",
+            "games_played": 11,
+            "position": "FW",
+            "goals": 6,
+            "assists": 3,
+            "points": 9,
+            "pim": 0
+          },
+          {
+            "name": "Brien Diffley",
+            "number": "65",
+            "profile_url": "https://www.eliteleague.co.uk/player/1784-brien-diffley",
+            "games_played": 11,
+            "position": "D",
+            "goals": 1,
+            "assists": 6,
+            "points": 7,
+            "pim": 6
+          },
+          {
+            "name": "Dominic Cormier",
+            "number": "58",
+            "profile_url": "https://www.eliteleague.co.uk/player/1877-dominic-cormier",
+            "games_played": 11,
+            "position": "D",
+            "goals": 1,
+            "assists": 4,
+            "points": 5,
+            "pim": 4
+          },
+          {
+            "name": "Aatu Aarnio",
+            "number": "77",
+            "profile_url": "https://www.eliteleague.co.uk/player/3139-aatu-aarnio",
+            "games_played": 11,
+            "position": "LD",
+            "goals": 1,
+            "assists": 2,
+            "points": 3,
+            "pim": 4
+          },
+          {
+            "name": "Adam Rockwood",
+            "number": "91",
+            "profile_url": "https://www.eliteleague.co.uk/player/3144-adam-rockwood",
+            "games_played": 8,
+            "position": "C",
+            "goals": 0,
+            "assists": 7,
+            "points": 7,
+            "pim": 0
+          },
+          {
+            "name": "Logan Roe",
+            "number": "57",
+            "profile_url": "https://www.eliteleague.co.uk/player/3140-logan-roe",
+            "games_played": 11,
+            "position": "LD",
+            "goals": 0,
+            "assists": 4,
+            "points": 4,
+            "pim": 4
           },
           {
             "name": "Ivan Bjorkly Nordstrom",
             "number": "72",
             "profile_url": "https://www.eliteleague.co.uk/player/2001-ivan-bjorkly-nordstrom",
-            "games_played": 7,
+            "games_played": 11,
             "position": "FW",
             "goals": 1,
             "assists": 3,
@@ -3099,76 +3212,43 @@
             "pim": 2
           },
           {
-            "name": "Ryan Tait",
-            "number": "8",
-            "profile_url": "https://www.eliteleague.co.uk/player/1695-ryan-tait",
-            "games_played": 7,
-            "position": "FW",
-            "goals": 3,
-            "assists": 2,
+            "name": "Leevi Teissala",
+            "number": "71",
+            "profile_url": "https://www.eliteleague.co.uk/player/3147-leevi-teissala",
+            "games_played": 10,
+            "position": "RW",
+            "goals": 1,
+            "assists": 4,
             "points": 5,
-            "pim": 0
+            "pim": 7
+          },
+          {
+            "name": "Mikko Juusola",
+            "number": "63",
+            "profile_url": "https://www.eliteleague.co.uk/player/1782-mikko-juusola",
+            "games_played": 11,
+            "position": "FW",
+            "goals": 2,
+            "assists": 2,
+            "points": 4,
+            "pim": 2
           },
           {
             "name": "Macoy Erkamps",
             "number": "59",
             "profile_url": "https://www.eliteleague.co.uk/player/3138-macoy-erkamps",
-            "games_played": 7,
+            "games_played": 11,
             "position": "RD",
             "goals": 1,
             "assists": 1,
             "points": 2,
-            "pim": 0
-          },
-          {
-            "name": "Aatu Aarnio",
-            "number": "77",
-            "profile_url": "https://www.eliteleague.co.uk/player/3139-aatu-aarnio",
-            "games_played": 7,
-            "position": "LD",
-            "goals": 0,
-            "assists": 2,
-            "points": 2,
-            "pim": 0
-          },
-          {
-            "name": "Adam Rockwood",
-            "number": "91",
-            "profile_url": "https://www.eliteleague.co.uk/player/3144-adam-rockwood",
-            "games_played": 4,
-            "position": "C",
-            "goals": 0,
-            "assists": 4,
-            "points": 4,
-            "pim": 0
-          },
-          {
-            "name": "Leevi Teissala",
-            "number": "71",
-            "profile_url": "https://www.eliteleague.co.uk/player/3147-leevi-teissala",
-            "games_played": 7,
-            "position": "RW",
-            "goals": 1,
-            "assists": 2,
-            "points": 3,
-            "pim": 2
-          },
-          {
-            "name": "Logan Roe",
-            "number": "57",
-            "profile_url": "https://www.eliteleague.co.uk/player/3140-logan-roe",
-            "games_played": 7,
-            "position": "LD",
-            "goals": 0,
-            "assists": 2,
-            "points": 2,
-            "pim": 2
+            "pim": 5
           },
           {
             "name": "Liam Steele",
             "number": "3",
             "profile_url": "https://www.eliteleague.co.uk/player/2129-liam-steele",
-            "games_played": 7,
+            "games_played": 11,
             "position": "D",
             "goals": 0,
             "assists": 0,
@@ -3179,45 +3259,23 @@
             "name": "Robert Dowd",
             "number": "75",
             "profile_url": "https://www.eliteleague.co.uk/player/100-robert-dowd",
-            "games_played": 7,
+            "games_played": 8,
             "position": "FW",
-            "goals": 2,
-            "assists": 5,
+            "goals": 3,
+            "assists": 4,
             "points": 7,
             "pim": 4
-          },
-          {
-            "name": "Tim Gettinger",
-            "number": "25",
-            "profile_url": "https://www.eliteleague.co.uk/player/3143-tim-gettinger",
-            "games_played": 7,
-            "position": "C",
-            "goals": 0,
-            "assists": 1,
-            "points": 1,
-            "pim": 2
           },
           {
             "name": "Robbie Stucker",
             "number": "2",
             "profile_url": "https://www.eliteleague.co.uk/player/3146-robbie-stucker",
-            "games_played": 3,
+            "games_played": 7,
             "position": "RD",
             "goals": 0,
             "assists": 0,
             "points": 0,
             "pim": 0
-          },
-          {
-            "name": "Mikko Juusola",
-            "number": "63",
-            "profile_url": "https://www.eliteleague.co.uk/player/1782-mikko-juusola",
-            "games_played": 7,
-            "position": "FW",
-            "goals": 1,
-            "assists": 2,
-            "points": 3,
-            "pim": 2
           }
         ],
         "goalies": [
@@ -3229,65 +3287,45 @@
             "wins": 0,
             "losses": 1,
             "shutouts": 0,
-            "shots_against": 27,
+            "shots_against": 35,
             "goals_against": 4,
-            "minutes": 48.0,
-            "gaa": 5.0,
-            "save_percentage": 85.19
+            "minutes": 68.0,
+            "gaa": 3.53,
+            "save_percentage": 88.57
           },
           {
             "name": "Matthew Greenfield",
             "number": "1",
             "profile_url": "https://www.eliteleague.co.uk/player/1714-matthew-greenfield",
-            "games_played": 6,
-            "wins": 5,
-            "losses": 1,
-            "shutouts": 1,
-            "shots_against": 173,
-            "goals_against": 14,
-            "minutes": 357.0,
-            "gaa": 2.35,
-            "save_percentage": 91.91
+            "games_played": 10,
+            "wins": 7,
+            "losses": 3,
+            "shutouts": 2,
+            "shots_against": 282,
+            "goals_against": 21,
+            "minutes": 597.0,
+            "gaa": 2.11,
+            "save_percentage": 92.55
           }
         ]
       }
     }
   },
   "news": {
-    "updated_at": "2026-09-27T18:45:46+00:00",
+    "updated_at": "2026-10-17T10:29:04+00:00",
     "sources": [
       "Sheffield Steelers",
       "EIHL"
     ],
     "items": [
       {
-        "id": "steelers-30318",
-        "title": "Former NHL’er Tim Gettinger Signs for the Steelers",
-        "excerpt": "From the Rangers to the Steelers – Tim Gettinger heads to Sheffield The Sheffield Steelers have completed their forward group for the 2026-27 season with the exciting signing of former NHL forward Tim Gettinger. The 6’6″ American arrives in",
-        "category": "Signing",
-        "published_at": "2026-08-01T07:59:00+00:00",
+        "id": "steelers-33012",
+        "title": "Fox calls for greater urgency after Fife weekend",
+        "excerpt": "Whistle Injury an Additional Headache for the Steelers Boss Aaron Fox has called on his Steelers side to raise their urgency and maintain their intensity after Sunday’s 2-1 overtime defeat in Fife. The result followed Saturday’s overtime lo",
+        "category": "Injury / availability",
+        "published_at": "2026-10-04T18:42:05+00:00",
         "source": "Sheffield Steelers",
-        "url": "https://www.sheffieldsteelers.co.uk/former-nhler-tim-gettinger-signs-for-the-steelers/",
-        "verified": true
-      },
-      {
-        "id": "steelers-30191",
-        "title": "Foxy makes another NEW signing",
-        "excerpt": "Fox Confirms Another New Signing as Steelers Roster Nears Completion Sheffield Steelers Head Coach Aaron Fox has confirmed that another new signing has agreed to join the club ahead of the 2026-27 Motorpoint Elite League season. The identit",
-        "category": "Signing",
-        "published_at": "2026-07-23T12:30:00+00:00",
-        "source": "Sheffield Steelers",
-        "url": "https://www.sheffieldsteelers.co.uk/foxy-makes-another-new-signing/",
-        "verified": true
-      },
-      {
-        "id": "steelers-29949",
-        "title": "Steelers Complete Blue Line with Signing of Macoy Erkamps",
-        "excerpt": "Fox happy with his latest signing The Sheffield Steelers have completed their defensive unit for the 2026-27 Elite League season with the signing of experienced Canadian defenceman Macoy Erkamps. The 31-year-old arrives in Sheffield followi",
-        "category": "Signing",
-        "published_at": "2026-07-11T04:00:00+00:00",
-        "source": "Sheffield Steelers",
-        "url": "https://www.sheffieldsteelers.co.uk/steelers-complete-blue-line-with-signing-of-macoy-erkamps/",
+        "url": "https://www.sheffieldsteelers.co.uk/fox-calls-for-greater-urgency-after-fife-weekend/",
         "verified": true
       }
     ]

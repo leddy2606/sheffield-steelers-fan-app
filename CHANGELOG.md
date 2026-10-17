@@ -1,5 +1,12 @@
 # Version history
 
+## 1.19.3-local — 17 October 2026
+
+- Added the same wins, losses and goal-difference summary beneath every team in the EIHL League and Challenge Cup tables.
+- Added goal difference directly to automatically generated official standings data.
+- Retained a browser fallback that calculates goal difference from goals for and against when an older cached payload is loaded.
+- Local preview only; not deployed.
+
 ## 1.19.2 — 27 September 2026
 
 - Added a second staggered match-time schedule, targeting official score refreshes every 2–3 minutes.
