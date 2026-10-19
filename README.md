@@ -4,6 +4,12 @@ An unofficial, installable Sheffield Steelers fan app. It includes near-live com
 
 Current local version: **1.19.3-local**. See `CHANGELOG.md` for the recoverable version history.
 
+## Visitor analytics
+
+Cloudflare Web Analytics measures visits and page views using the script in `index.html`. It is free and works with the existing DNS-only domain and GitHub Pages hosting. In Cloudflare, open **Observability > Analytics > Web analytics > steelcityhockey.app**, rather than the domain's network traffic dashboard.
+
+Measurement starts with the analytics deployment on 19 October 2026; earlier visits cannot be recovered. Visits are arrivals, not an exact count of unique people. Repeat arrivals can count again, and blockers or offline use can prevent measurement. The app's two-minute data refresh does not reload the page or intentionally send a new page view. Test visits by the site owner also contribute to the totals.
+
 ## Free hosting model
 
 The included GitHub Pages workflow uses only free services for a public repository:
