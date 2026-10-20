@@ -1,5 +1,13 @@
 # Version history
 
+## 1.19.4 — 20 October 2026
+
+- Added free Google Analytics 4 to estimate distinct users from installation onward, after analytics cookie consent.
+- Added a footer privacy control for consent changes and an option to exclude each owner/test browser from both Google and Cloudflare analytics.
+- Kept advertising features off and page URLs free of query strings and fragments in Google Analytics.
+- Updated the offline cache to include the analytics controls; local previews do not send analytics.
+- Added checks for consent, withdrawal, duplicate loads and owner exclusions.
+
 ## 1.19.3-local — 17 October 2026
 
 - Added the same wins, losses and goal-difference summary beneath every team in the EIHL League and Challenge Cup tables.

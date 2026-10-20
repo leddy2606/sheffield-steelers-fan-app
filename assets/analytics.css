@@ -1,0 +1,14 @@
+.analytics-settings{display:block;margin:14px auto 0;border:0;background:transparent;color:#98a0aa;text-decoration:underline;cursor:pointer;font:inherit;padding:8px}
+#analytics-dialog{box-sizing:border-box;width:min(520px,calc(100% - 28px));max-height:85dvh;overflow:auto;padding:24px;border:1px solid #41454c;border-radius:20px;background:#14161a;color:#eef6fb;font:14px/1.55 system-ui,sans-serif;box-shadow:0 20px 80px #0009}
+#analytics-dialog::backdrop{background:#000a}
+#analytics-dialog h2{font-size:21px;margin:0 0 12px}
+#analytics-dialog p{margin:12px 0;color:#c4cbd2}
+#analytics-dialog .analytics-status{color:#ff9a51;font-size:12px}
+#analytics-dialog button{min-height:44px;border:1px solid #66707d;border-radius:10px;padding:10px 14px;background:#202329;color:#eef6fb;cursor:pointer;font:600 13px system-ui,sans-serif}
+#analytics-dialog .analytics-actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+#analytics-dialog #analytics-allow{background:#ff6900;color:#111;border-color:#ff6900}
+#analytics-dialog details{border-top:1px solid #41454c;padding-top:14px;font-size:12px}
+#analytics-dialog summary{cursor:pointer;padding:8px 0}
+#analytics-dialog a{color:#ff9a51;text-decoration:underline}
+#analytics-dialog #analytics-close{margin-top:18px;background:transparent}
+#analytics-dialog :focus-visible,.analytics-settings:focus-visible{outline:3px solid #ff9a51;outline-offset:3px}

@@ -2,11 +2,17 @@
 
 An unofficial, installable Sheffield Steelers fan app. It includes near-live competitive scores, fixtures, expandable match history and reports, standings, roster data, sortable player statistics, verified player-status updates and the season snapshot from official sources.
 
-Current local version: **1.19.3-local**. See `CHANGELOG.md` for the recoverable version history.
+Current version: **1.19.4**. See `CHANGELOG.md` for the recoverable version history.
 
 ## Visitor analytics
 
-Cloudflare Web Analytics measures visits and page views using the script in `index.html`. It is free and works with the existing DNS-only domain and GitHub Pages hosting. In Cloudflare, open **Observability > Analytics > Web analytics > steelcityhockey.app**, rather than the domain's network traffic dashboard.
+Google Analytics 4 estimates distinct users and returning browsers from its deployment on 20 October 2026. The free **Steel City Hockey** property uses measurement ID `G-HHKGJ1KXP9`. Look for **Total users** for distinct users in the selected reporting period; **Active users** is a different engagement metric. Different browsers/devices, deleted cookies, rejected consent and blockers affect these estimates. Earlier visits cannot be recovered.
+
+The footer's **Privacy & analytics** button lets visitors allow or reject Google Analytics cookies and change their choice. Google does not load until consent is granted. Advertising storage, advertising user data, advertising personalisation and Google signals are disabled. Enhanced measurement is off: only standard visitor events are needed. The reported page URL omits query strings and fragments.
+
+Under **About the counts and your own visits**, select **Exclude this browser from analytics** to stop future tracking in both Google and Cloudflare on that browser. Repeat on each owner/test browser and device. The choice is saved in local storage and resets if site storage is cleared. Re-including the browser retains its separate Google cookie choice. Local previews do not load either external analytics script.
+
+Cloudflare Web Analytics measures visits and page views, independently of the Google cookie choice, using `assets/analytics.js`. It is free and works with the existing DNS-only domain and GitHub Pages hosting. In Cloudflare, open **Observability > Analytics > Web analytics > steelcityhockey.app**, rather than the domain's network traffic dashboard.
 
 Measurement starts with the analytics deployment on 19 October 2026; earlier visits cannot be recovered. Visits are arrivals, not an exact count of unique people. Repeat arrivals can count again, and blockers or offline use can prevent measurement. The app's two-minute data refresh does not reload the page or intentionally send a new page view. Test visits by the site owner also contribute to the totals.
 
