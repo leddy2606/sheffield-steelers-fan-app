@@ -25,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Test safe rendering of refreshed data
+        run: node scripts/test_render_security.cjs
       - name: Check scheduled match window without contacting external sites
         id: window
         run: python scripts/check_match_window.py >> "$GITHUB_OUTPUT"
