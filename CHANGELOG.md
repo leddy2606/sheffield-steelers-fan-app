@@ -1,5 +1,13 @@
 # Version history
 
+## 1.19.5 — 1 November 2026
+
+- Fixed Challenge Cup qualification markers (`x -`, `y -`, and future equivalents) appearing inside team names.
+- Team identity and crests now come from the stable official EIHL team URL rather than decorated display text.
+- Removed the unsafe fallback that could show the Steelers crest for another team.
+- Added regression tests for known, unknown and future qualification-marker formats.
+- Added the standings parser regression suite as a deployment gate in the free GitHub workflow.
+
 ## 1.19.4 — 20 October 2026
 
 - Added free Google Analytics 4 to estimate distinct users from installation onward, after analytics cookie consent.

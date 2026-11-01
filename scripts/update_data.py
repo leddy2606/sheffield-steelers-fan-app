@@ -836,19 +836,22 @@ def parse_standings(path: str) -> list[dict]:
         return []
     rows = []
     for row in re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", table_match.group(1)):
-        team_match = re.search(r'<a href="/team/[^\"]+">([\s\S]*?)</a>', row)
+        team_match = re.search(r'<a href="/team/\d+-([^\"]+)">([\s\S]*?)</a>', row)
         position_match = re.search(r'<span class="mr-3">\s*(\d+)\s*</span>', row)
         cells = re.findall(r"<td[^>]*>([\s\S]*?)</td>", row)
         if not team_match or not position_match or len(cells) < 10:
             continue
         values = [text(cell) for cell in cells[1:]]
-        team_name = text(team_match.group(1))
+        official_slug = team_match.group(1).strip()
+        decorated_name = text(team_match.group(2))
+        clean_name = re.sub(r"^(?:[A-Za-z]{1,4}\s*-\s*)+", "", decorated_name).strip()
+        team_name = next((name for name, slug in SLUGS.items() if slug == official_slug), clean_name)
         goals_for = int(values[6])
         goals_against = int(values[7])
         rows.append({
             "position": int(position_match.group(1)),
             "team": team_name,
-            "slug": SLUGS.get(team_name, "sheffield-steelers"),
+            "slug": official_slug or SLUGS.get(team_name, "team"),
             "played": int(values[0]),
             "points": int(values[1]),
             "wins": int(values[2]) + int(values[3]),

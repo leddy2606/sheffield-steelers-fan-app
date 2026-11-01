@@ -2,7 +2,7 @@
 
 An unofficial, installable Sheffield Steelers fan app. It includes near-live competitive scores, fixtures, expandable match history and reports, standings, roster data, sortable player statistics, verified player-status updates and the season snapshot from official sources.
 
-Current version: **1.19.4**. See `CHANGELOG.md` for the recoverable version history.
+Current version: **1.19.5**. See `CHANGELOG.md` for the recoverable version history.
 
 ## Visitor analytics
 
