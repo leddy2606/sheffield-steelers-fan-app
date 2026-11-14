@@ -1,0 +1,14 @@
+{
+  "name": "Steel City Match Centre",
+  "tagline": "Sheffield Steelers fixtures, live scores and season stats",
+  "summary": "A free installable Sheffield Steelers fan app with automatically refreshed match data.",
+  "details": "Tracks fixtures, live and final scores, match reports, tables, roster, player statistics and verified player updates using free public sources.",
+  "category": "Web tools",
+  "status": "Live",
+  "built": "Aug 2026",
+  "tech": "HTML, CSS, JavaScript, Python, GitHub Actions and GitHub Pages",
+  "open": {
+    "type": "url",
+    "target": "https://steelcityhockey.app/"
+  }
+}
