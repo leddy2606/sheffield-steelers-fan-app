@@ -1,8 +1,10 @@
 import unittest
+from datetime import datetime, timedelta, timezone
 from unittest.mock import patch
 
 from scripts.update_data import (
     fresher_live_score,
+    is_result_score,
     parse_livescore_score,
     parse_sportplus_score,
     parse_standings,
@@ -68,6 +70,11 @@ P3 54’
         self.assertTrue(fresher_live_score((2, 5), (3, 5)))
         self.assertFalse(fresher_live_score((3, 5), (2, 5)))
         self.assertFalse(fresher_live_score((3, 5), (3, 4)))
+
+    def test_future_zero_zero_is_not_a_completed_result(self):
+        now = datetime(2026, 11, 14, 21, 0, tzinfo=timezone.utc)
+        self.assertFalse(is_result_score("0–0", now + timedelta(days=30), now))
+        self.assertTrue(is_result_score("3–6", now - timedelta(minutes=1), now))
 
 
 if __name__ == "__main__":

@@ -3,10 +3,10 @@ name: Refresh and publish
 on:
   schedule:
     - cron: "17 */3 * * *"
-    # Two staggered schedules provide match-time redundancy. Outside a scheduled
-    # match window they only run the local timestamp check below and contact no sites.
-    - cron: "1,6,11,16,21,26,31,36,41,46,51,56 * * * *"
-    - cron: "4,9,14,19,24,29,34,39,44,49,54,59 * * * *"
+    # One standard five-minute schedule is substantially more reliable on GitHub
+    # than many overlapping cron entries. Outside a scheduled match window it only
+    # runs the local timestamp check below and contacts no external sites.
+    - cron: "*/5 * * * *"
   workflow_dispatch:
   push:
     branches: [main]

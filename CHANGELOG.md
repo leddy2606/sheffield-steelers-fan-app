@@ -1,5 +1,12 @@
 # Version history
 
+## 1.20.1 — 14 November 2026
+
+- Published the final Guildford Flames 3–6 Sheffield Steelers result after EIHL marked the game complete.
+- Replaced two overly aggressive overlapping cron schedules with one standard five-minute match schedule.
+- This prevents GitHub from dropping most rapid refresh requests and makes live-to-final handover more reliable.
+- Stopped future EIHL fixtures carrying placeholder `0–0` scores from being classified as completed results.
+
 ## 1.20.0 — 14 November 2026
 
 - Added free SportPlus and LiveScore score-only fallbacks during live Steelers games.

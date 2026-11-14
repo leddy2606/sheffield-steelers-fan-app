@@ -99,6 +99,15 @@ def text(fragment: str) -> str:
     return " ".join(html.unescape(clean).split())
 
 
+def is_result_score(score_text: str, starts: datetime, now: datetime | None = None) -> bool:
+    """Reject EIHL's 0:0-style placeholders on fixtures that have not started."""
+    checked_at = now or datetime.now(timezone.utc)
+    return bool(
+        re.fullmatch(r"\d+–\d+", score_text)
+        and starts.astimezone(timezone.utc) <= checked_at.astimezone(timezone.utc)
+    )
+
+
 def news_category(title: str, excerpt: str = "") -> str:
     """Keep only concrete player-status news and reject promotional club stories."""
     headline = title.casefold()
@@ -368,8 +377,10 @@ def parse_schedule(season_id: int, competition: str) -> list[dict]:
                 continue
             home, away = (" ".join(team.split()) for team in teams[:2])
             score_text = text(game_match.group(2)).replace(":", "–")
-            has_score = bool(re.fullmatch(r"\d+–\d+", score_text))
             starts = datetime.combine(game_date, datetime.strptime(time_match.group(1), "%H:%M").time(), LONDON)
+            # EIHL sometimes publishes future fixtures with a 0:0 placeholder.
+            # A score cannot be a result until the scheduled face-off has passed.
+            has_score = is_result_score(score_text, starts)
             games.append({
                 "id": game_match.group(1).removeprefix("/game/"),
                 "starts_at": starts.isoformat(),
