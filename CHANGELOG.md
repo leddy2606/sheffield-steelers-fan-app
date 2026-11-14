@@ -1,5 +1,13 @@
 # Version history
 
+## 1.20.0 — 14 November 2026
+
+- Added free SportPlus and LiveScore score-only fallbacks during live Steelers games.
+- Required exact home and away team matching before any third-party score can be used.
+- Prevented a newer published live score from being rolled backwards by a stale provider response.
+- Kept official EIHL data authoritative for final scores, scorers, reports and standings.
+- Added regression tests for exact matching, reversed fixtures and live-score rollback protection.
+
 ## 1.19.5 — 1 November 2026
 
 - Fixed Challenge Cup qualification markers (`x -`, `y -`, and future equivalents) appearing inside team names.

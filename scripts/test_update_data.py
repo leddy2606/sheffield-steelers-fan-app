@@ -1,7 +1,12 @@
 import unittest
 from unittest.mock import patch
 
-from scripts.update_data import parse_standings
+from scripts.update_data import (
+    fresher_live_score,
+    parse_livescore_score,
+    parse_sportplus_score,
+    parse_standings,
+)
 
 
 def standings_page(team_label: str, team_slug: str) -> str:
@@ -32,6 +37,37 @@ class StandingsTeamIdentityTests(unittest.TestCase):
         row = self.parse("y - Guildford Flames", "guildford-flames")
         self.assertEqual(row["team"], "Guildford Flames")
         self.assertNotEqual(row["slug"], "sheffield-steelers")
+
+
+class LiveScoreFallbackTests(unittest.TestCase):
+    game = {"home": "Guildford Flames", "away": "Sheffield Steelers"}
+
+    def test_sportplus_exact_team_card_is_parsed(self):
+        document = """
+P3 54’
+![Image 1: Guildford Flames](home.png)Guildford Flames![Image 2: Sheffield Steelers](away.png)Sheffield Steelers
+
+3  5
+"""
+        self.assertEqual(parse_sportplus_score(document, self.game), (3, 5))
+
+    def test_sportplus_reversed_fixture_is_rejected(self):
+        document = """![Image 1: Sheffield Steelers](a)Sheffield Steelers![Image 2: Guildford Flames](b)Guildford Flames
+
+5 3"""
+        self.assertIsNone(parse_sportplus_score(document, self.game))
+
+    def test_livescore_requires_exact_teams(self):
+        payload = {"Stages": [{"Events": [{
+            "T1": [{"Nm": "Guildford Flames"}], "T2": [{"Nm": "Sheffield Steelers"}],
+            "Tr1": "3", "Tr2": "5",
+        }]}]}
+        self.assertEqual(parse_livescore_score(payload, self.game), (3, 5))
+
+    def test_live_score_never_rolls_back(self):
+        self.assertTrue(fresher_live_score((2, 5), (3, 5)))
+        self.assertFalse(fresher_live_score((3, 5), (2, 5)))
+        self.assertFalse(fresher_live_score((3, 5), (3, 4)))
 
 
 if __name__ == "__main__":

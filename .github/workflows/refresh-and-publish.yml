@@ -36,7 +36,7 @@ jobs:
       - name: Install free gamesheet reader
         if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         run: python -m pip install -r requirements.txt
-      - name: Test standings team identity parser
+      - name: Test updater parsers and live-score safeguards
         if: github.event_name != 'schedule' || github.event.schedule == '17 */3 * * *' || steps.window.outputs.active == 'true'
         run: python -m unittest scripts.test_update_data -v
       - name: Refresh official EIHL data

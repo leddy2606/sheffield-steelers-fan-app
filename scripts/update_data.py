@@ -37,6 +37,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "app-data.json"
 JS_OUTPUT = ROOT / "data" / "app-data.js"
 LIVE_DATA_URL = "https://leddy2606.github.io/sheffield-steelers-fan-app/data/app-data.json"
+SPORTPLUS_MIRROR_URL = "https://r.jina.ai/http://en.sportplus.watch/"
+LIVESCORE_DATE_URL = "https://prod-cdn-public-api.lsmedia1.com/v1/api/app/date/hockey/{date}/0?MD=1"
 LONDON = ZoneInfo("Europe/London")
 SSL_CONTEXT = ssl._create_unverified_context()
 HEADERS = {"User-Agent": "SteelCityMatchCentre/1.0 (unofficial fan app)"}
@@ -83,6 +85,13 @@ def fetch_bytes(path: str) -> bytes:
 
 def fetch(path: str) -> str:
     return fetch_bytes(path).decode("utf-8", "ignore")
+
+
+def fetch_url(url: str) -> str:
+    """Fetch a complete URL without changing the official EIHL base."""
+    request = urllib.request.Request(url, headers=HEADERS)
+    with urllib.request.urlopen(request, context=SSL_CONTEXT, timeout=30) as response:
+        return response.read().decode("utf-8", "ignore")
 
 
 def text(fragment: str) -> str:
@@ -445,6 +454,81 @@ def parse_eihl_game_details(game: dict) -> dict:
         details["finished_at"] = finished_at.isoformat()
         details["featured_until"] = (finished_at + timedelta(hours=1)).isoformat()
     return details
+
+
+def score_pair(value: str | None) -> tuple[int, int] | None:
+    match = re.fullmatch(r"\s*(\d+)\s*[–:-]\s*(\d+)\s*", value or "")
+    return tuple(map(int, match.groups())) if match else None
+
+
+def parse_sportplus_score(document: str, game: dict) -> tuple[int, int] | None:
+    """Read a matching hockey card from SportPlus's text mirror.
+
+    Exact adjacent team names are required. This prevents another Sheffield or
+    Guildford event from ever being applied to the current EIHL fixture.
+    """
+    home = re.escape(game["home"])
+    away = re.escape(game["away"])
+    card = re.search(
+        rf"!\[[^\]]*:\s*{home}\]\([^\n]+\){home}\s*"
+        rf"!\[[^\]]*:\s*{away}\]\([^\n]+\){away}\s*\n+\s*"
+        rf"(\d+)\s+(\d+)(?:\s|$)",
+        document,
+        re.I,
+    )
+    return (int(card.group(1)), int(card.group(2))) if card else None
+
+
+def parse_livescore_score(payload: dict, game: dict) -> tuple[int, int] | None:
+    """Read the exact fixture from LiveScore's public hockey date feed."""
+    for stage in payload.get("Stages", []):
+        for event in stage.get("Events", []):
+            home = ((event.get("T1") or [{}])[0].get("Nm") or "").strip()
+            away = ((event.get("T2") or [{}])[0].get("Nm") or "").strip()
+            if (home, away) != (game["home"], game["away"]):
+                continue
+            try:
+                return int(event["Tr1"]), int(event["Tr2"])
+            except (KeyError, TypeError, ValueError):
+                return None
+    return None
+
+
+def fresher_live_score(current: tuple[int, int] | None, candidate: tuple[int, int] | None) -> bool:
+    """Allow goals to increase during play, never roll a live score backwards."""
+    if candidate is None:
+        return False
+    if current is None:
+        return True
+    return candidate != current and candidate[0] >= current[0] and candidate[1] >= current[1]
+
+
+def apply_live_score_fallbacks(game: dict, previous_game: dict | None = None) -> None:
+    """Layer free live-score fallbacks over EIHL while a game is in progress."""
+    current = score_pair(game.get("score"))
+    previous = score_pair((previous_game or {}).get("score"))
+    if fresher_live_score(current, previous):
+        current = previous
+        game["score"] = f"{current[0]}–{current[1]}"
+        game["score_source"] = (previous_game or {}).get("score_source", "Previous verified live update")
+
+    sources: list[tuple[str, tuple[int, int] | None]] = []
+    try:
+        sources.append(("SportPlus live score", parse_sportplus_score(fetch_url(SPORTPLUS_MIRROR_URL), game)))
+    except Exception as error:
+        print(f"SportPlus live fallback unavailable for {game.get('id', 'game')}: {error}")
+    try:
+        day = datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc).strftime("%Y%m%d")
+        payload = json.loads(fetch_url(LIVESCORE_DATE_URL.format(date=day)))
+        sources.append(("LiveScore", parse_livescore_score(payload, game)))
+    except Exception as error:
+        print(f"LiveScore fallback unavailable for {game.get('id', 'game')}: {error}")
+
+    for source, candidate in sources:
+        if fresher_live_score(current, candidate):
+            current = candidate
+            game["score"] = f"{current[0]}–{current[1]}"
+            game["score_source"] = source
 
 
 def timeline_phase(status: str) -> tuple[str, str]:
@@ -1075,6 +1159,16 @@ def main() -> None:
         print(f"Pre-season hub refresh unavailable; retained last good table: {error}")
     apply_preseason_hub_results(games, list(preseason_games_by_key.values()), preseason_source_url)
 
+    previous_games = {
+        game["id"]: game
+        for section in ("all_upcoming", "results")
+        for game in previous_payload.get(section, [])
+        if game.get("id")
+    }
+    previous_live = previous_payload.get("live_game") or {}
+    if previous_live.get("id"):
+        previous_games[previous_live["id"]] = previous_live
+
     live_window = False
     for game in games:
         seconds_from_start = (now - datetime.fromisoformat(game["starts_at"]).astimezone(timezone.utc)).total_seconds()
@@ -1086,6 +1180,8 @@ def main() -> None:
                 game.update(parse_eihl_game_details(game))
             except Exception as error:
                 print(f"Recent game detail unavailable for {game['id']}: {error}")
+            if game.get("live") and not game.get("complete"):
+                apply_live_score_fallbacks(game, previous_games.get(game["id"]))
     live_game = next((game for game in games if game.get("live")), None)
     live_timeline = None
     if live_game:
