@@ -1,0 +1,36 @@
+name: Keep live match refreshes running
+
+on:
+  schedule:
+    - cron: "11,26,41,56 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: live-match-poller
+  cancel-in-progress: true
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Plan the current match window
+        id: plan
+        run: python scripts/live_poll_plan.py >> "$GITHUB_OUTPUT"
+      - name: Keep dispatching verified refreshes through the final whistle
+        if: steps.plan.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WAIT_SECONDS: ${{ steps.plan.outputs.wait_seconds }}
+          END_EPOCH: ${{ steps.plan.outputs.end_epoch }}
+        run: |
+          sleep "$WAIT_SECONDS"
+          while [ "$(date +%s)" -le "$END_EPOCH" ]; do
+            gh workflow run refresh-and-publish.yml --ref main
+            sleep 300
+          done

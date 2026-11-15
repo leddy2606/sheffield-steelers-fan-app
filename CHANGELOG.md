@@ -1,5 +1,11 @@
 # Version history
 
+## 1.20.2 — 15 November 2026
+
+- Published Sheffield Steelers' official 6–1 final result against Coventry Blaze.
+- Confirmed the failure was stale published data: GitHub ran only once during the match, leaving its first-period snapshot online.
+- Began replacing short scheduled snapshots with a match-window polling deployment so one successful match-time start continues checking through the final whistle.
+
 ## 1.20.1 — 14 November 2026
 
 - Published the final Guildford Flames 3–6 Sheffield Steelers result after EIHL marked the game complete.
