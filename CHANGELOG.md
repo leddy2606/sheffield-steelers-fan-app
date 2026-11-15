@@ -5,6 +5,10 @@
 - Published Sheffield Steelers' official 6–1 final result against Coventry Blaze.
 - Confirmed the failure was stale published data: GitHub ran only once during the match, leaving its first-period snapshot online.
 - Began replacing short scheduled snapshots with a match-window polling deployment so one successful match-time start continues checking through the final whistle.
+- Verified eight consecutive poller-triggered deployments at five-minute intervals through the postgame window.
+- Bounded pre-game waiting to 90 minutes so the full polling window remains inside GitHub's hosted-job time limit.
+- Added fixed afternoon/evening wake-ups and five poll-window boundary tests.
+- Hid the estimated period timeline whenever its official observation is more than 15 minutes old, preventing stale “1st period” data from visually advancing into a contradictory third period.
 
 ## 1.20.1 — 14 November 2026
 

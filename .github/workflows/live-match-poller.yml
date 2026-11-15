@@ -3,6 +3,9 @@ name: Keep live match refreshes running
 on:
   schedule:
     - cron: "11,26,41,56 * * * *"
+    # Fixed wake-ups cover common UK afternoon/evening face-off windows even
+    # when GitHub coalesces or skips the high-frequency schedule above.
+    - cron: "37 12,14,16,18 * * *"
   workflow_dispatch:
 
 permissions:
@@ -22,6 +25,8 @@ jobs:
       - name: Plan the current match window
         id: plan
         run: python scripts/live_poll_plan.py >> "$GITHUB_OUTPUT"
+      - name: Test poll-window boundaries
+        run: python -m unittest scripts.test_live_poll_plan -v
       - name: Keep dispatching verified refreshes through the final whistle
         if: steps.plan.outputs.ready == 'true'
         env:
