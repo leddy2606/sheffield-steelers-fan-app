@@ -7,7 +7,12 @@ from pathlib import Path
 
 payload = json.loads((Path(__file__).resolve().parents[1] / "data" / "app-data.json").read_text(encoding="utf-8"))
 now = datetime.now(timezone.utc)
-candidates = [payload.get("live_game"), payload.get("next_game"), *(payload.get("all_upcoming") or [])]
+candidates = [
+    payload.get("live_game"),
+    payload.get("next_game"),
+    *(payload.get("all_upcoming") or []),
+    *(payload.get("results") or [])[:1],
+]
 game = None
 for candidate in candidates:
     if not candidate or not candidate.get("starts_at"):
